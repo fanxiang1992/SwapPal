@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6 col-xs-12">
+      <form #loginForm="ngForm">
+        <div>
+          <label for="username">
+            Username
+          </label>
+          <input type="email" class="form-control" required (ngModel)="username" id="username" name="username" placeholder="Husky Email">
+          <div class="error-msg" *ngIf="!username?.valid && username?.touched">
+            Please enter your email
+          </div>
+        </div>
+        <div>
+          <label for="password">
+            Password
+          </label>
+          <input type="password" class="form-control" required (ngModel)="password" id="password" name="password" placeholder="Enter your password">
+          <div class="error-msg" *ngIf="!password?.valid && password?.touched">
+            Please enter your password
+          </div>
+        </div>
+        <div>
+
+          <button type="button" data-toggle="modal" data-target="#exampleModal" >Forgot Password?</button>
+          <button type="button" class="btn btn-success" (click)="login(loginForm)">Login</button>
+        </div>
+      </form>
+  </div>
+  <div class="col-md-3">
+
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #resetPasswordForm="ngForm">
+      <div class="modal-body">
+        <label for="resetEmail">
+          Re-enter Password
+        </label>
+        <input type="email"
+               class="form-control"
+               required
+               (ngModel)="resetEmail"
+               #repassword="ngModel"
+               name="resetEmail"
+               id="resetEmail"
+               placeholder="Enter your email Id">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="resetModelClose" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="resetPassword(resetPasswordForm)">Send Email</button>
+      </div>
+      </form>
+    </div>
+    </div>
+  </div>
+

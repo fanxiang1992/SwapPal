@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <form #registerForm="ngForm">
+      <div>
+        <label for="username">
+          Username
+        </label>
+        <input type="email"
+               class="form-control"
+               required
+               (ngModel)="username"
+               #username="ngModel"
+               id="username"
+               name="username"
+               placeholder="Husky Email">
+
+        <div class="error-msg" *ngIf="!username?.valid && username?.touched">
+          Please enter your email
+        </div>
+      </div>
+      <div>
+        <label for="password">
+          Password
+        </label>
+        <input type="password"
+               class="form-control"
+               required
+               (ngModel)="password"
+               #password="ngModel"
+               id="password"
+               placeholder="Enter your password"
+               name="password">
+
+        <div class="error-msg" *ngIf="!password?.valid && password?.touched">
+          Please enter your password
+        </div>
+      </div>
+      <div>
+        <label for="repassword">
+          Re-enter Password
+        </label>
+        <input type="password"
+               class="form-control"
+               required
+               (ngModel)="repassword"
+               #repassword="ngModel"
+               name="repassword"
+               id="repassword"
+               placeholder="Re-enter your password">
+
+        <div class="error-msg" *ngIf="!repassword?.valid && repassword?.touched">
+          Passwords do not match
+        </div>
+      </div>
+      <button type="button" class="btn btn-success" (click)="register(registerForm)">Register</button>
+    </form>
+  </div>
+  <div class="col-md-3">
+
+  </div>
+</div>
+
+
