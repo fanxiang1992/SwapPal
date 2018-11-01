@@ -17,6 +17,7 @@ import {UserService} from './services/user.service.client';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { ReviewComponent } from './components/review/review.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { PostfilterPipe } from './postfilter.pipe';
 
 @NgModule({
   // Declare components here
@@ -27,7 +28,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
     RegisterComponent,
     CreatePostComponent,
     ReviewComponent,
-    PostListComponent
+    PostListComponent,
+    PostfilterPipe
   ],
   imports: [
     BrowserModule,

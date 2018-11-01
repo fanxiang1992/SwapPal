@@ -1,7 +1,17 @@
 <div class="container">
+
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText">
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="button">
+        <span class="icon-search"></span>
+      </button>
+    </span>
+  </div>
+  
   <ul class="row post-list list-group">
 
-    <li class="col-xs-12 list-group-item" *ngFor="let post of postList">
+    <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText">
       <div class="col-xs-2">
         <img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image">
       </div>
@@ -18,5 +28,10 @@
         </h5>
       </div>
     </li>
+
+    <div *ngIf="(postList | postfilter:searchText)?.length == 0">
+      <h3>No Results Found.</h3>
+      <h4>Why not <a href="">create you own post</a>.</h4>
+    </div>
   </ul>
 </div>

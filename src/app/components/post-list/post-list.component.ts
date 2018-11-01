@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-    postList = [
+  postList = [
     {
       id: 1,
       title: "Google Pixel",
