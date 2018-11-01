@@ -3,12 +3,14 @@ import {HomeComponent} from './components/home/home.component';
 import {ModuleWithProviders} from '@angular/core';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
+import {PostListComponent} from './components/post-list/post-list.component';
 
 
 const APP_ROUTES: Routes = [
   {path: '', component : HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'post-list', component: PostListComponent},
 ];
 
 // Export the routes as module providers

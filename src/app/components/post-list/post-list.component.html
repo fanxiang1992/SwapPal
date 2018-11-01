@@ -1,0 +1,22 @@
+<div class="container">
+  <ul class="row post-list list-group">
+
+    <li class="col-xs-12 list-group-item" *ngFor="let post of postList">
+      <div class="col-xs-2">
+        <img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image">
+      </div>
+      <div class="col-xs-10">
+        <h3>{{post.title}}</h3>
+        <h5>
+          <span>{{post.userName}} : </span>
+          <span *ngFor="let n of [1, 2, 3, 4, 5]">
+            <span class="icon-star-full" *ngIf="post.rate >= n"></span>
+            <span class="icon-star-half" *ngIf="post.rate < n && post.rate >= (n-0.5)"></span>
+            <span class="icon-star-empty" *ngIf="post.rate < (n-0.5)"></span>
+          </span>
+          <!-- <span class="icon-star-full"></span> -->
+        </h5>
+      </div>
+    </li>
+  </ul>
+</div>
