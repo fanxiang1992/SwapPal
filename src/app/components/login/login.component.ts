@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         if(res == null){
           this.errorMsg = 'Incorrect username/password';
         }else{
+          this.userService.user = res.email;
           this.router.navigate(['post-list']);
         }
       });

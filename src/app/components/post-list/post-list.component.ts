@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-post-list',
@@ -6,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
+
+  blender = {
+    id: 6,
+    title: "Blender for Swap",
+    userName: "Anna",
+    rate: 4,
+    image: "blender.jpg"
+  };
 
   postList = [
     {
@@ -45,9 +54,13 @@ export class PostListComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    let userEmail:string = this.userService.user;
+    if (userEmail != 'anna@husky.neu.edu') {
+      this.postList.unshift(this.blender);
+    }
   }
 
   currentRate: number = 0;
