@@ -22,3 +22,7 @@
 .swappal-nav a {
   color: white;
 }
+
+.checked {
+  color: orange;
+}

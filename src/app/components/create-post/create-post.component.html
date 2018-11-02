@@ -46,7 +46,7 @@
     </div>
     <div>
       <span>Description</span>
-      <textarea rows="3" class="form-control" placeholder="Add a description"></textarea>
+      <textarea rows="3" class="form-control" placeholder="Add a description of the swap item"></textarea>
     </div>
     <div>
       <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>
@@ -137,7 +137,7 @@
       </div>
       <div *ngIf="displayMsg" class="pull-right"><br/><br/>On click of the Post button,
         you will be redirected to the post listing page and<br/>
-        your post will be added as the first post on the listing page.</div>
+        your post is supposed to be added as the first post on the listing page.</div>
     </div>
   </div>
 <div class="col-xs-2"></div>
@@ -151,12 +151,12 @@
     <div class="modal-content">
       <div class="modal-body">
         <div>Are you sure you want to leave?</div>
-        <div>You will lose the changes you made if you leave</div>
+        <div>You will lose the changes you made</div>
       </div>
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-primary" data-dismiss="modal" [routerLink]="['/post-list']">Leave</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stay</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" [routerLink]="['/post-list']">Leave</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Stay</button>
       </div>
     </div>
   </div>

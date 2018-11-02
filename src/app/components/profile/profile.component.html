@@ -22,7 +22,7 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid profile-container">
 
 
   <div class="container">
@@ -43,7 +43,12 @@
                 <div class="userData ml-3">
                   <h1 class="d-block" style="font-size: 1.5rem; font-weight: bold">Welcome Back!</h1>
                   <h3 class="d-block">Anna</h3>
-                  <h1 class="d-block"> <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></h1>
+                  <h1 class="d-block">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span></h1>
                 </div>
                 <div class="ml-auto">
                   <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
@@ -56,18 +61,18 @@
 
 
 
-                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Your Post</a>
+                <ul class="nav nav-tabs mb-4 " id="myTab" role="tablist">
+                  <li class="nav-item ">
+                    <a class="nav-link nav-color" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true" >Your Post</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="inTransaction-tab" data-toggle="tab" href="#inTransaction" role="tab" aria-controls="inTransaction" aria-selected="false">In Transaction</a>
+                    <a class="nav-link nav-color" id="inTransaction-tab" data-toggle="tab" href="#inTransaction" role="tab" aria-controls="inTransaction" aria-selected="false">In Transaction</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="historyservice" aria-selected="false">History</a>
+                    <a class="nav-link nav-color" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="historyservice" aria-selected="false">History</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="wishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlistservice" aria-selected="false">Wish List</a>
+                    <a class="nav-link nav-color" id="wishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlistservice" aria-selected="false">Wish List</a>
                   </li>
                 </ul>
 
@@ -79,10 +84,10 @@
                     <ul class="row list-group">
                       <li class="col-xs-12 list-group-item" *ngFor="let post of yourPostList">
                         <div class="col-sm-3 col-md-8 col-8">
-                          <label style="font-weight:bold;"><a href="javascript:void(0)">{{post.title}}</a></label>
+                          <label style="font-weight:bold;"><a [routerLink]="['/details']" class="nav-color">{{post.title}}</a></label>
                         </div>
                         <div class="col-md-2 col-3 ">
-                          <button type="button" class="btn "><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                          <button type="button" class="btn" [routerLink]="['/createPost']"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                         </div>
                         <hr />
                         <div class="row">
@@ -90,7 +95,7 @@
                             <input type="text" class="form-control" placeholder="Enter Yours Swapper's Email" aria-label="Enter Yours Swapper's Email" >
                           </div>
                           <div class="col-md-2 col-3 ">
-                            <button type="button" class="btn btn-success">Send Invitation</button>
+                            <button type="button" class="btn btn-color">Send Invitation</button>
                           </div>
                         </div>
                       </li>
@@ -101,13 +106,13 @@
                     <ul class="row list-group">
                       <li class="col-xs-12 list-group-item" *ngFor="let post of inTransactionPosts">
                         <div class="col-sm-3 col-md-8 col-8">
-                          <label style="font-weight:bold;"><a href="javascript:void(0)">{{post.title}}</a></label>
+                          <label style="font-weight:bold;"><a class="nav-color" [routerLink]="['/details']">{{post.title}}</a></label>
                         </div>
                         <div class="col-md-2 col-2 ">
-                          <button type="button" class="btn btn-danger btn-lg btn-block">Cancel</button>
+                          <button type="button" class="btn btn-primary btn-block">Cancel</button>
                         </div>
                         <div class="col-md-2 col-2 ">
-                          <button type="button" class="btn btn-success btn-lg btn-block">Complete</button>
+                          <button type="button" class="btn btn-color btn-block" data-toggle="modal" data-target="#reviewModal">Complete</button>
                         </div>
                       </li>
                     </ul>
@@ -117,10 +122,10 @@
                     <ul class="row list-group">
                       <li class="col-xs-12 list-group-item" *ngFor="let post of historyPosts">
                         <div class="col-sm-6 col-md-6 col-6">
-                          <label style="font-weight:bold;"><a href="javascript:void(0)">{{post.title}}</a></label>
+                          <label style="font-weight:bold;color: #337ab7">{{post.title}}</label>
                         </div>
                         <div class="col-sm-6 col-md-6 col-6">
-                          <label style="font-weight:bold;">{{post.date}}</label>
+                          <label style="font-weight:bold;color: #337ab7">{{post.date}}</label>
                         </div>
                       </li>
                     </ul>
@@ -132,17 +137,15 @@
                       <li class="col-xs-12 list-group-item" *ngFor="let item of wishlist">
                         <div class="col-sm-6 col-md-6 col-6">
                           <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id={{item.id}} value="option1">
-                            <label class="form-check-label" for={{item.id}}>{{item.title}}</label>
+                            <!--<input class="form-check-input" type="checkbox" id={{item.id}} value="option1">-->
+                            <label class="form-check-label" >{{item.title}}</label>
                           </div>
                         </div>
                       </li>
                       <li class="col-xs-12 list-group-item" >
                         <div class="col-sm-6 col-md-6 col-6">
-                          <div class="form-check form-check-inline">
-                            <a href="javascript:void(0)"><button class="form-check-input glyphicon glyphicon-plus"> </button></a>
-
-                            <label class="form-check-label">    Add more</label>
+                          <div class="form-check form-check-inline nav-color">
+                            <a class="nav-color"><u>Add more</u></a>
                           </div>
                         </div>
                       </li>
@@ -165,4 +168,36 @@
     </div>
   </div>
 
+</div>
+
+
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <h4 class="modal-title" id="myModalLabel">Review</h4>
+      </div>
+      <div class="modal-body">
+        <h3>How was your experience with Edward?</h3>
+        <h2 class="star-group text-center">
+          <span *ngFor="let n of [1, 2, 3, 4, 5]" (click)="open($event, n)">
+            <!-- <span class="icon-star-empty"></span> -->
+            <span class="icon-star-full" *ngIf="currentRate >= n"></span>
+            <span class="icon-star-half" *ngIf="currentRate < n && currentRate >= (n-0.5)"></span>
+            <span class="icon-star-empty empty-rate" *ngIf="currentRate < (n-0.5)"></span>
+          </span>
+        </h2>
+        <div class="form-group">
+          <label>Leave Comment</label>
+          <textarea class="form-control" rows="3">
+          </textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!--         <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>

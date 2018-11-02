@@ -50,4 +50,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  openReviewModal(){
+    document.getElementById('#reviewModal');
+  }
+
+
 }

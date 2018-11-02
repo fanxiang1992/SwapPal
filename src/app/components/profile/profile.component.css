@@ -58,3 +58,17 @@ body{
 .swappal-nav a {
   color: white;
 }
+.nav-color{
+  color: #337ab7;
+}
+
+.btn-color{
+  background-color: #337ab7;
+  color: white;
+}
+.profile-container{
+  margin-top:30px;
+}
+.checked {
+  color: orange;
+}

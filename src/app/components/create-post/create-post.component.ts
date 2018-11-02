@@ -51,6 +51,6 @@ export class CreatePostComponent implements OnInit {
 
   postInfo(){
     this.displayMsg = true;
-     setTimeout(() => this.router.navigate(['post-list']), 5000);
+     setTimeout(() => this.router.navigate(['post-list']), 4000);
   }
 }
