@@ -16,6 +16,7 @@ import { RegisterComponent } from './components/register/register.component';
 import {UserService} from './services/user.service.client';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { ReviewComponent } from './components/review/review.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   // Declare components here
@@ -25,7 +26,8 @@ import { ReviewComponent } from './components/review/review.component';
     LoginComponent,
     RegisterComponent,
     CreatePostComponent,
-    ReviewComponent
+    ReviewComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

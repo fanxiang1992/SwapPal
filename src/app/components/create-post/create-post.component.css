@@ -1,0 +1,153 @@
+.upload-wrapper{
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-container{
+  padding: 70px;
+  padding-top: 25px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+}
+
+.upload-wrapper input[type = file]{
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.plusBtn{
+  border: 2px solid #337ab7;
+  color: #337ab7;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.wishlist-checkbox{
+  -ms-transform: scale(2);
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2);
+  -o-transform: scale(2);
+  padding: 10px;
+}
+
+.wishlist-label{
+  font-size: 15px;
+}
+
+.wishlist-bottom{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.item-style{
+  padding: 10px;
+}
+
+.item-checkbox{
+  margin-right: 5px;
+}
+
+.first-wishlist-text{
+  margin-right: 40px;
+}
+
+.card-body{
+  padding: 8px;
+}
+
+.remove-icon{
+  background-color: #d9534f;
+  height: 39px;
+  color: white;
+
+}
+
+.navbar-search {
+  margin-bottom: 0;
+  width: 25rem;
+  margin-left: 17rem;
+}
+
+.profile-icon {
+  font-size: 1.5rem;
+}
+
+.swappal-nav {
+  background-color: #337ab7;
+  color: white;
+}
+
+.swappal-nav a {
+  color: white;
+}
+
+.create-post{
+  margin-top: 70px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #337ab7;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #337ab7;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

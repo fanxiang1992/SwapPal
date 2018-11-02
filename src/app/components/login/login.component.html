@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid login-container">
   <div class="col-md-3">
   </div>
   <div class="col-md-6 col-xs-12">
@@ -7,7 +7,7 @@
           <label for="username">
             Username
           </label>
-          <input type="email" class="form-control" required (ngModel)="username" id="username" name="username" placeholder="Husky Email">
+          <input type="email" class="form-control" required (ngModel)="username" id="username" name="username" placeholder="Enter your husky email">
           <div class="error-msg" *ngIf="!username?.valid && username?.touched">
             Please enter your email
           </div>
@@ -22,9 +22,13 @@
           </div>
         </div>
         <div>
-
-          <button type="button" data-toggle="modal" data-target="#exampleModal" >Forgot Password?</button>
-          <button type="button" class="btn btn-success" (click)="login(loginForm)">Login</button>
+          <div class="col-xs-3"></div>
+          <div class="col-xs-6" style="text-align: center">
+          <a><button type="button" data-toggle="modal" data-target="#exampleModal"><u>Forgot Password?</u></button></a>
+          <br/>
+            <br/>
+          <button type="button" class="btn btn-primary form-control" (click)="login(loginForm)">Login</button>
+          </div>
         </div>
       </form>
   </div>
