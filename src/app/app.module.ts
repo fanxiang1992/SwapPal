@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {UserService} from './services/user.service.client';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ReviewComponent } from './components/review/review.component';
 import { DetailsComponent } from './components/details/details.component';
 
@@ -27,7 +28,8 @@ import { DetailsComponent } from './components/details/details.component';
     RegisterComponent,
     CreatePostComponent,
     ReviewComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
