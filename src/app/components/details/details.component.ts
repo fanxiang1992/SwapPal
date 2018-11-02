@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+  show: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }
