@@ -1,0 +1,35 @@
+/* CSS used here will be applied after bootstrap.css */
+.carousel {
+  margin-top: 20px;
+}
+.item .thumb {
+  width: 25%;
+  cursor: pointer;
+  float: left;
+}
+.item .thumb img {
+  width: 100%;
+  margin: 2px;
+}
+.item img {
+  width: 100%;
+}
+.checked {
+  color: orange;
+}
+.topspace {
+  padding-top: 3%;
+}
+.card {
+  padding-left:auto;
+  padding-right:auto;
+  padding-bottom: 3%;
+  min-height:250px;
+  margin-top:15px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -webkit-transition: .25s box-shadow;
+  transition: .25s box-shadow;
+}
+
+
+

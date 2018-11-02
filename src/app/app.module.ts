@@ -15,9 +15,11 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {UserService} from './services/user.service.client';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ReviewComponent } from './components/review/review.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostfilterPipe } from './postfilter.pipe';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   // Declare components here
@@ -29,7 +31,9 @@ import { PostfilterPipe } from './postfilter.pipe';
     CreatePostComponent,
     ReviewComponent,
     PostListComponent,
-    PostfilterPipe
+    PostfilterPipe,
+    DetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
