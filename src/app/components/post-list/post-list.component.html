@@ -1,0 +1,88 @@
+<nav class="navbar navbar-default swappal-nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Swap Pal</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
+        <input type="text" class="form-control navbar-search" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
+        <div class="form-group"><span class="icon-search"></span></div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Create Post</a></li>
+        <li><a href="#"><span class="icon-user profile-icon"></span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  
+  <ul class="row post-list list-group">
+
+    <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText">
+      <div class="col-xs-2">
+        <img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image">
+      </div>
+      <div class="col-xs-10">
+        <h3>{{post.title}}</h3>
+        <h5>
+          <span>{{post.userName}} : </span>
+          <span *ngFor="let n of [1, 2, 3, 4, 5]">
+            <span class="icon-star-full" *ngIf="post.rate >= n"></span>
+            <span class="icon-star-half" *ngIf="post.rate < n && post.rate >= (n-0.5)"></span>
+            <span class="icon-star-empty" *ngIf="post.rate < (n-0.5)"></span>
+          </span>
+          <!-- <span class="icon-star-full"></span> -->
+        </h5>
+      </div>
+    </li>
+
+    <div *ngIf="(postList | postfilter:searchText)?.length == 0">
+      <h3>No Results Found.</h3>
+      <h4>Why not <a href="">create you own post</a>.</h4>
+    </div>
+  </ul>
+</div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#reviewModal">
+  Review
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+        <h4 class="modal-title" id="myModalLabel">Review</h4>
+      </div>
+      <div class="modal-body">
+        <h3>How was your experience with Edward?</h3>
+        <h2 class="star-group text-center">
+          <span *ngFor="let n of [1, 2, 3, 4, 5]" (click)="open($event, n)">
+            <!-- <span class="icon-star-empty"></span> -->
+            <span class="icon-star-full" *ngIf="currentRate >= n"></span>
+            <span class="icon-star-half" *ngIf="currentRate < n && currentRate >= (n-0.5)"></span>
+            <span class="icon-star-empty empty-rate" *ngIf="currentRate < (n-0.5)"></span>
+          </span>
+        </h2>
+        <div class="form-group">
+          <label>Leave Comment</label>
+          <textarea class="form-control" rows="3">
+          </textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+<!--         <button type="button" class="btn btn-default" data-dismiss="modal"></button> -->
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
