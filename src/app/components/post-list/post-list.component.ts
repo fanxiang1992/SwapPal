@@ -50,4 +50,11 @@ export class PostListComponent implements OnInit {
   ngOnInit() {
   }
 
+  currentRate: number = 0;
+
+  open(event, index) {
+    console.log('rating: ' + index);
+    this.currentRate = index;
+  }
+
 }

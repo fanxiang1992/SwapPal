@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-user:before {
+  content: "\e971";
+}
 .icon-search:before {
   content: "\e986";
 }
