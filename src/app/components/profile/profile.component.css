@@ -33,3 +33,28 @@ body{
 .image-container:hover .middle {
   opacity: 1;
 }
+
+.post-image {
+  object-fit: cover;
+  width:100px;
+  height:100px;
+}
+
+.navbar-search {
+  margin-bottom: 0;
+  width: 25rem;
+  margin-left: 17rem;
+}
+
+.profile-icon {
+  font-size: 1.5rem;
+}
+
+.swappal-nav {
+  background-color: #337ab7;
+  color: white;
+}
+
+.swappal-nav a {
+  color: white;
+}
