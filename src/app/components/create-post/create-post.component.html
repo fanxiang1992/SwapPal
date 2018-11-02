@@ -1,3 +1,23 @@
+<nav class="navbar navbar-default swappal-nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Swap Pal</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
+        <input type="text" class="form-control navbar-search" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
+        <div class="form-group"><span class="icon-search"></span></div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a  data-toggle="modal" data-target="#exampleModal">Create Post</a></li>
+        <li><a href="#"><span class="icon-user profile-icon"></span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 <div class="container create-post">
 
@@ -124,11 +144,6 @@
 
 </div>
 
-
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
-<!--cREATE pOST-->
-<!--</button>-->
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
