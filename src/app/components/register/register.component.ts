@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
         if(res == null){
           this.errorMsg = 'Registration failed or your account has been already registered';
         }else{
-          this.router.navigate(['']);
+          this.router.navigate(['post-list']);
         }
       });
     }

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "swap-pal"
+    "default": "swap-pal",
+    "staging": "swap-pal"
   }
 }
