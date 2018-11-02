@@ -13,7 +13,7 @@ const APP_ROUTES: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'details', component: DetailsComponent},
   {path: 'createPost', component: CreatePostComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 // Export the routes as module providers
