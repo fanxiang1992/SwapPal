@@ -1,77 +1,61 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
-
-<nav class=" swappal-nav">
+<nav class="navbar navbar-default swappal-nav">
+  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header pull-left">
+    <div class="navbar-header">
       <a class="navbar-brand" [routerLink]="['/post-list']">Swap Pal</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-      <form class="navbar-form pull-left">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
         <input type="text" class="form-control navbar-search" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
         <div class="form-group"><span class="icon-search"></span></div>
       </form>
-      <ul class="nav pull-right ">
+      <ul class="nav navbar-nav navbar-right">
         <li><a [routerLink]="['/createPost']">Create Post</a></li>
-        <li><a [routerLink]="['/profile']"><span class="glyphicon glyphicon-user profile-icon"></span></a></li>
+        <li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container-fluid profile-container">
-
-
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
 
-          <div class="card-body">
-            <div class="card-title mb-4">
-              <div class="d-flex justify-content-start">
-                <div class="image-container">
-                  <img src="http://smk.org.uk/wp-content/uploads/avatar.jpg" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                  <div class="middle">
-                    <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
-                    <input type="file" style="display: none;" id="profilePicture" name="file" />
+        <div class="col-12">
+                  <div class="row">
+                    <div class="image-container col-sm-10 col-md-3 col-3">
+                      <img src="http://smk.org.uk/wp-content/uploads/avatar.jpg" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                    </div>
+
+                    <div class="userData col-sm-10 col-md-8 col-8">
+                      <h1 class="d-block" style="font-size: 1.5rem; font-weight: bold">Welcome Back!</h1>
+                      <h3 class="d-block">Anna</h3>
+                      <h1 class="d-block">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span></h1>
+                    </div>
+
                   </div>
-                </div>
-                <div class="userData ml-3">
-                  <h1 class="d-block" style="font-size: 1.5rem; font-weight: bold">Welcome Back!</h1>
-                  <h3 class="d-block">Anna</h3>
-                  <h1 class="d-block">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span></h1>
-                </div>
-                <div class="ml-auto">
-                  <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
-                </div>
-              </div>
-            </div>
 
-            <div class="row">
+
+            
               <div class="col-12">
 
-
-
-                <ul class="nav nav-tabs mb-4 " id="myTab" role="tablist">
-                  <li class="nav-item ">
+                <ul class="mb-4 nav nav-tabs  " id="myTab" role="tablist">
+                  <li class="nav-item active">
                     <a class="nav-link nav-color" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true" >Your Post</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item ">
                     <a class="nav-link nav-color" id="inTransaction-tab" data-toggle="tab" href="#inTransaction" role="tab" aria-controls="inTransaction" aria-selected="false">In Transaction</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item ">
                     <a class="nav-link nav-color" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="historyservice" aria-selected="false">History</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item ">
                     <a class="nav-link nav-color" id="wishlist-tab" data-toggle="tab" href="#wishlist" role="tab" aria-controls="wishlistservice" aria-selected="false">Wish List</a>
                   </li>
                 </ul>
@@ -102,18 +86,19 @@
                     </ul>
                   </div>
 
-                  <div class="tab-pane" id="inTransaction" role="tabpanel" aria-labelledby="inTransaction-tab">
+                  <div class="tab-pane " id="inTransaction" role="tabpanel" aria-labelledby="inTransaction-tab">
                     <ul class="row list-group">
                       <li class="col-xs-12 list-group-item" *ngFor="let post of inTransactionPosts">
-                        <div class="col-sm-3 col-md-8 col-8">
+                        <div class="col-sm-12 col-md-6 ">
                           <label style="font-weight:bold;"><a class="nav-color" [routerLink]="['/details']">{{post.title}}</a></label>
                         </div>
-                        <div class="col-md-2 col-2 ">
-                          <button type="button" class="btn btn-primary btn-block">Cancel</button>
+                        <div class="col-sm-6 col-md-3">
+                          <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
                         </div>
-                        <div class="col-md-2 col-2 ">
-                          <button type="button" class="btn btn-color btn-block" data-toggle="modal" data-target="#reviewModal">Complete</button>
+                        <div class="col-sm-6 col-md-3">
+                          <button type="button" class="btn btn-color btn-lg btn-block" data-toggle="modal" data-target="#reviewModal">Complete</button>
                         </div>
+
                       </li>
                     </ul>
                   </div>
@@ -158,14 +143,9 @@
 
                 </div>
               </div>
-            </div>
 
-
-          </div>
 
         </div>
-      </div>
-    </div>
   </div>
 
 </div>

@@ -20,23 +20,33 @@ export class ProfileComponent implements OnInit {
   inTransactionPosts = [
     {
       id: 1,
+      title: "Blender for Swap"
+    },
+    {
+      id: 2,
       title: "Old desk"
-    }];
+    }
+];
 
   historyPosts = [
     {
-      id: 1,
+      id: 4,
       title: "HCI book",
       date: "10-16-2018"
+    },
+    {
+      id: 5,
+      title: "Head phone",
+      date: "9-24-2018"
     }];
 
   wishlist = [
     {
-      id: 1,
+      id: 5,
       title: "Chair",
     },
     {
-      id: 2,
+      id: 6,
       title: "Table",
     },
     {
