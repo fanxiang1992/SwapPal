@@ -11,3 +11,12 @@
 .profile-icon {
   font-size: 1.5rem;
 }
+
+.swappal-nav {
+  background-color: #337ab7;
+  color: white;
+}
+
+.swappal-nav a {
+  color: white;
+}
