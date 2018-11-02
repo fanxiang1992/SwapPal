@@ -20,16 +20,22 @@
 .topspace {
   padding-top: 3%;
 }
-.card {
-  padding-left:auto;
-  padding-right:auto;
-  padding-bottom: 3%;
-  min-height:250px;
-  margin-top:15px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  -webkit-transition: .25s box-shadow;
-  transition: .25s box-shadow;
+.navbar-search {
+  margin-bottom: 0;
+  width: 25rem;
+  margin-left: 17rem;
 }
 
+.profile-icon {
+  font-size: 1.5rem;
+}
 
+.swappal-nav {
+  background-color: #337ab7;
+  color: white;
+}
+
+.swappal-nav a {
+  color: white;
+}
 
