@@ -79,10 +79,10 @@
                         <hr />
                         <div class="row">
                           <div class="col-sm-3 col-md-8 col-8">
-                            <input type="text" class="form-control" placeholder="Enter Yours Swapper's Email" aria-label="Enter Yours Swapper's Email" >
+                            <input type="email" class="form-control" placeholder="Enter Yours Swapper's Email" aria-label="Enter Yours Swapper's Email" [(ngModel)]="post.swapperEmail" name="invitationEmail">
                           </div>
                           <div class="col-md-2 col-3 ">
-                            <button type="button" class="btn btn-color">Send Invitation</button>
+                            <button type="button" class="btn btn-color" (click)="sendInvitation(post)" [disabled]="!post.swapperEmail">Send Invitation</button>
                           </div>
                         </div>
                       </li>

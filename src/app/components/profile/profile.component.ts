@@ -11,17 +11,19 @@ export class ProfileComponent implements OnInit {
   yourPostList = [
     {
       id: 1,
-      title: "Blender for Swap"
+      title: "Blender for Swap",
+      swapperEmail: ""
     },
     {
       id: 2,
-      title: "Iphone 5"
+      title: "Iphone 5",
+      swapperEmail: ""
     }];
 
   inTransactionPosts = [
     {
       id: 1,
-      title: "Blender for Swap"
+      title: "Blender for Swap2"
     },
     {
       id: 2,
@@ -63,6 +65,11 @@ export class ProfileComponent implements OnInit {
 
   openReviewModal(){
     document.getElementById('#reviewModal');
+  }
+
+  sendInvitation(post) {
+    this.yourPostList = this.yourPostList.filter(aPost => aPost.title != post.title);
+    this.inTransactionPosts.unshift(post);
   }
 
 
