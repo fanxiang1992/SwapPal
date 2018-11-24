@@ -1,3 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'assets/css/icomoon.css';
+
+.navbar-search {
+  margin-bottom: 0;
+  margin-left: 17rem;
+  position: relative;
+}
+
+.navbar-search input {
+  width: 25rem !important;
+  padding-left: 2rem;
+}
+
+.search-container {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: gray;
+  font-size: 1.2rem;
+}
