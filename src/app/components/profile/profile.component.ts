@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -55,6 +56,7 @@ export class ProfileComponent implements OnInit {
     },
   ];
 
+
   deletePost(i) {
     this.yourPostList.splice(i, 1);
   }
@@ -70,10 +72,14 @@ export class ProfileComponent implements OnInit {
     let myPost = this.inTransactionPosts[i];
     this.inTransactionPosts.splice(i, 1);
     let myDate = new Date();
-    this.historyPosts.push({id: myPost.id, title: myPost.title, date: (myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()});
+    this.historyPosts.push({
+      id: myPost.id,
+      title: myPost.title,
+      date: (myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()
+    });
+  }
 
-
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
