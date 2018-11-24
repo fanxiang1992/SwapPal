@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   inTransactionPosts = [
     {
       id: 1,
-      title: "Blender for Swap"
+      title: "EarPhone"
     },
     {
       id: 2,
@@ -54,6 +54,24 @@ export class ProfileComponent implements OnInit {
       title: "Lamp",
     },
   ];
+
+  deletePost(i) {
+    this.yourPostList.splice(i, 1);
+  }
+
+  cancelTransaction(i) {
+    let myPost = this.inTransactionPosts[i];
+    this.inTransactionPosts.splice(i, 1);
+    this.yourPostList.push(myPost);
+
+  }
+
+  completeTransaction(i) {
+    let myPost = this.inTransactionPosts[i];
+    this.inTransactionPosts.splice(i, 1);
+    let myDate = new Date();
+    this.historyPosts.push({id: myPost.id, title: myPost.title, date: (myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()});
+
 
   constructor() { }
 

@@ -66,12 +66,15 @@
 
                   <div class="tab-pane active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                     <ul class="row list-group">
-                      <li class="col-xs-12 list-group-item" *ngFor="let post of yourPostList">
+                      <li class="col-xs-12 list-group-item" *ngFor="let post of yourPostList;let i=index;">
                         <div class="col-sm-3 col-md-8 col-8">
                           <label style="font-weight:bold;"><a [routerLink]="['/details']" class="nav-color">{{post.title}}</a></label>
                         </div>
-                        <div class="col-md-2 col-3 ">
+                        <div class="col-md-2 col-2 ">
                           <button type="button" class="btn" [routerLink]="['/createPost']"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                        </div>
+                        <div class="col-md-2 col-2 ">
+                          <button type="button" class="btn" (click)="deletePost(i)"><span class=" glyphicon glyphicon-trash"></span> Delete</button>
                         </div>
                         <hr />
                         <div class="row">
@@ -88,15 +91,15 @@
 
                   <div class="tab-pane " id="inTransaction" role="tabpanel" aria-labelledby="inTransaction-tab">
                     <ul class="row list-group">
-                      <li class="col-xs-12 list-group-item" *ngFor="let post of inTransactionPosts">
+                      <li class="col-xs-12 list-group-item" *ngFor="let post of inTransactionPosts;let i=index;">
                         <div class="col-sm-12 col-md-6 ">
                           <label style="font-weight:bold;"><a class="nav-color" [routerLink]="['/details']">{{post.title}}</a></label>
                         </div>
                         <div class="col-sm-6 col-md-3">
-                          <button type="button" class="btn btn-primary btn-lg btn-block">Cancel</button>
+                          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="cancelTransaction(i)">Cancel</button>
                         </div>
                         <div class="col-sm-6 col-md-3">
-                          <button type="button" class="btn btn-color btn-lg btn-block" data-toggle="modal" data-target="#reviewModal">Complete</button>
+                          <button type="button" class="btn btn-color btn-lg btn-block" data-toggle="modal" data-target="#reviewModal" (click)="completeTransaction(i)">Complete</button>
                         </div>
 
                       </li>
