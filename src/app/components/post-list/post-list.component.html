@@ -28,7 +28,7 @@
 
     <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText">
       <div class="col-xs-2">
-        <img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image">
+        <a [routerLink]="['/details']"><img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image"></a>
       </div>
       <div class="col-xs-10">
         <a [routerLink]="['/details']"><h3>{{post.title}}</h3></a>
