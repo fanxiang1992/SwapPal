@@ -24,11 +24,13 @@ export class ProfileComponent implements OnInit {
   inTransactionPosts = [
     {
       id: 1,
-      title: "EarPhone"
+      title: "EarPhone",
+      swapper: "Jerry"
     },
     {
       id: 2,
       title: "Old desk"
+      swapper: "Tom"
     }
 ];
 
@@ -61,7 +63,6 @@ export class ProfileComponent implements OnInit {
     },
   ];
 
-<<<<<<< HEAD
 
   deletePost(i) {
     this.yourPostList.splice(i, 1);
@@ -81,6 +82,7 @@ export class ProfileComponent implements OnInit {
     this.historyPosts.push({
       id: myPost.id,
       title: myPost.title,
+      swapper: myPost.swapper,
       date: (myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()
     });
   }
