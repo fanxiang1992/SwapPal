@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  postIndex: number;
 
   yourPostList = [
     {
@@ -118,5 +119,8 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  updateIndex(i) {
+    this.postIndex = i;
+  }
 
 }

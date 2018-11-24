@@ -79,7 +79,7 @@
                           <button type="button" class="btn" [routerLink]="['/createPost']"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                         </div>
                         <div class="col-md-2 col-2 ">
-                          <button type="button" class="btn" data-toggle="modal" data-target="#DeleteAlert"><span class=" glyphicon glyphicon-trash"></span> Delete</button>
+                          <button type="button" class="btn" data-toggle="modal" (click)="updateIndex(i)" data-target="#DeleteAlert"><span class=" glyphicon glyphicon-trash"></span> Delete</button>
                         </div>
                         <hr />
                         <div class="row">
@@ -104,7 +104,7 @@
                           <button type="button" class="btn btn-primary btn-lg btn-block" (click)="cancelTransaction(i)">Cancel</button>
                         </div>
                         <div class="col-sm-6 col-md-3">
-                          <button type="button" class="btn btn-color btn-lg btn-block" data-toggle="modal" data-target="#reviewModal">Complete</button>
+                          <button type="button" class="btn btn-color btn-lg btn-block" data-toggle="modal" data-target="#reviewModal" (click)="updateIndex(i)">Complete</button>
                         </div>
 
                       </li>
@@ -192,7 +192,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="completeTransaction(i)">Submit</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="completeTransaction(postIndex)">Submit</button>
       </div>
     </div>
   </div>
@@ -210,7 +210,7 @@
       <div class="modal-footer">
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deletePost(i)">Delete</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deletePost(postIndex)">Delete</button>
       </div>
     </div>
   </div>
