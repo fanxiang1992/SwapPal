@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import {Routing} from './app.routing';
@@ -12,7 +12,7 @@ import {environment} from '../environments/environment';
 import {HttpClientModule} from '@angular/common/http';
 import {HomeService} from './services/home.client.service';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import {RegisterComponent} from './components/register/register.component';
 import {UserService} from './services/user.service.client';
 import { CreatePostComponent } from './components/create-post/create-post.component';
 import { ProfileComponent } from './components/profile/profile.component';

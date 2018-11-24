@@ -38,7 +38,7 @@
           <label for="password">
             Password
           </label>
-          <input type="password" class="form-control" required (ngModel)="password" id="password" name="password" placeholder="Enter your password">
+          <input type="password" class="form-control" required (ngModel)="password" id="password" name="password" placeholder="Enter your password" (keyup.enter)="login(loginForm)">
           <div class="error-msg" *ngIf="!password?.valid && password?.touched">
             Please enter your password
           </div>

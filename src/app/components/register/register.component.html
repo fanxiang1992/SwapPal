@@ -23,6 +23,7 @@
   <div class="col-md-3">
   </div>
   <div class="col-md-6 col-xs-12">
+    <span>{{globalErrorMsg}}</span>
     <form #registerForm="ngForm">
       <div>
         <label for="username">
@@ -35,11 +36,14 @@
                #username="ngModel"
                id="username"
                name="username"
-               placeholder="Husky Email">
+               placeholder="Husky Email" pattern="[a-z0-9._%+-]+@husky.neu.edu">
 
         <div class="error-msg" *ngIf="!username?.valid && username?.touched">
-          Please enter your email
+          Please enter your husky email
         </div>
+        <!--<div class="error-msg" *ngIf=" !== "husky.neu.edu">-->
+          <!--Please register with your husky email-->
+        <!--</div>-->
       </div>
       <div>
         <label for="password">
@@ -52,10 +56,10 @@
                #password="ngModel"
                id="password"
                placeholder="Enter your password"
-               name="password">
+               name="password" minlength="6">
 
         <div class="error-msg" *ngIf="!password?.valid && password?.touched">
-          Please enter your password
+          Please enter a valid password of atleast 6 characters!
         </div>
       </div>
       <div>
@@ -69,9 +73,13 @@
                #repassword="ngModel"
                name="repassword"
                id="repassword"
-               placeholder="Re-enter your password">
+               placeholder="Re-enter your password" (keyup.enter)="register(registerForm)">
 
         <div class="error-msg" *ngIf="!repassword?.valid && repassword?.touched">
+          Please re-enter your password!
+        </div>
+
+        <div class="error-msg" *ngIf="repassword?.touched && password.value !== repassword.value">
           Passwords do not match
         </div>
       </div>
