@@ -72,3 +72,24 @@ body{
 .checked {
   color: orange;
 }
+.remove-icon{
+  background-color: #d9534f;
+  height: 39px;
+  color: white;
+
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+.icon-star-half:before {
+  content: "\e9d8";
+}
+.icon-star-full:before {
+  content: "\e9d9";
+}

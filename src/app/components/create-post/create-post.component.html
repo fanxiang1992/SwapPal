@@ -13,15 +13,24 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a  data-toggle="modal" data-target="#exampleModal">Create Post</a></li>
-        <li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>
+        <!--<li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>-->
+        <li  class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="icon-user profile-icon"></span><span class="glyphicon glyphicon-chevron-down"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a href="#"  style="color:black;"><span class="glyphicon glyphicon-user"></span>&nbsp; Profile</a></li>
+            <li class="dropdown-item"><a href="#"  style="color:black;"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container create-post">
-
+  <form #createPostForm="ngForm">
+    <!--<span class="error-msg globalModalErr" *ngIf="globalErrMsg">{{globalErrMsg}}</span>-->
   <div class="col-xs-12">
+
 
   <div class="col-xs-2"></div>
 
@@ -36,17 +45,39 @@
     <div *ngFor="let filename of fileNameList.reverse();let l=index;">
       <i>{{filename}}</i><span *ngIf="l==0">&nbsp; added</span>
     </div>
-
+    <div class="error-msg" *ngIf="imageErrMsg" style="margin-top: 10px;">
+      {{imageErrMsg}}
+    </div>
   </div>
 
   <div class="col-xs-5">
     <div>
       <span>What do you have?</span>
-      <input type="text" class="form-control" placeholder="What do you have for swapping?">
+      <input type="text"
+             required
+             (ngModel)="title"
+             #title="ngModel"
+             id="title"
+             name="title"
+             class="form-control"
+             placeholder="What do you have for swapping?">
+      <div class="error-msg" *ngIf="!title?.valid && title?.touched">
+        Please enter an item
+      </div>
     </div>
     <div>
       <span>Description</span>
-      <textarea rows="3" class="form-control" placeholder="Add a description of the swap item"></textarea>
+      <textarea rows="3"
+                required
+                (ngModel)="description"
+                #description="ngModel"
+                id="description"
+                name="description"
+                class="form-control"
+                placeholder="Add a description of the swap item"></textarea>
+      <div class="error-msg" *ngIf="!description?.valid && description?.touched">
+        Please enter a description
+      </div>
     </div>
     <div>
       <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>
@@ -68,34 +99,34 @@
         <input class="form-check-input wishlist-checkbox"
                type="checkbox"
                id="wishlist"
-               [(ngModel)]="isChecked">
+               [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}">
         <label class="form-check-label wishlist-label" for="wishlist">
           &nbsp;Import wishlist from your profile
         </label>
       </div>
       <div>
-      <div *ngIf="!isChecked">
+      <!--<div *ngIf="!isChecked">-->
 
-        <div class="input-group mb-3">
-          <input type="text"
-                 class="form-control first-wishlist-text"
-                 placeholder="Enter item name">
-        </div>
-        <div *ngFor="let newItemAdd of newList;let j=index;">
-        <div class="input-group mb-3">
-          <input type="text"
-                 class="form-control"
-                 placeholder="Enter item name">
+        <!--<div class="input-group mb-3">-->
+          <!--<input type="text"-->
+                 <!--class="form-control first-wishlist-text"-->
+                 <!--placeholder="Enter item name">-->
+        <!--</div>-->
+        <!--<div *ngFor="let newItemAdd of newList;let j=index;">-->
+        <!--<div class="input-group mb-3">-->
+          <!--<input type="text"-->
+                 <!--class="form-control"-->
+                 <!--placeholder="Enter item name">-->
 
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary remove-icon" type="button" (click)="removeItem(j)">
-              <span class="glyphicon glyphicon-remove"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-        <a><button type="button" (click)="addItem()" class="btn "><u>Add More</u></button></a>
-      </div>
+          <!--<div class="input-group-append">-->
+            <!--<button class="btn btn-outline-secondary remove-icon" type="button" (click)="removeItem(j)">-->
+              <!--<span class="glyphicon glyphicon-remove"></span>-->
+            <!--</button>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+        <!--<a><button type="button" (click)="addItem()" class="btn "><u>Add More</u></button></a>-->
+      <!--</div>-->
 
         <div *ngIf="isChecked">
         <div class="card">
@@ -109,6 +140,7 @@
               </span>
             </div>
           </div>
+        </div>
         </div>
             <div *ngFor="let newItemAdd of addMoreList;let k=index;">
               <div class="input-group mb-3">
@@ -125,7 +157,7 @@
             </div>
 
           <a><button type="button" class="btn" (click)="addWishlistItem()"><u>Add More</u></button></a>
-        </div>
+        <!--</div>-->
 
     </div>
   </div>
@@ -133,15 +165,12 @@
   <div class="col-xs-10">
     <div>
       <div  class="pull-right">
-      <button type="button" class="btn btn-primary" (click)="postInfo()">Post</button>
+      <button type="button" class="btn btn-primary" (click)="postInfo(createPostForm)">Post</button>
       </div>
-      <div *ngIf="displayMsg" class="pull-right"><br/><br/>On click of the Post button,
-        you will be redirected to the post listing page and<br/>
-        your post is supposed to be added as the first post on the listing page.</div>
     </div>
   </div>
 <div class="col-xs-2"></div>
-
+  </form>
 </div>
 
 

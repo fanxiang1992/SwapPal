@@ -21,10 +21,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(registerForm){
-    // var arr = registerForm.username.split("@");
-    // if(arr[1]!== null && arr[1]!== "husky.neu.edu"){
-    //   this.emailErrMsg = "Please user your husky email to register";
-    // }
     if(!registerForm.valid){
       this.globalErrorMsg = 'Please enter the required fields';
     }else{

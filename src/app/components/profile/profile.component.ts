@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  newList: string[] =[];
   yourPostList = [
     {
       id: 1,
@@ -64,5 +65,11 @@ export class ProfileComponent implements OnInit {
     document.getElementById('#reviewModal');
   }
 
+  addMore(){
+    this.newList.push('newItem');
+  }
 
+  removeItem(k){
+    this.newList.splice(k,1);
+  }
 }

@@ -19,3 +19,14 @@
 .swappal-nav a {
   color: white;
 }
+
+.error-msg{
+  color: red;
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
+
+.globalModalErr{
+  margin-left: 10px;
+  margin-bottom: 0px;
+}

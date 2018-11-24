@@ -42,7 +42,7 @@
                   </div>
 
 
-            
+
               <div class="col-12">
 
                 <ul class="mb-4 nav nav-tabs  " id="myTab" role="tablist">
@@ -127,16 +127,26 @@
                           </div>
                         </div>
                       </li>
-                      <li class="col-xs-12 list-group-item" >
+                    </ul>
+                      <div *ngFor="let it of newList;let k=index;">
+                      <div class="input-group mb-3">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter item name">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary remove-icon" type="button" (click)="removeItem(k)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="col-xs-12" >
                         <div class="col-sm-6 col-md-6 col-6">
                           <div class="form-check form-check-inline nav-color">
-                            <a class="nav-color"><u>Add more</u></a>
+                            <a class="nav-color" (click)="addMore()"><u>Add more</u></a>
                           </div>
                         </div>
-                      </li>
-
-
-                    </ul>
+                      </div>
                   </div>
 
 

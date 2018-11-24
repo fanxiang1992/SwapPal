@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   errorMsg: string;
   emailEnteredFlag: string;
   resetErrorMsg: string;
+  globalErrorMsg: string;
 
   ngOnInit() {
   }
@@ -23,12 +24,12 @@ export class LoginComponent implements OnInit {
   login(loginForm){
     console.log('register form',loginForm);
     if(!loginForm.valid){
-      this.errorMsg = 'Please enter the required fields';
+      this.globalErrorMsg = 'Please enter the required fields';
     }else{
       console.log('username',loginForm);
       this.userService.login(loginForm).then((res:any) =>{
         if(res == null){
-          this.errorMsg = 'Incorrect username/password';
+          this.globalErrorMsg = 'Incorrect username/password';
         }else{
           this.userService.user = res.email;
           this.router.navigate(['post-list']);

@@ -151,3 +151,14 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.error-msg{
+  color: red;
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
+
+.globalModalErr{
+  margin-left: 140px;
+  padding-bottom: 100px;
+}

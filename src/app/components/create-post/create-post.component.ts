@@ -15,6 +15,8 @@ export class CreatePostComponent implements OnInit {
   addMoreList: string[] =[];
   fileNameList: string[] = [];
   displayMsg: boolean;
+  globalErrMsg: string;
+  imageErrMsg: string;
 
   constructor(private router: Router,
               private userService: UserService) { }
@@ -22,7 +24,7 @@ export class CreatePostComponent implements OnInit {
   ngOnInit() {
     this.isChecked = false;
     this.wishlistItems = ["iPhone", "desktop","blender", "bag", "towerfan", "Air-bed", "Alexa", "Watch" ,"MacBook", "shoes"];
-    this.newList.push('newItem');
+    // this.newList.push('newItem');
     this.addMoreList.push('newItem');
   }
 
@@ -33,13 +35,13 @@ export class CreatePostComponent implements OnInit {
     console.log(this.fileNameList);
   }
 
-  addItem(){
-    this.newList.push('newItem');
-  }
-
-  removeItem(j){
-    this.newList.splice(j,1);
-  }
+  // addItem(){
+  //   this.newList.push('newItem');
+  // }
+  //
+  // removeItem(j){
+  //   this.newList.splice(j,1);
+  // }
 
   addWishlistItem(){
     this.addMoreList.push('newItem');
@@ -49,8 +51,12 @@ export class CreatePostComponent implements OnInit {
     this.addMoreList.splice(k,1);
   }
 
-  postInfo(){
-    this.displayMsg = true;
-     setTimeout(() => this.router.navigate(['post-list']), 4000);
+  postInfo(createPostForm){
+    if(this.fileNameList.length === 0){
+      this.imageErrMsg = "Please add pictures of the item"
+    }
+    if(!createPostForm.valid){
+      this.globalErrMsg = "Please enter the required fields";
+    }
   }
 }

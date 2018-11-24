@@ -24,21 +24,37 @@
   <div class="col-md-3">
   </div>
   <div class="col-md-6 col-xs-12">
+    <span class="error-msg" *ngIf="globalErrorMsg">{{globalErrorMsg}}</span>
       <form #loginForm="ngForm">
         <div>
           <label for="username">
             Username
           </label>
-          <input type="email" class="form-control" required (ngModel)="username" id="username" name="username" placeholder="Enter your husky email">
+          <input type="email"
+                 class="form-control"
+                 required
+                 (ngModel)="username"
+                 #username="ngModel"
+                 id="username"
+                 name="username"
+                 placeholder="Enter your husky email">
           <div class="error-msg" *ngIf="!username?.valid && username?.touched">
-            Please enter your email
+            Please enter your husky email
           </div>
         </div>
         <div>
           <label for="password">
             Password
           </label>
-          <input type="password" class="form-control" required (ngModel)="password" id="password" name="password" placeholder="Enter your password" (keyup.enter)="login(loginForm)">
+          <input type="password"
+                 class="form-control"
+                 required
+                 (ngModel)="password"
+                 #password ="ngModel"
+                 id="password"
+                 name="password"
+                 placeholder="Enter your password"
+                 (keyup.enter)="login(loginForm)">
           <div class="error-msg" *ngIf="!password?.valid && password?.touched">
             Please enter your password
           </div>
@@ -66,24 +82,25 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Password Reset</h5>
       </div>
+      <span class="error-msg globalModalErr" *ngIf="resetErrorMsg">{{resetErrorMsg}}</span>
       <form #resetPasswordForm="ngForm">
       <div class="modal-body">
         <label for="resetEmail">
-          Re-enter Password
+          Email
         </label>
         <input type="email"
                class="form-control"
                required
                (ngModel)="resetEmail"
-               #repassword="ngModel"
+               #resetEmail="ngModel"
                name="resetEmail"
                id="resetEmail"
                placeholder="Enter your email Id">
+        <div class="error-msg" *ngIf="!resetEmail?.valid && resetEmail?.touched">
+          Please enter your email
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="resetModelClose" data-dismiss="modal">Close</button>
