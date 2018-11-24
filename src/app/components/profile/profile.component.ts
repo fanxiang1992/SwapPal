@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -58,6 +59,7 @@ export class ProfileComponent implements OnInit {
     },
   ];
 
+<<<<<<< HEAD
 
   deletePost(i) {
     this.yourPostList.splice(i, 1);
@@ -81,13 +83,19 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService, private router: Router) { }
+
 
   ngOnInit() {
   }
 
   openReviewModal(){
     document.getElementById('#reviewModal');
+  }
+
+  logout(){
+    this.router.navigate(['login']);
   }
 
   sendInvitation(post) {
