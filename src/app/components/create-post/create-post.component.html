@@ -13,7 +13,10 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a  data-toggle="modal" data-target="#exampleModal">Create Post</a></li>
-        <li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>
+        <li><a [routerLink]="['/profile']">
+          <span class="icon-user profile-icon"></span>
+          Hello, {{userService.user.name}}
+        </a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
