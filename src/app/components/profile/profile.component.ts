@@ -64,6 +64,7 @@ export class ProfileComponent implements OnInit {
   ];
 
 
+
   deletePost(i) {
     this.yourPostList.splice(i, 1);
   }
@@ -95,6 +96,7 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
 
+
   ngOnInit() {
   }
 
@@ -113,6 +115,7 @@ export class ProfileComponent implements OnInit {
       title: post.title,
       swapper: post.swapperEmail.split('@')[0]
     });
+
   }
 
 
