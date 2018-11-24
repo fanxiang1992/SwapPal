@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
     },
     {
       id: 2,
-      title: "Old desk"
+      title: "Old desk",
       swapper: "Tom"
     }
 ];
@@ -71,7 +71,11 @@ export class ProfileComponent implements OnInit {
   cancelTransaction(i) {
     let myPost = this.inTransactionPosts[i];
     this.inTransactionPosts.splice(i, 1);
-    this.yourPostList.push(myPost);
+    this.yourPostList.push({
+      id: myPost.id,
+      title: myPost.title,
+      swapperEmail: ""
+    });
 
   }
 
@@ -104,7 +108,11 @@ export class ProfileComponent implements OnInit {
 
   sendInvitation(post) {
     this.yourPostList = this.yourPostList.filter(aPost => aPost.title != post.title);
-    this.inTransactionPosts.unshift(post);
+    this.inTransactionPosts.unshift({
+      id: post.id,
+      title: post.title,
+      swapper: post.swapperEmail.split('@')[0]
+    });
   }
 
 
