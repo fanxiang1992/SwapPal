@@ -36,12 +36,14 @@ export class ProfileComponent implements OnInit {
     {
       id: 4,
       title: "HCI book",
-      date: "10-16-2018"
+      date: "10-16-2018",
+      swapper: "Jack"
     },
     {
       id: 5,
       title: "Head phone",
-      date: "9-24-2018"
+      date: "9-24-2018",
+      swapper: "Bobby"
     }];
 
   wishlist = [
