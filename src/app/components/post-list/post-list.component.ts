@@ -57,10 +57,9 @@ export class PostListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    let userEmail:string = this.userService.user;
-    if (userEmail != 'anna@husky.neu.edu') {
+    if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
       this.postList.unshift(this.blender);
-    }
+    }    
   }
 
   currentRate: number = 0;

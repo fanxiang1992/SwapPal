@@ -8,12 +8,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <form class="navbar-form navbar-left">
-        <input type="text" class="form-control navbar-search" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
-        <div class="form-group"><span class="icon-search"></span></div>
+        <div class="navbar-search">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
+          <div class="form-group search-container"><span class="icon-search"></span></div>
+        </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a [routerLink]="['/createPost']">Create Post</a></li>
-        <li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>
+        <li><a  data-toggle="modal" data-target="#exampleModal">Create Post</a></li>
+        <!--<li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>-->
+        <li  class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hello, {{userService.user.name}} &nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item"><a [routerLink]="['/profile']"  style="color:black;"><span class="glyphicon glyphicon-user"></span>&nbsp; Profile</a></li>
+            <li class="dropdown-item"><a [routerLink]="['/login']"  style="color:black;"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -25,7 +34,7 @@
 
     <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText">
       <div class="col-xs-2">
-        <img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image">
+        <a [routerLink]="['/details']"><img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image"></a>
       </div>
       <div class="col-xs-10">
         <a [routerLink]="['/details']"><h3>{{post.title}}</h3></a>
@@ -43,7 +52,7 @@
 
     <div *ngIf="(postList | postfilter:searchText)?.length == 0">
       <h3>No Results Found.</h3>
-      <h4>Why not <a [routerLink]="['/createPost']">create you own post</a>.</h4>
+      <h4>Why not <a [routerLink]="['/createPost']">create your own post</a>.</h4>
     </div>
   </ul>
 </div>

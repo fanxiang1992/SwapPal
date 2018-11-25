@@ -18,6 +18,18 @@ export class LoginComponent implements OnInit {
   resetErrorMsg: string;
   globalErrorMsg: string;
 
+  anna = {
+    id: 1,
+    email: "anna@husky.neu.edu",
+    name: "Anna"
+  };
+
+  edward =  {
+    id: 2,
+    email: "ed@husky.neu.edu",
+    name: "Edward"
+  };
+
   ngOnInit() {
   }
 
@@ -31,7 +43,7 @@ export class LoginComponent implements OnInit {
         if(res == null){
           this.globalErrorMsg = 'Incorrect username/password';
         }else{
-          this.userService.user = res.email;
+          this.setupUser();
           this.router.navigate(['post-list']);
         }
       });
@@ -49,6 +61,21 @@ export class LoginComponent implements OnInit {
       });
     }else{
       this.resetErrorMsg = 'Please enter a valid email';
+    }
+  }
+
+  setupUser() {
+    let currentUser : any = firebase.auth().currentUser;
+    if (currentUser) {
+      console.log(currentUser);
+      let userEmail:string = currentUser.email;
+      if (userEmail == 'anna@husky.neu.edu') {
+        this.userService.user = this.anna;
+      } else {
+        this.userService.user = this.edward;
+      }
+    } else {
+      this.userService.user = { email: "", name: "" };
     }
   }
 }

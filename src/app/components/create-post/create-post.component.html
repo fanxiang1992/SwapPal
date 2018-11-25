@@ -8,17 +8,19 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <form class="navbar-form navbar-left">
-        <input type="text" class="form-control navbar-search" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
-        <div class="form-group"><span class="icon-search"></span></div>
+        <div class="navbar-search">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
+          <div class="form-group search-container"><span class="icon-search"></span></div>
+        </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a  data-toggle="modal" data-target="#exampleModal">Create Post</a></li>
         <!--<li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>-->
         <li  class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="icon-user profile-icon"></span><span class="glyphicon glyphicon-chevron-down"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hello, {{userService.user.name}} &nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
           <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="#"  style="color:black;"><span class="glyphicon glyphicon-user"></span>&nbsp; Profile</a></li>
-            <li class="dropdown-item"><a href="#"  style="color:black;"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
+            <li class="dropdown-item"><a [routerLink]="['/profile']"  style="color:black;"><span class="glyphicon glyphicon-user"></span>&nbsp; Profile</a></li>
+            <li class="dropdown-item"><a [routerLink]="['/login']"  style="color:black;"><span class="glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
           </ul>
         </li>
       </ul>

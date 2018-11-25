@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -6,26 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  postIndex: number;
 
   newList: string[] =[];
   yourPostList = [
     {
       id: 1,
-      title: "Blender for Swap"
+      title: "Blender for Swap",
+      swapperEmail: ""
     },
     {
       id: 2,
-      title: "Iphone 5"
+      title: "Iphone 5",
+      swapperEmail: ""
     }];
 
   inTransactionPosts = [
     {
       id: 1,
-      title: "Blender for Swap"
+      title: "EarPhone",
+      swapper: "Jerry"
     },
     {
       id: 2,
-      title: "Old desk"
+      title: "Old desk",
+      swapper: "Tom"
     }
 ];
 
@@ -33,12 +40,14 @@ export class ProfileComponent implements OnInit {
     {
       id: 4,
       title: "HCI book",
-      date: "10-16-2018"
+      date: "10-16-2018",
+      swapper: "Jack"
     },
     {
       id: 5,
       title: "Head phone",
-      date: "9-24-2018"
+      date: "9-24-2018",
+      swapper: "Bobby"
     }];
 
   wishlist = [
@@ -56,7 +65,39 @@ export class ProfileComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+
+
+  deletePost(i) {
+    this.yourPostList.splice(i, 1);
+  }
+
+  cancelTransaction(i) {
+    let myPost = this.inTransactionPosts[i];
+    this.inTransactionPosts.splice(i, 1);
+    this.yourPostList.push({
+      id: myPost.id,
+      title: myPost.title,
+      swapperEmail: ""
+    });
+
+  }
+
+  completeTransaction(i) {
+    let myPost = this.inTransactionPosts[i];
+    this.inTransactionPosts.splice(i, 1);
+    let myDate = new Date();
+    this.historyPosts.push({
+      id: myPost.id,
+      title: myPost.title,
+      swapper: myPost.swapper,
+      date: (myDate.getMonth() + 1) + '-' + myDate.getDate() + '-' + myDate.getFullYear()
+    });
+  }
+
+
+  constructor(private userService: UserService, private router: Router) { }
+
+
 
   ngOnInit() {
   }
@@ -65,8 +106,27 @@ export class ProfileComponent implements OnInit {
     document.getElementById('#reviewModal');
   }
 
-  addMore(){
+
+  addMore() {
     this.newList.push('newItem');
+  }
+
+  logout(){
+    this.router.navigate(['login']);
+  }
+
+  sendInvitation(post) {
+    this.yourPostList = this.yourPostList.filter(aPost => aPost.title != post.title);
+    this.inTransactionPosts.unshift({
+      id: post.id,
+      title: post.title,
+      swapper: post.swapperEmail.split('@')[0]
+    });
+
+  }
+
+  updateIndex(i) {
+    this.postIndex = i;
   }
 
   removeItem(k){

@@ -14,7 +14,7 @@ import 'rxjs/Rx';
 @Injectable()
 
 export class UserService {
-  user: any;
+  user: any = {name: ""};
   userId: any;
 
   constructor(private _http: Http,

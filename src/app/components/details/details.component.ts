@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service.client';
 
 @Component({
   selector: 'app-details',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
   show: boolean = true;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
