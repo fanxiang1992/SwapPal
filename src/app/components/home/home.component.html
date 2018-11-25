@@ -1,3 +1,129 @@
-<p>
-  home works!
-</p>
+
+<nav class="navbar navbar-default swappal-nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" [routerLink]="['/login']">Swap Pal</a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Heading Row -->
+  <div class="row my-4">
+    <div class="col-lg-8">
+      <img class="img-fluid rounded" src="https://cdn-images-1.medium.com/max/1000/1*kr-RhSv4SNYjRODjjF3UVw.jpeg" alt="">
+    </div>
+    <!-- /.col-lg-8 -->
+    <div class="col-lg-4" style="font-family: Georgia; font-size: medium">
+      <h1 style="font-family: Georgia; font-weight: bolder; color: #337ab7">Swap Pal</h1>
+      <h4 style="font-family: Georgia; font-weight: bolder; font-style: italic">Swap with trust</h4>
+      <p>Swap Pal is an online platform that enables members of the Northeastern Community to swap their unwanted/unused stuff for something they need.</p>
+      <p>Ready to find your Swap Pal?</p>
+      <a class="btn btn-primary btn-lg" [routerLink]="['/login']">Start Swapping!</a>
+    </div>
+    <!-- /.col-md-4 -->
+  </div>
+  <!-- /.row -->
+
+
+  <div class="page-header">
+    <h3 style="font-family: Georgia; font-weight: bolder; color: #337ab7">How It Works</h3>
+  </div>
+
+  <section style="background:#337ab7;font-family: Georgia; font-size: medium">
+    <div class="container">
+      <div class="row">
+        <div class="board">
+          <div class="board-inner">
+            <ul class="nav nav-tabs" id="myTab">
+              <div class="liner"></div>
+
+              <li class="active">
+                <a href="#search" data-toggle="tab" title="Search/Create">
+                     <span class="round-tabs one">
+                          <i class="glyphicon glyphicon-search"></i>
+                     </span>
+                </a>
+              </li>
+
+              <li><a href="#connect" data-toggle="tab" title="Connect">
+                         <span class="round-tabs two">
+                              <i class="glyphicon glyphicon-comment"></i>
+                         </span>
+              </a></li>
+
+              <li><a href="#send" data-toggle="tab" title="Send Invitation Code">
+                         <span class="round-tabs three">
+                              <i class="glyphicon glyphicon-send"></i>
+                         </span> </a>
+              </li>
+
+              <li><a href="#swap" data-toggle="tab" title="Swap">
+                         <span class="round-tabs four">
+                              <i class="glyphicon glyphicon-refresh"></i>
+                         </span> </a>
+              </li>
+
+              <li><a href="#rate" data-toggle="tab" title="Rate your Pal">
+                         <span class="round-tabs five">
+                              <i class="glyphicon glyphicon-star-empty"></i>
+                         </span> </a>
+              </li>
+
+            </ul></div>
+
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="search">
+              <h3 class="head text-center">Search/Create Posts</h3>
+              <p class="narrow text-center">
+                Have/Want something to swap? Awesome! Search for what you want or what you are willing to trade. Else, create a post mentioning what you have and what you want.
+              </p>
+            </div>
+            <div class="tab-pane fade" id="connect">
+              <h3 class="head text-center">Connect</h3>
+              <p class="narrow text-center">
+                Found someone who has what you want or someone has found you? Great! Contact them. Discuss the logistics, exchange pics, etc.
+              </p>
+            </div>
+            <div class="tab-pane fade" id="send">
+              <div class="text-center">
+                <i class="img-intro icon-checkmark-circle"></i>
+              </div>
+              <h3 class="head text-center">Send/Ask for Invitation Code</h3>
+              <p class="narrow text-justify">
+                An Invitation Code helps ensure a smooth transaction with your Swap Pal by connecting you both in our system. You are now held accountable for your swap as the system will know who was involved and ask you to rate each other. This way, we are increasing trust and minimizing the misuse of our platform.
+              </p>
+              <p class="narrow text-justify">If you are a post author, go to your Profile Page to send the Invitation Code to your Swap Pal.</p>
+              <p class="narrow text-justify">If you are not the post author, ask them to send you the Invitation Code.</p>
+            </div>
+            <div class="tab-pane fade" id="swap">
+              <div class="text-center">
+                <i class="img-intro icon-checkmark-circle"></i>
+              </div>
+              <h3 class="head text-center">Swap!</h3>
+              <p class="narrow text-center">
+                Meet your Swap Pal at the agreed time and location. Swap your items and do a spot check for the item's condition.
+              </p>
+            </div>
+            <div class="tab-pane fade" id="rate">
+              <div class="text-center">
+                <i class="img-intro icon-checkmark-circle"></i>
+              </div>
+              <h3 class="head text-center">Rate your Swap Pal</h3>
+              <p class="narrow text-center">
+                Was your Swap Pal trustworthy? Did they deliver what they promised? Let us know by rating them. Your comments will be anonymous.
+              </p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- /.container -->
+

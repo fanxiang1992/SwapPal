@@ -40,17 +40,24 @@ body{
   height:100px;
 }
 
-.profile-icon {
-  font-size: 1.5rem;
-}
-
 .swappal-nav {
   background-color: #337ab7;
   color: white;
+
+  padding-top: 8px;
 }
 
 .swappal-nav a {
   color: white;
+  font-family: Georgia;
+  font-weight: bold;
+
+}
+
+.navbar-form {
+  margin-bottom:0px;
+  font-size: 1px;
+  font-family: Georgia;
 }
 .nav-color{
   color: #337ab7;
