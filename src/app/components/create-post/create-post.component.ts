@@ -31,6 +31,7 @@ export class CreatePostComponent implements OnInit {
   captureUpload(event: any){
     const file: File = event.target.files[0];
     this.fileNameList.push(file.name);
+    this.imageErrMsg = "";
     console.log(file.name);
     console.log(this.fileNameList);
   }
@@ -57,6 +58,9 @@ export class CreatePostComponent implements OnInit {
     }
     if(!createPostForm.valid){
       this.globalErrMsg = "Please enter the required fields";
+    }
+    if(this.fileNameList.length!== 0 && createPostForm.valid){
+      this.router.navigate(['profile']);
     }
   }
 }
