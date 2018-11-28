@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service.client';
+import {JQueryStyleEventEmitter} from 'rxjs/observable/FromEventObservable';
+import {LoginComponent} from '../login/login.component';
 
 @Component({
   selector: 'app-post-list',
@@ -74,11 +76,37 @@ export class PostListComponent implements OnInit {
     this.initialTag = 'What you want?';
     this.firstTag = 'What you want?';
     this.secondTag = 'Others wish-list';
+
+    if (this.userService.user.pendingRate ) {
+      console.log(document.getElementById('reviewModal'));
+
+      var dialog = document.getElementById('reviewModal');
+      dialog.className += 'in';
+      dialog.style.display = "block";
+    }
+  }
+
+  currentRate: number = 0;
+  review(event, index) {
+    console.log('rating: ' + index);
+    this.currentRate = index;
+  }
+
+  completeTransaction() {
+
+    LoginComponent.anna.avgRate =
+      (LoginComponent.anna.avgRate * LoginComponent.anna.numberOfRate + this.currentRate) / (LoginComponent.anna.numberOfRate + 1);
+    LoginComponent.anna.numberOfRate++;
+    console.log(document.getElementById('reviewModal'));
+
+    var dialog = document.getElementById('reviewModal');
+    dialog.className += 'in';
+    dialog.style.display = "none";
+
   }
 
   changeInitial(tagname){
     this.initialTag = tagname;
-
   }
 
 }

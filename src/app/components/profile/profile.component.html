@@ -54,13 +54,23 @@
 
                     <div class="userData col-sm-10 col-md-8 col-8">
                       <h1 class="d-block" style="font-size: 1.5rem; font-weight: bold">Welcome Back!</h1>
-                      <h3 class="d-block">Anna</h3>
-                      <h1 class="d-block">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></h1>
+                      <h3 class="d-block">{{userService.user.name}}</h3>
+                      <!--<h1 class="d-block">-->
+                        <!--<span class="fa fa-star checked"></span>-->
+                        <!--<span class="fa fa-star checked"></span>-->
+                        <!--<span class="fa fa-star checked"></span>-->
+                        <!--<span class="fa fa-star checked"></span>-->
+                        <!--<span class="fa fa-star"></span></h1>-->
+                      <h1 class="star-group d-block">
+          <span *ngFor="let n of [1, 2, 3, 4, 5]"  class="star-item">
+            <!-- <span class="icon-star-empty"></span> -->
+            <!-- <span class="icon-star-full" *ngIf="currentRate >= n"></span>
+            <span class="icon-star-half" *ngIf="currentRate < n && currentRate >= (n-0.5)"></span>
+            <span class="icon-star-empty empty-rate" *ngIf="currentRate < (n-0.5)"></span> -->
+            <span class="fa fa-star checked" *ngIf="profileRate >= n"></span>
+            <span class="fa fa-star" *ngIf="profileRate <= (n-1)"></span>
+          </span>
+                      </h1>
                     </div>
 
                   </div>
@@ -119,10 +129,13 @@
                         <div class="col-sm-12 col-md-6 ">
                           <label style="font-weight:bold;"><a class="nav-color" [routerLink]="['/details']">{{post.title}}</a></label>
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-sm-4 col-md-2">
+                          <label style="font-weight:bold;color: #337ab7">Swapper: {{post.swapper}}</label>
+                        </div>
+                        <div class="col-sm-4 col-md-2">
                           <button type="button" class="btn btn-primary btn-lg btn-block" (click)="cancelTransaction(i)">Cancel</button>
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-sm-4 col-md-2">
                           <button type="button" class="btn btn-color btn-lg btn-block" data-toggle="modal" data-target="#reviewModal" (click)="updateIndex(i)">Complete</button>
                         </div>
 

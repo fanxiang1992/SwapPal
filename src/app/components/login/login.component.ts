@@ -18,15 +18,21 @@ export class LoginComponent implements OnInit {
   resetErrorMsg: string;
   globalErrorMsg: string;
 
-  anna = {
+  public static anna = {
     id: 1,
     email: "anna@husky.neu.edu",
+    numberOfRate: 1,
+    avgRate: 3,
+    pendingRate:false,
     name: "Anna"
   };
 
-  edward =  {
+  public static edward =  {
     id: 2,
     email: "ed@husky.neu.edu",
+    numberOfRate: 1,
+    avgRate: 4,
+    pendingRate:false,
     name: "Edward"
   };
 
@@ -70,9 +76,9 @@ export class LoginComponent implements OnInit {
       console.log(currentUser);
       let userEmail:string = currentUser.email;
       if (userEmail == 'anna@husky.neu.edu') {
-        this.userService.user = this.anna;
+        this.userService.user = LoginComponent.anna;
       } else {
-        this.userService.user = this.edward;
+        this.userService.user = LoginComponent.edward;
       }
     } else {
       this.userService.user = { email: "", name: "" };

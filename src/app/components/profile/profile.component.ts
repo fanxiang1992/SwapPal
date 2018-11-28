@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service.client';
 import {Router} from '@angular/router';
+import {LoginComponent} from '../login/login.component';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +13,7 @@ export class ProfileComponent implements OnInit {
   initialTag: string;
   firstTag: string;
   secondTag: string;
+  profileRate: number = 5;
 
   newList: string[] =[];
   yourPostList = [
@@ -89,6 +91,12 @@ export class ProfileComponent implements OnInit {
     let myPost = this.inTransactionPosts[i];
     this.inTransactionPosts.splice(i, 1);
     let myDate = new Date();
+    if (myPost.swapper === 'ed') {
+      LoginComponent.edward.pendingRate = true;
+    }
+
+    LoginComponent.edward.avgRate = (LoginComponent.edward.avgRate * LoginComponent.edward.numberOfRate + this.currentRate) / (LoginComponent.edward.numberOfRate + 1);
+    LoginComponent.edward.numberOfRate++;
     this.historyPosts.push({
       id: myPost.id,
       title: myPost.title,
@@ -98,7 +106,10 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {
+    this.profileRate = this.userService.user.avgRate;
+    console.log(this.userService.user);
+  }
 
 
 
