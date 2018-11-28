@@ -8,12 +8,22 @@ import {UserService} from '../../services/user.service.client';
 })
 export class DetailsComponent implements OnInit {
   show: boolean = true;
+  initialTag: string;
+  firstTag: string;
+  secondTag: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.initialTag = 'What you want?';
+    this.firstTag = 'What you want?';
+    this.secondTag = 'Others wish-list';
   }
 
+  changeInitial(tagname){
+    this.initialTag = tagname;
+
+  }
 
 
 }

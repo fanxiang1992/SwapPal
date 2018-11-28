@@ -7,12 +7,32 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-search">
       <form class="navbar-form navbar-left">
-        <div class="navbar-search">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">
-          <div class="form-group search-container"><span class="icon-search"></span></div>
+        <div class="input-group">
+          <div class="input-group-btn search-panel">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="height: 39px">
+              <span id="search_concept">{{initialTag}}</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a   style="color:black;" (click)="changeInitial(firstTag)">{{firstTag}}</a></li>
+              <li><a   style="color:black;" (click)="changeInitial(secondTag)">{{secondTag}}</a></li>
+            </ul>
+          </div>
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText" >
+          <div class="form-group"><span class="icon-search"></span></div>
         </div>
+
+
+
+
+
+        <!--<div class="navbar-search">-->
+          <!--<input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="searchText" name="searchText">-->
+          <!--<div class="form-group search-container"><span class="icon-search"></span></div>-->
+        <!--</div>-->
       </form>
+      </div>
       <ul class="nav navbar-nav navbar-right">
         <li><a [routerLink]="['/createPost']">Create Post</a></li>
         <!--<li><a [routerLink]="['/profile']"><span class="icon-user profile-icon"></span></a></li>-->
@@ -32,7 +52,7 @@
 
   <ul class="row post-list list-group">
 
-    <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText">
+    <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText:initialTag">
       <div class="col-xs-2">
         <a [routerLink]="['/details']"><img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image"></a>
       </div>

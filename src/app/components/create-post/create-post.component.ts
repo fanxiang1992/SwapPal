@@ -17,6 +17,9 @@ export class CreatePostComponent implements OnInit {
   displayMsg: boolean;
   globalErrMsg: string;
   imageErrMsg: string;
+  initialTag: string;
+  firstTag: string;
+  secondTag: string;
 
   constructor(private router: Router,
               private userService: UserService) { }
@@ -26,6 +29,9 @@ export class CreatePostComponent implements OnInit {
     this.wishlistItems = ["iPhone", "desktop","blender", "bag", "towerfan", "Air-bed", "Alexa", "Watch" ,"MacBook", "shoes"];
     // this.newList.push('newItem');
     this.addMoreList.push('newItem');
+    this.initialTag = 'What you want?';
+    this.firstTag = 'What you want?';
+    this.secondTag = 'Others wish-list';
   }
 
   captureUpload(event: any){
@@ -63,4 +69,10 @@ export class CreatePostComponent implements OnInit {
       this.router.navigate(['profile']);
     }
   }
+
+  changeInitial(tagname){
+    this.initialTag = tagname;
+
+  }
+
 }

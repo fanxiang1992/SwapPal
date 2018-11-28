@@ -9,6 +9,9 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   postIndex: number;
+  initialTag: string;
+  firstTag: string;
+  secondTag: string;
 
   newList: string[] =[];
   yourPostList = [
@@ -100,6 +103,9 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    this.initialTag = 'What you want?';
+    this.firstTag = 'What you want?';
+    this.secondTag = 'Others wish-list';
   }
 
   openReviewModal(){
@@ -132,4 +138,10 @@ export class ProfileComponent implements OnInit {
   removeItem(k){
     this.newList.splice(k,1);
   }
+
+  changeInitial(tagname){
+    this.initialTag = tagname;
+
+  }
+
 }
