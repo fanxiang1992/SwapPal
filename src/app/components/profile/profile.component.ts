@@ -144,4 +144,11 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  currentRate: number = 0;
+
+  review(event, index) {
+    console.log('rating: ' + index);
+    this.currentRate = index;
+  }
+
 }

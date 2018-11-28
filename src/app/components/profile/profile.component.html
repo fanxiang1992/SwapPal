@@ -201,11 +201,13 @@
       <div class="modal-body">
         <h3>How was your experience with Edward?</h3>
         <h2 class="star-group text-center">
-          <span *ngFor="let n of [1, 2, 3, 4, 5]" (click)="open($event, n)">
+          <span *ngFor="let n of [1, 2, 3, 4, 5]" (click)="review($event, n)" class="star-item">
             <!-- <span class="icon-star-empty"></span> -->
-            <span class="icon-star-full" *ngIf="currentRate >= n"></span>
+            <!-- <span class="icon-star-full" *ngIf="currentRate >= n"></span>
             <span class="icon-star-half" *ngIf="currentRate < n && currentRate >= (n-0.5)"></span>
-            <span class="icon-star-empty empty-rate" *ngIf="currentRate < (n-0.5)"></span>
+            <span class="icon-star-empty empty-rate" *ngIf="currentRate < (n-0.5)"></span> -->
+            <span class="fa fa-star checked" *ngIf="currentRate >= n"></span>
+            <span class="fa fa-star" *ngIf="currentRate <= (n-1)"></span>
           </span>
         </h2>
         <div class="form-group">

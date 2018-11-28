@@ -76,13 +76,6 @@ export class PostListComponent implements OnInit {
     this.secondTag = 'Others wish-list';
   }
 
-  currentRate: number = 0;
-
-  open(event, index) {
-    console.log('rating: ' + index);
-    this.currentRate = index;
-  }
-
   changeInitial(tagname){
     this.initialTag = tagname;
 
