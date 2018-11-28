@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   firstTag: string;
   secondTag: string;
   profileRate: number = 5;
+  numberOFRates: number = 1;
 
   newList: string[] =[];
   yourPostList = [
@@ -108,6 +109,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {
     this.profileRate = this.userService.user.avgRate;
+    this.numberOFRates = this.userService.user.numberOfRate;
     console.log(this.userService.user);
   }
 
