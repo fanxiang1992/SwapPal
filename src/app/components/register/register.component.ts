@@ -24,14 +24,25 @@ export class RegisterComponent implements OnInit {
     if(!registerForm.valid){
       this.globalErrorMsg = 'Please enter the required fields';
     }else{
-      console.log('username',registerForm);
       this.userService.register(registerForm).then((res:any) =>{
         if(res == null){
           this.globalErrorMsg = 'Registration failed or your account has been already registered';
         }else{
+          this.setupUser(registerForm);
           this.router.navigate(['post-list']);
         }
       });
     }
+  }
+
+  setupUser(registerForm) {
+    let user : any = {
+      email: registerForm.value.username,
+      numberOfRate: 0,
+      avgRate: 0,
+      pendingRate: false,
+      name: registerForm.value.firstName
+    }
+    this.userService.user = user;
   }
 }
