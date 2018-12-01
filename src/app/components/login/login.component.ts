@@ -24,7 +24,54 @@ export class LoginComponent implements OnInit {
     numberOfRate: 1,
     avgRate: 4,
     pendingRate:false,
-    name: "Anna"
+    name: "Anna",
+    postList: [
+      {
+        id: 1,
+        title: "Blender for Swap",
+        swapperEmail: ""
+      },
+      {
+        id: 2,
+        title: "Iphone 5",
+        swapperEmail: ""
+      }
+    ],
+    inTransactionPosts: [
+      {
+        id: 1,
+        title: "EarPhone",
+        swapper: "Jerry"
+      }
+    ],
+    historyPosts: [
+      {
+        id: 4,
+        title: "HCI book",
+        date: "10-16-2018",
+        swapper: "Jack"
+      },
+      {
+        id: 5,
+        title: "Head phone",
+        date: "9-24-2018",
+        swapper: "Bobby"
+      }
+    ],
+    wishlist: [
+      {
+        id: 5,
+        title: "Chair",
+      },
+      {
+        id: 6,
+        title: "Table",
+      },
+      {
+        id: 3,
+        title: "Lamp",
+      }
+    ]
   };
 
   public static edward =  {
@@ -33,7 +80,23 @@ export class LoginComponent implements OnInit {
     numberOfRate: 1,
     avgRate: 3,
     pendingRate:false,
-    name: "Edward"
+    name: "Edward",
+    postList: [
+      {
+        id: 1,
+        title: "Awesome Matress",
+        swapperEmail: ""
+      }
+    ],
+    inTransactionPosts: [
+      {
+        id: 1,
+        title: "EarPhone",
+        swapper: "Jerry"
+      }
+    ],
+    historyPosts: [],
+    wishlist: []
   };
 
   ngOnInit() {

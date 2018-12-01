@@ -17,61 +17,10 @@ export class ProfileComponent implements OnInit {
   numberOFRates: number = 1;
 
   newList: string[] =[];
-  yourPostList = [
-    {
-      id: 1,
-      title: "Blender for Swap",
-      swapperEmail: ""
-    },
-    {
-      id: 2,
-      title: "Iphone 5",
-      swapperEmail: ""
-    }];
-
-  inTransactionPosts = [
-    {
-      id: 1,
-      title: "EarPhone",
-      swapper: "Jerry"
-    },
-    {
-      id: 2,
-      title: "Old desk",
-      swapper: "Tom"
-    }
-];
-
-  historyPosts = [
-    {
-      id: 4,
-      title: "HCI book",
-      date: "10-16-2018",
-      swapper: "Jack"
-    },
-    {
-      id: 5,
-      title: "Head phone",
-      date: "9-24-2018",
-      swapper: "Bobby"
-    }];
-
-  wishlist = [
-    {
-      id: 5,
-      title: "Chair",
-    },
-    {
-      id: 6,
-      title: "Table",
-    },
-    {
-      id: 3,
-      title: "Lamp",
-    },
-  ];
-
-
+  yourPostList = [];
+  inTransactionPosts = [];
+  historyPosts = [];
+  wishlist = [];
 
   deletePost(i) {
     this.yourPostList.splice(i, 1);
@@ -110,6 +59,10 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {
     this.profileRate = this.userService.user.avgRate;
     this.numberOFRates = this.userService.user.numberOfRate;
+    this.yourPostList = this.userService.user.postList || [];
+    this.inTransactionPosts = this.userService.user.inTransactionPosts || [];
+    this.historyPosts = this.userService.user.historyPosts || [];
+    this.wishlist = this.userService.user.wishlist || [];
     console.log(this.userService.user);
   }
 
