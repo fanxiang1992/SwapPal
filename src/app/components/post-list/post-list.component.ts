@@ -13,6 +13,7 @@ export class PostListComponent implements OnInit {
   initialTag: string;
   firstTag: string;
   secondTag: string;
+  titleShow: boolean;
 
   blender = {
     id: 6,
@@ -20,7 +21,7 @@ export class PostListComponent implements OnInit {
     userName: "Anna",
     rate: 4,
     image: "blender.jpg",
-    wishlist:["iphone"]
+    wishlist:["iphone", "airbed"]
   };
 
   postList = [
@@ -76,9 +77,10 @@ export class PostListComponent implements OnInit {
     this.initialTag = 'What you want?';
     this.firstTag = 'What you want?';
     this.secondTag = 'Others wish-list';
+    this.titleShow = false;
 
     if (this.userService.user.pendingRate ) {
-      console.log(document.getElementById('reviewModal'));
+      // console.log(document.getElementById('reviewModal'));
 
       var dialog = document.getElementById('reviewModal');
       dialog.className += 'in';
@@ -88,7 +90,7 @@ export class PostListComponent implements OnInit {
 
   currentRate: number = 0;
   review(event, index) {
-    console.log('rating: ' + index);
+    // console.log('rating: ' + index);
     this.currentRate = index;
   }
 
@@ -97,15 +99,22 @@ export class PostListComponent implements OnInit {
     LoginComponent.anna.avgRate =
       (LoginComponent.anna.avgRate * LoginComponent.anna.numberOfRate + this.currentRate) / (LoginComponent.anna.numberOfRate + 1);
     LoginComponent.anna.numberOfRate++;
-    console.log(document.getElementById('reviewModal'));
+    // console.log(document.getElementById('reviewModal'));
 
     var dialog = document.getElementById('reviewModal');
     dialog.className += 'in';
     dialog.style.display = "none";
+    this.userService.user.pendingRate = false;
 
   }
 
   changeInitial(tagname){
+    console.log(tagname);
+    if(tagname === 'Others wish-list'){
+      this.titleShow = true;
+    }else{
+      this.titleShow = false;
+    }
     this.initialTag = tagname;
   }
 

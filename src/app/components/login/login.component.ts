@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     id: 1,
     email: "anna@husky.neu.edu",
     numberOfRate: 1,
-    avgRate: 3,
+    avgRate: 4,
     pendingRate:false,
     name: "Anna"
   };
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     id: 2,
     email: "ed@husky.neu.edu",
     numberOfRate: 1,
-    avgRate: 4,
+    avgRate: 3,
     pendingRate:false,
     name: "Edward"
   };

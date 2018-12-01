@@ -50,8 +50,15 @@
 
 <div class="container">
 
-  <ul class="row post-list list-group">
 
+  <ul class="row post-list list-group">
+    <div *ngIf="searchText  && titleShow" style="clear: both;">
+    <div *ngIf="(postList | postfilter:searchText:initialTag)?.length >= 0">
+      <h3>Posts with <b><i>{{searchText}}</i></b> in wishlist</h3>
+    </div>
+    </div>
+
+    <br>
     <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText:initialTag">
       <div class="col-xs-2">
         <a [routerLink]="['/details']"><img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image"></a>
@@ -70,11 +77,12 @@
       </div>
     </li>
 
-    <div *ngIf="(postList | postfilter:searchText)?.length == 0">
-      <h3>No Results Found.</h3>
-      <h4>Why not <a [routerLink]="['/createPost']">create your own post</a>.</h4>
-    </div>
+
   </ul>
+  <div *ngIf="(postList | postfilter:searchText:initialTag)?.length == 0" style="clear: both;">
+    <h3>No Results Found.</h3>
+    <h4>Why not <a [routerLink]="['/createPost']">create your own post?</a></h4>
+  </div>
 </div>
 
 <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
