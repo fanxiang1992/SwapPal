@@ -65,7 +65,7 @@
           <a [routerLink]="['/details', post.id]"><img [src]="post.image" class="img-thumbnail rounded post-image"></a>
         </span>
         <span *ngIf="!post.postedFrom">
-        <a [routerLink]="['/details', post.id]"><img [src]="'assets/images/'+post.image[0]" class="img-thumbnail rounded post-image"></a>
+        <a [routerLink]="['/details', post.id]"><img [src]="getImagePath(post)" class="img-thumbnail rounded post-image"></a>
         </span>
       </div>
       <div class="col-xs-10">

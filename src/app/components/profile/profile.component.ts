@@ -29,12 +29,12 @@ export class ProfileComponent implements OnInit {
   cancelTransaction(i) {
     let myPost = this.inTransactionPosts[i];
     this.inTransactionPosts.splice(i, 1);
-    this.yourPostList.push({
-      id: myPost.id,
-      title: myPost.title,
-      swapperEmail: ""
-    });
+    myPost['userName'] = this.userService.user.name;
+    myPost['email'] = this.userService.user.email;
+    myPost['rate'] = this.userService.user.avgRate;
+    myPost['swapperEmail'] = "";
 
+    this.yourPostList.push(myPost);
   }
 
   completeTransaction(i) {
@@ -88,13 +88,10 @@ export class ProfileComponent implements OnInit {
   }
 
   sendInvitation(post) {
+    post['swapper'] = post.swapperEmail.split('@')[0];
     this.yourPostList = this.yourPostList.filter(aPost => aPost.title != post.title);
-    this.inTransactionPosts.unshift({
-      id: post.id,
-      title: post.title,
-      swapper: post.swapperEmail.split('@')[0]
-    });
-
+    this.userService.user.postList = this.userService.user.postList.filter(aPost => aPost.title != post.title);
+    this.inTransactionPosts.unshift(post);
   }
 
   updateIndex(i) {

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         title: "Iphone 5",
         swapperEmail: "",
         image: ["iphone5.jpg"],
+        description: "Recently replaced battery for this phone, and just upgrade to iOS 12. Work like a charm.",
         wishlist:["bag"]
       }
     ],
@@ -46,7 +47,10 @@ export class LoginComponent implements OnInit {
       {
         id: 98,
         title: "EarPhone",
-        swapper: "Jerry"
+        image: ["earphone.jpeg"],
+        swapper: "Jerry",
+        description: "Like new condition",
+        wishlist: ["sunglasses"]
       }
     ],
     historyPosts: [
@@ -92,18 +96,11 @@ export class LoginComponent implements OnInit {
         title: "Awesome Matress",
         swapperEmail: "",
         image: ["matress.jpg"],
+        description: "It may not look good, but it's bed bug free. Better than what you will get from Allston Chrismas.",
         wishlist:["towerfan"]
       }
     ],
-    inTransactionPosts: [
-      {
-        id: 99,
-        title: "EarPhone",
-        swapper: "Jerry",
-        image:["earphone.jpeg"],
-        wishList: ["sunglasses"]
-      }
-    ],
+    inTransactionPosts: [],
     historyPosts: [],
     wishlist: []
   };

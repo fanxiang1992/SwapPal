@@ -35,5 +35,12 @@ export class DetailsComponent implements OnInit {
 
   }
 
+  getImagePath(image) {
+    if (image.includes("http")) {
+      return image;
+    } else {
+      return 'assets/images/'+image;
+    }
+  }
 
 }

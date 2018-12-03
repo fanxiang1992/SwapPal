@@ -78,4 +78,12 @@ export class PostListComponent implements OnInit {
     this.initialTag = tagname;
   }
 
+  getImagePath(post) {
+    if (post.image[0].includes("http")) {
+      return post.image[0];
+    } else {
+      return 'assets/images/'+post.image[0];
+    }
+  }
+
 }
