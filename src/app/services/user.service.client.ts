@@ -17,6 +17,49 @@ export class UserService {
   user: any = {name: ""};
   userId: any;
 
+  postList = [
+    {
+      id: 1,
+      title: "Google Pixel",
+      userName: "Julian",
+      rate: 5,
+      image: "google-pixel.jpg",
+      wishlist:["desktop"]
+    },
+    {
+      id: 2,
+      title: "Air Jordon 1",
+      userName: "James",
+      rate: 4,
+      image: "aj1.jpg",
+      wishlist:["blender"]
+    },
+    {
+      id: 3,
+      title: "iPhone 5",
+      userName: "Jobs",
+      rate: 3.5,
+      image: "iphone5.jpg",
+      wishlist:["bag"]
+    },
+    {
+      id: 4,
+      title: "Awesome Matress",
+      userName: "Edward",
+      rate: 5,
+      image: "matress.jpg",
+      wishlist:["towerfan"]
+    },
+    {
+      id: 5,
+      title: "50 year's desk",
+      userName: "Elsa",
+      rate: 3,
+      image: "desk.png",
+      wishlist: ["airbed"]
+    }
+  ];
+
   constructor(private _http: Http,
               private router: Router,
               public af:  AngularFireAuth,
@@ -42,5 +85,10 @@ export class UserService {
                   }).catch((error) =>{
                     return null;
                   });
+              }
+
+
+              getPostList(){
+                return this.postList;
               }
 }

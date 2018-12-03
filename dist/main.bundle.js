@@ -195,7 +195,7 @@ module.exports = ".upload-wrapper{\n  position: relative;\n  overflow: hidden;\n
 /***/ "./src/app/components/create-post/create-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"width: 403px;z-index: 1;\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a  data-toggle=\"modal\" data-target=\"#exampleModal\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container create-post\">\n  <form #createPostForm=\"ngForm\">\n    <span class=\"error-msg globalModalErr\" *ngIf=\"globalErrMsg\">{{globalErrMsg}}</span>\n  <div class=\"col-xs-12\">\n\n\n  <div class=\"col-xs-2\"></div>\n\n  <div class=\"col-xs-3\">\n    <span>Upload pictures</span>\n    <div class=\"upload-container\">\n      <div class=\"upload-wrapper\">\n        <button class=\"btn btn-primary plusBtn\"><span class=\"glyphicon glyphicon-plus\"></span></button>\n        <input type=\"file\" class=\"form-control\" name=\"post-picture\" (change)=\"captureUpload($event)\">\n      </div>\n    </div>\n    <div *ngFor=\"let filename of fileNameList.reverse();let l=index;\">\n      <i>{{filename}}</i><span *ngIf=\"l==0\">&nbsp; added</span>\n    </div>\n    <div class=\"error-msg\" *ngIf=\"imageErrMsg\" style=\"margin-top: 10px;\">\n      {{imageErrMsg}}\n    </div>\n  </div>\n\n  <div class=\"col-xs-5\">\n    <div>\n      <span>What do you have?</span>\n      <input type=\"text\"\n             required\n             (ngModel)=\"title\"\n             #title=\"ngModel\"\n             id=\"title\"\n             name=\"title\"\n             class=\"form-control\"\n             placeholder=\"What do you have for swapping?\">\n      <div class=\"error-msg\" *ngIf=\"!title?.valid && title?.touched\">\n        Please enter an item\n      </div>\n    </div>\n    <div>\n      <span>Description</span>\n      <textarea rows=\"3\"\n                required\n                (ngModel)=\"description\"\n                #description=\"ngModel\"\n                id=\"description\"\n                name=\"description\"\n                class=\"form-control\"\n                placeholder=\"Add a description of the swap item\"></textarea>\n      <div class=\"error-msg\" *ngIf=\"!description?.valid && description?.touched\">\n        Please enter a description\n      </div>\n    </div>\n    <div>\n      <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>\n      <label class=\"switch\">\n        <input type=\"checkbox\" checked>\n        <span class=\"slider round\" style=\"height: 34px; margin-top: 0px;\"></span>\n      </label>\n    </div>\n  </div>\n\n  <div class=\"col-xs-2\"></div>\n  </div>\n\n  <div class=\"col-xs-12\">\n    <div class=\"col-xs-1\"></div>\n    <div class=\"col-xs-6\">\n\n      <div class=\"form-check wishlist-bottom\">\n        <input class=\"form-check-input wishlist-checkbox\"\n               type=\"checkbox\"\n               id=\"wishlist\"\n               [(ngModel)]=\"isChecked\" [ngModelOptions]=\"{standalone: true}\">\n        <label class=\"form-check-label wishlist-label\" for=\"wishlist\">\n          &nbsp;Import wishlist from your profile\n        </label>\n      </div>\n      <div>\n      <!--<div *ngIf=\"!isChecked\">-->\n\n        <!--<div class=\"input-group mb-3\">-->\n          <!--<input type=\"text\"-->\n                 <!--class=\"form-control first-wishlist-text\"-->\n                 <!--placeholder=\"Enter item name\">-->\n        <!--</div>-->\n        <!--<div *ngFor=\"let newItemAdd of newList;let j=index;\">-->\n        <!--<div class=\"input-group mb-3\">-->\n          <!--<input type=\"text\"-->\n                 <!--class=\"form-control\"-->\n                 <!--placeholder=\"Enter item name\">-->\n\n          <!--<div class=\"input-group-append\">-->\n            <!--<button class=\"btn btn-outline-secondary remove-icon\" type=\"button\" (click)=\"removeItem(j)\">-->\n              <!--<span class=\"glyphicon glyphicon-remove\"></span>-->\n            <!--</button>-->\n          <!--</div>-->\n        <!--</div>-->\n      <!--</div>-->\n        <!--<a><button type=\"button\" (click)=\"addItem()\" class=\"btn \"><u>Add More</u></button></a>-->\n      <!--</div>-->\n\n        <div *ngIf=\"isChecked\">\n        <div class=\"card\">\n          <div class=\"card-body\">\n            <div>\n              <span class=\"item-style\" *ngFor=\"let item of wishlistItems;let i=index;\">\n                  <span>\n                    <input class=\"form-check-input item-checkbox\"\n                               type=\"checkbox\"\n                               id=\"wishlistItem{{i}}\">{{item}}</span>\n              </span>\n            </div>\n          </div>\n        </div>\n        </div>\n            <div *ngFor=\"let newItemAdd of addMoreList;let k=index;\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\"\n                       class=\"form-control\"\n                       placeholder=\"Enter item name\">\n\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary remove-icon\" type=\"button\" (click)=\"removeWishlistItem(k)\">\n                    <span class=\"glyphicon glyphicon-remove\"></span>\n                  </button>\n                </div>\n              </div>\n            </div>\n\n          <a><button type=\"button\" class=\"btn\" (click)=\"addWishlistItem()\"><u>Add More</u></button></a>\n        <!--</div>-->\n\n    </div>\n  </div>\n</div>\n  <div class=\"col-xs-10\">\n    <div>\n      <div  class=\"pull-right\">\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"postInfo(createPostForm)\">Post</button>\n      </div>\n    </div>\n  </div>\n<div class=\"col-xs-2\"></div>\n  </form>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body\">\n        <div>Are you sure you want to leave?</div>\n        <div>You will lose the changes you made</div>\n      </div>\n      <div class=\"modal-footer\">\n\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" [routerLink]=\"['/post-list']\">Leave</button>\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Stay</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"width: 403px;z-index: 1;\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a  data-toggle=\"modal\" data-target=\"#exampleModal\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container create-post\">\n  <form #createPostForm=\"ngForm\">\n    <span class=\"error-msg globalModalErr\" *ngIf=\"globalErrMsg\">{{globalErrMsg}}</span>\n  <div class=\"col-xs-12\">\n\n\n  <div class=\"col-xs-2\"></div>\n\n  <div class=\"col-xs-3\">\n    <span>Upload pictures</span>\n    <div class=\"upload-container\">\n      <div class=\"upload-wrapper\">\n        <button class=\"btn btn-primary plusBtn\"><span class=\"glyphicon glyphicon-plus\"></span></button>\n        <input type=\"file\" class=\"form-control\" name=\"post-picture\" (change)=\"captureUpload($event)\">\n      </div>\n    </div>\n    <div *ngFor=\"let filename of fileNameList.reverse();let l=index;\">\n      <i>{{filename}}</i><span *ngIf=\"l==0\">&nbsp; added</span>\n    </div>\n    <div class=\"error-msg\" *ngIf=\"imageErrMsg\" style=\"margin-top: 10px;\">\n      {{imageErrMsg}}\n    </div>\n  </div>\n\n  <div class=\"col-xs-5\">\n    <div>\n      <span>What do you have?</span>\n      <input type=\"text\"\n             required\n             (ngModel)=\"title\"\n             #title=\"ngModel\"\n             id=\"title\"\n             name=\"title\"\n             class=\"form-control\"\n             placeholder=\"What do you have for swapping?\">\n      <div class=\"error-msg\" *ngIf=\"!title?.valid && title?.touched\">\n        Please enter an item\n      </div>\n    </div>\n    <div>\n      <span>Description</span>\n      <textarea rows=\"3\"\n                required\n                (ngModel)=\"description\"\n                #description=\"ngModel\"\n                id=\"description\"\n                name=\"description\"\n                class=\"form-control\"\n                placeholder=\"Add a description of the swap item\"></textarea>\n      <div class=\"error-msg\" *ngIf=\"!description?.valid && description?.touched\">\n        Please enter a description\n      </div>\n    </div>\n    <div>\n      <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>\n      <label class=\"switch\">\n        <input type=\"checkbox\" checked (ngModel)=\"location\"\n               #location=\"ngModel\" (change)=\"locationChange($event.target.checked)\">\n        <span class=\"slider round\" style=\"height: 34px; margin-top: 0px;\"></span>\n      </label>\n    </div>\n  </div>\n\n  <div class=\"col-xs-2\"></div>\n  </div>\n\n  <div class=\"col-xs-12\">\n    <div class=\"col-xs-1\"></div>\n    <div class=\"col-xs-6\">\n\n      <div class=\"form-check wishlist-bottom\">\n        <input class=\"form-check-input wishlist-checkbox\"\n               type=\"checkbox\"\n               id=\"wishlist\"\n               [(ngModel)]=\"isChecked\" [ngModelOptions]=\"{standalone: true}\">\n        <label class=\"form-check-label wishlist-label\" for=\"wishlist\">\n          &nbsp;Import wishlist from your profile\n        </label>\n      </div>\n      <div>\n\n        <div *ngIf=\"isChecked\">\n          <div *ngIf=\"wishlist?.length>0\">\n        <div class=\"card\">\n          <div class=\"card-body\">\n            <div>\n\n              <span class=\"item-style\" *ngFor=\"let item of wishlist;let i=index;\">\n                  <span>\n                    <input class=\"form-check-input item-checkbox wishlistCheckBoxs\"\n                               type=\"checkbox\"\n                               id=\"wishlist{{i}}\">{{item.title}}</span>\n              </span>\n              </div>\n            </div>\n          </div>\n        </div>\n        </div>\n            <div *ngFor=\"let newItemAdd of addMoreList;let k=index;\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\"\n                       class=\"form-control\"\n                       placeholder=\"Enter item name\">\n\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary remove-icon\" type=\"button\" (click)=\"removeWishlistItem(k)\">\n                    <span class=\"glyphicon glyphicon-remove\"></span>\n                  </button>\n                </div>\n              </div>\n            </div>\n\n          <a><button type=\"button\" class=\"btn\" (click)=\"addWishlistItem()\"><u>Add More</u></button></a>\n        <!--</div>-->\n\n    </div>\n  </div>\n</div>\n  <div class=\"col-xs-10\">\n    <div>\n      <div  class=\"pull-right\">\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"postInfo(createPostForm)\">Post</button>\n      </div>\n    </div>\n  </div>\n<div class=\"col-xs-2\"></div>\n  </form>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body\">\n        <div>Are you sure you want to leave?</div>\n        <div>You will lose the changes you made</div>\n      </div>\n      <div class=\"modal-footer\">\n\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" [routerLink]=\"['/post-list']\">Leave</button>\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Stay</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -207,6 +207,9 @@ module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div clas
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__("./node_modules/angularfire2/database/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app__ = __webpack_require__("./node_modules/firebase/app/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_app__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -219,37 +222,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var CreatePostComponent = (function () {
-    function CreatePostComponent(router, userService) {
+    function CreatePostComponent(router, userService, db) {
         this.router = router;
         this.userService = userService;
+        this.db = db;
         this.newList = [];
         this.addMoreList = [];
         this.fileNameList = [];
+        this.postList = [];
+        this.imageFiles = [];
+        this.selectedWishlist = [];
+        this.yourPostList = [];
+        this.yourPostList = this.userService.user.postList || [];
+        this.wishlist = this.userService.user.wishlist || [];
     }
     CreatePostComponent.prototype.ngOnInit = function () {
         this.isChecked = false;
-        this.wishlistItems = ["iPhone", "desktop", "blender", "bag", "towerfan", "Air-bed", "Alexa", "Watch", "MacBook", "shoes"];
+        this.postList = this.userService.getPostList();
+        console.log('this is the wishlist', this.wishlist);
         // this.newList.push('newItem');
         this.addMoreList.push('newItem');
         this.initialTag = 'What you want?';
         this.firstTag = 'What you want?';
         this.secondTag = 'Others wish-list';
+        this.location = true;
+        this.imageCounter = 0;
     };
     CreatePostComponent.prototype.captureUpload = function (event) {
         var file = event.target.files[0];
         this.fileNameList.push(file.name);
+        //file.name = file.name.replace(/\s/g, "_");
+        this.imageFiles.push(file);
         this.imageErrMsg = "";
-        console.log(file.name);
-        console.log(this.fileNameList);
+        this.imageFile = file;
     };
-    // addItem(){
-    //   this.newList.push('newItem');
-    // }
-    //
-    // removeItem(j){
-    //   this.newList.splice(j,1);
-    // }
+    CreatePostComponent.prototype.locationChange = function (flag) {
+        console.log("flag", flag);
+        this.location = flag;
+    };
     CreatePostComponent.prototype.addWishlistItem = function () {
         this.addMoreList.push('newItem');
     };
@@ -257,6 +270,13 @@ var CreatePostComponent = (function () {
         this.addMoreList.splice(k, 1);
     };
     CreatePostComponent.prototype.postInfo = function (createPostForm) {
+        var x = document.getElementsByClassName('wishlistCheckBoxs');
+        for (var i = 0; i < x.length; i++) {
+            if (x[i].checked) {
+                this.selectedWishlist.push(this.wishlist[i].title);
+            }
+        }
+        console.log(this.selectedWishlist);
         if (this.fileNameList.length === 0) {
             this.imageErrMsg = "Please add pictures of the item";
         }
@@ -264,6 +284,38 @@ var CreatePostComponent = (function () {
             this.globalErrMsg = "Please enter the required fields";
         }
         if (this.fileNameList.length !== 0 && createPostForm.valid) {
+            var imageUrl_1 = [];
+            console.log('createPostForm values----', createPostForm.value.title, createPostForm.value.description, createPostForm.value.location);
+            this.imageFiles.forEach(function (image) {
+                var imageName = image.name.replace(/\s/g, "_");
+                var storageRef = __WEBPACK_IMPORTED_MODULE_4_firebase_app__["storage"]().ref('/images/' + imageName);
+                storageRef.put(image).then(function (img) {
+                    var storageRef1 = __WEBPACK_IMPORTED_MODULE_4_firebase_app__["storage"]().ref('/images/');
+                    var imgRef = storageRef1.child(imageName);
+                    imgRef.getDownloadURL().then(function (url) {
+                        imageUrl_1.push(url);
+                    });
+                });
+            });
+            //
+            // this.imageFiles.forEach(function (image) {
+            //   let imageName = image.name.replace(/\s/g, "_");
+            //
+            // });
+            console.log(imageUrl_1);
+            var newPost = {
+                title: createPostForm.value.title,
+                description: createPostForm.value.description,
+                location: (this.location ? 'On-Campus' : 'Off-Campus'),
+                userName: this.userService.user.name,
+                rate: this.userService.user.avgRate,
+                postedFrom: "CreatePost",
+                image: imageUrl_1,
+                wishlist: this.selectedWishlist
+            };
+            this.postList.push(newPost);
+            console.log('your posts', this.yourPostList);
+            this.userService.user.postList.push(newPost);
             this.router.navigate(['profile']);
         }
     };
@@ -278,10 +330,10 @@ CreatePostComponent = __decorate([
         template: __webpack_require__("./src/app/components/create-post/create-post.component.html"),
         styles: [__webpack_require__("./src/app/components/create-post/create-post.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _c || Object])
 ], CreatePostComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=create-post.component.js.map
 
 /***/ }),
@@ -498,7 +550,54 @@ LoginComponent.anna = {
     numberOfRate: 1,
     avgRate: 4,
     pendingRate: false,
-    name: "Anna"
+    name: "Anna",
+    postList: [
+        {
+            id: 1,
+            title: "Blender for Swap",
+            swapperEmail: ""
+        },
+        {
+            id: 2,
+            title: "Iphone 5",
+            swapperEmail: ""
+        }
+    ],
+    inTransactionPosts: [
+        {
+            id: 1,
+            title: "EarPhone",
+            swapper: "Jerry"
+        }
+    ],
+    historyPosts: [
+        {
+            id: 4,
+            title: "HCI book",
+            date: "10-16-2018",
+            swapper: "Jack"
+        },
+        {
+            id: 5,
+            title: "Head phone",
+            date: "9-24-2018",
+            swapper: "Bobby"
+        }
+    ],
+    wishlist: [
+        {
+            id: 5,
+            title: "Chair",
+        },
+        {
+            id: 6,
+            title: "Table",
+        },
+        {
+            id: 3,
+            title: "Lamp",
+        }
+    ]
 };
 LoginComponent.edward = {
     id: 2,
@@ -506,7 +605,23 @@ LoginComponent.edward = {
     numberOfRate: 1,
     avgRate: 3,
     pendingRate: false,
-    name: "Edward"
+    name: "Edward",
+    postList: [
+        {
+            id: 1,
+            title: "Awesome Matress",
+            swapperEmail: ""
+        }
+    ],
+    inTransactionPosts: [
+        {
+            id: 1,
+            title: "EarPhone",
+            swapper: "Jerry"
+        }
+    ],
+    historyPosts: [],
+    wishlist: []
 };
 LoginComponent = LoginComponent_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
@@ -532,7 +647,7 @@ module.exports = ".post-image {\n  -o-object-fit: cover;\n     object-fit: cover
 /***/ "./src/app/components/post-list/post-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"z-index: 1\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n\n\n\n\n\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/createPost']\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container\">\n\n\n  <ul class=\"row post-list list-group\">\n    <div *ngIf=\"searchText  && titleShow\" style=\"clear: both;\">\n    <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length >= 0\">\n      <h3>Posts with <b><i>{{searchText}}</i></b> in wishlist</h3>\n    </div>\n    </div>\n\n    <br>\n    <li class=\"col-xs-12 list-group-item\" *ngFor=\"let post of postList | postfilter:searchText:initialTag\">\n      <div class=\"col-xs-2\">\n        <a [routerLink]=\"['/details']\"><img [src]=\"'assets/images/'+post.image\" class=\"img-thumbnail rounded post-image\"></a>\n      </div>\n      <div class=\"col-xs-10\">\n        <a [routerLink]=\"['/details']\"><h3>{{post.title}}</h3></a>\n        <h5>\n          <span>{{post.userName}} : </span>\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\">\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate >= n\"></span>\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate < n && post.rate >= (n-0.5)\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"post.rate < (n-0.5)\"></span>\n          </span>\n          <!-- <span class=\"icon-star-full\"></span> -->\n        </h5>\n      </div>\n    </li>\n\n\n  </ul>\n  <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length == 0\" style=\"clear: both;\">\n    <h3>No Results Found.</h3>\n    <h4>Why not <a [routerLink]=\"['/createPost']\">create your own post?</a></h4>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"reviewModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <!--         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> -->\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Review</h4>\n      </div>\n      <div class=\"modal-body\">\n        <h3>How was your experience with Anna?</h3>\n        <h3>Swap Item: Blender for Swap</h3>\n        <h2 class=\"star-group text-center\">\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\" (click)=\"review($event, n)\" class=\"star-item\">\n            <!-- <span class=\"icon-star-empty\"></span> -->\n            <!-- <span class=\"icon-star-full\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"icon-star-half\" *ngIf=\"currentRate < n && currentRate >= (n-0.5)\"></span>\n            <span class=\"icon-star-empty empty-rate\" *ngIf=\"currentRate < (n-0.5)\"></span> -->\n            <span class=\"fa fa-star checked\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"currentRate <= (n-1)\"></span>\n          </span>\n        </h2>\n        <div class=\"form-group\">\n          <label>Leave Comment</label>\n          <textarea class=\"form-control\" rows=\"3\">\n          </textarea>\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"completeTransaction()\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n\n<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->\n<!--<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#reviewModal\">-->\n  <!--Review-->\n<!--</button>-->\n\n<!-- Modal -->\n\n"
+module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"z-index: 1\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n\n\n\n\n\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/createPost']\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container\">\n\n\n  <ul class=\"row post-list list-group\">\n    <div *ngIf=\"searchText  && titleShow\" style=\"clear: both;\">\n    <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length >= 0\">\n      <h3>Posts with <b><i>{{searchText}}</i></b> in wishlist</h3>\n    </div>\n    </div>\n\n    <br>\n    <li class=\"col-xs-12 list-group-item\" *ngFor=\"let post of postList | postfilter:searchText:initialTag\">\n      <div class=\"col-xs-2\">\n        <span *ngIf=\"post.postedFrom\">\n          <a [routerLink]=\"['/details']\"><img [src]=\"post.image\" class=\"img-thumbnail rounded post-image\"></a>\n        </span>\n        <span *ngIf=\"!post.postedFrom\">\n        <a [routerLink]=\"['/details']\"><img [src]=\"'assets/images/'+post.image\" class=\"img-thumbnail rounded post-image\"></a>\n        </span>\n      </div>\n      <div class=\"col-xs-10\">\n        <a [routerLink]=\"['/details']\"><h3>{{post.title}}</h3></a>\n        <h5>\n          <span>{{post.userName}} : </span>\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\">\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate >= n\"></span>\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate < n && post.rate >= (n-0.5)\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"post.rate < (n-0.5)\"></span>\n          </span>\n          <!-- <span class=\"icon-star-full\"></span> -->\n        </h5>\n      </div>\n    </li>\n\n\n  </ul>\n  <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length == 0\" style=\"clear: both;\">\n    <h3>No Results Found.</h3>\n    <h4>Why not <a [routerLink]=\"['/createPost']\">create your own post?</a></h4>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"reviewModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <!--         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> -->\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Review</h4>\n      </div>\n      <div class=\"modal-body\">\n        <h3>How was your experience with Anna?</h3>\n        <h3>Swap Item: Blender for Swap</h3>\n        <h2 class=\"star-group text-center\">\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\" (click)=\"review($event, n)\" class=\"star-item\">\n            <!-- <span class=\"icon-star-empty\"></span> -->\n            <!-- <span class=\"icon-star-full\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"icon-star-half\" *ngIf=\"currentRate < n && currentRate >= (n-0.5)\"></span>\n            <span class=\"icon-star-empty empty-rate\" *ngIf=\"currentRate < (n-0.5)\"></span> -->\n            <span class=\"fa fa-star checked\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"currentRate <= (n-1)\"></span>\n          </span>\n        </h2>\n        <div class=\"form-group\">\n          <label>Leave Comment</label>\n          <textarea class=\"form-control\" rows=\"3\">\n          </textarea>\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"completeTransaction()\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n\n<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->\n<!--<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#reviewModal\">-->\n  <!--Review-->\n<!--</button>-->\n\n<!-- Modal -->\n\n"
 
 /***/ }),
 
@@ -559,6 +674,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var PostListComponent = (function () {
     function PostListComponent(userService) {
         this.userService = userService;
+        this.postList = [];
         this.blender = {
             id: 6,
             title: "Blender for Swap",
@@ -567,51 +683,10 @@ var PostListComponent = (function () {
             image: "blender.jpg",
             wishlist: ["iphone", "airbed"]
         };
-        this.postList = [
-            {
-                id: 1,
-                title: "Google Pixel",
-                userName: "Julian",
-                rate: 5,
-                image: "google-pixel.jpg",
-                wishlist: ["desktop"]
-            },
-            {
-                id: 2,
-                title: "Air Jordon 1",
-                userName: "James",
-                rate: 4,
-                image: "aj1.jpg",
-                wishlist: ["blender"]
-            },
-            {
-                id: 3,
-                title: "iPhone 5",
-                userName: "Jobs",
-                rate: 3.5,
-                image: "iphone5.jpg",
-                wishlist: ["bag"]
-            },
-            {
-                id: 4,
-                title: "Awesome Matress",
-                userName: "Edward",
-                rate: 5,
-                image: "matress.jpg",
-                wishlist: ["towerfan"]
-            },
-            {
-                id: 5,
-                title: "50 year's desk",
-                userName: "Elsa",
-                rate: 3,
-                image: "desk.png",
-                wishlist: ["airbed"]
-            }
-        ];
         this.currentRate = 0;
     }
     PostListComponent.prototype.ngOnInit = function () {
+        this.postList = this.userService.getPostList();
         if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
             this.postList.unshift(this.blender);
         }
@@ -709,61 +784,17 @@ var ProfileComponent = (function () {
         this.profileRate = 5;
         this.numberOFRates = 1;
         this.newList = [];
-        this.yourPostList = [
-            {
-                id: 1,
-                title: "Blender for Swap",
-                swapperEmail: ""
-            },
-            {
-                id: 2,
-                title: "Iphone 5",
-                swapperEmail: ""
-            }
-        ];
-        this.inTransactionPosts = [
-            {
-                id: 1,
-                title: "EarPhone",
-                swapper: "Jerry"
-            },
-            {
-                id: 2,
-                title: "Old desk",
-                swapper: "Tom"
-            }
-        ];
-        this.historyPosts = [
-            {
-                id: 4,
-                title: "HCI book",
-                date: "10-16-2018",
-                swapper: "Jack"
-            },
-            {
-                id: 5,
-                title: "Head phone",
-                date: "9-24-2018",
-                swapper: "Bobby"
-            }
-        ];
-        this.wishlist = [
-            {
-                id: 5,
-                title: "Chair",
-            },
-            {
-                id: 6,
-                title: "Table",
-            },
-            {
-                id: 3,
-                title: "Lamp",
-            },
-        ];
+        this.yourPostList = [];
+        this.inTransactionPosts = [];
+        this.historyPosts = [];
+        this.wishlist = [];
         this.currentRate = 0;
         this.profileRate = this.userService.user.avgRate;
         this.numberOFRates = this.userService.user.numberOfRate;
+        this.yourPostList = this.userService.user.postList || [];
+        this.inTransactionPosts = this.userService.user.inTransactionPosts || [];
+        this.historyPosts = this.userService.user.historyPosts || [];
+        this.wishlist = this.userService.user.wishlist || [];
         console.log(this.userService.user);
     }
     ProfileComponent.prototype.deletePost = function (i) {
@@ -892,16 +923,26 @@ var RegisterComponent = (function () {
             this.globalErrorMsg = 'Please enter the required fields';
         }
         else {
-            console.log('username', registerForm);
             this.userService.register(registerForm).then(function (res) {
                 if (res == null) {
                     _this.globalErrorMsg = 'Registration failed or your account has been already registered';
                 }
                 else {
+                    _this.setupUser(registerForm);
                     _this.router.navigate(['post-list']);
                 }
             });
         }
+    };
+    RegisterComponent.prototype.setupUser = function (registerForm) {
+        var user = {
+            email: registerForm.value.username,
+            numberOfRate: 0,
+            avgRate: 0,
+            pendingRate: false,
+            name: registerForm.value.firstName
+        };
+        this.userService.user = user;
     };
     return RegisterComponent;
 }());
@@ -1098,6 +1139,48 @@ var UserService = (function () {
         this.db = db;
         this.http = http;
         this.user = { name: "" };
+        this.postList = [
+            {
+                id: 1,
+                title: "Google Pixel",
+                userName: "Julian",
+                rate: 5,
+                image: "google-pixel.jpg",
+                wishlist: ["desktop"]
+            },
+            {
+                id: 2,
+                title: "Air Jordon 1",
+                userName: "James",
+                rate: 4,
+                image: "aj1.jpg",
+                wishlist: ["blender"]
+            },
+            {
+                id: 3,
+                title: "iPhone 5",
+                userName: "Jobs",
+                rate: 3.5,
+                image: "iphone5.jpg",
+                wishlist: ["bag"]
+            },
+            {
+                id: 4,
+                title: "Awesome Matress",
+                userName: "Edward",
+                rate: 5,
+                image: "matress.jpg",
+                wishlist: ["towerfan"]
+            },
+            {
+                id: 5,
+                title: "50 year's desk",
+                userName: "Elsa",
+                rate: 3,
+                image: "desk.png",
+                wishlist: ["airbed"]
+            }
+        ];
     }
     UserService.prototype.register = function (registerForm) {
         var _this = this;
@@ -1117,6 +1200,9 @@ var UserService = (function () {
         }).catch(function (error) {
             return null;
         });
+    };
+    UserService.prototype.getPostList = function () {
+        return this.postList;
     };
     return UserService;
 }());

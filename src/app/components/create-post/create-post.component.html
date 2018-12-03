@@ -99,7 +99,8 @@
     <div>
       <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>
       <label class="switch">
-        <input type="checkbox" checked>
+        <input type="checkbox" checked (ngModel)="location"
+               #location="ngModel" (change)="locationChange($event.target.checked)">
         <span class="slider round" style="height: 34px; margin-top: 0px;"></span>
       </label>
     </div>
@@ -122,39 +123,20 @@
         </label>
       </div>
       <div>
-      <!--<div *ngIf="!isChecked">-->
-
-        <!--<div class="input-group mb-3">-->
-          <!--<input type="text"-->
-                 <!--class="form-control first-wishlist-text"-->
-                 <!--placeholder="Enter item name">-->
-        <!--</div>-->
-        <!--<div *ngFor="let newItemAdd of newList;let j=index;">-->
-        <!--<div class="input-group mb-3">-->
-          <!--<input type="text"-->
-                 <!--class="form-control"-->
-                 <!--placeholder="Enter item name">-->
-
-          <!--<div class="input-group-append">-->
-            <!--<button class="btn btn-outline-secondary remove-icon" type="button" (click)="removeItem(j)">-->
-              <!--<span class="glyphicon glyphicon-remove"></span>-->
-            <!--</button>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-        <!--<a><button type="button" (click)="addItem()" class="btn "><u>Add More</u></button></a>-->
-      <!--</div>-->
 
         <div *ngIf="isChecked">
+          <div *ngIf="wishlist?.length>0">
         <div class="card">
           <div class="card-body">
             <div>
-              <span class="item-style" *ngFor="let item of wishlistItems;let i=index;">
+
+              <span class="item-style" *ngFor="let item of wishlist;let i=index;">
                   <span>
-                    <input class="form-check-input item-checkbox"
+                    <input class="form-check-input item-checkbox wishlistCheckBoxs"
                                type="checkbox"
-                               id="wishlistItem{{i}}">{{item}}</span>
+                               id="wishlist{{i}}">{{item.title}}</span>
               </span>
+              </div>
             </div>
           </div>
         </div>

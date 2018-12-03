@@ -45,7 +45,7 @@ import { DetailsComponent } from './components/details/details.component';
     Routing
   ],
   // Client Side services here
-  providers: [    HomeService, AngularFireAuth, UserService],
+  providers: [HomeService, AngularFireAuth, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

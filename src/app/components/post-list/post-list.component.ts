@@ -14,6 +14,7 @@ export class PostListComponent implements OnInit {
   firstTag: string;
   secondTag: string;
   titleShow: boolean;
+  postList: any[] =[];
 
   blender = {
     id: 6,
@@ -24,53 +25,12 @@ export class PostListComponent implements OnInit {
     wishlist:["iphone", "airbed"]
   };
 
-  postList = [
-    {
-      id: 1,
-      title: "Google Pixel",
-      userName: "Julian",
-      rate: 5,
-      image: "google-pixel.jpg",
-      wishlist:["desktop"]
-    },
-    {
-      id: 2,
-      title: "Air Jordon 1",
-      userName: "James",
-      rate: 4,
-      image: "aj1.jpg",
-      wishlist:["blender"]
-    },
-    {
-      id: 3,
-      title: "iPhone 5",
-      userName: "Jobs",
-      rate: 3.5,
-      image: "iphone5.jpg",
-      wishlist:["bag"]
-    },
-    {
-      id: 4,
-      title: "Awesome Matress",
-      userName: "Edward",
-      rate: 5,
-      image: "matress.jpg",
-      wishlist:["towerfan"]
-    },
-    {
-      id: 5,
-      title: "50 year's desk",
-      userName: "Elsa",
-      rate: 3,
-      image: "desk.png",
-      wishlist: ["airbed"]
-    }
-  ];
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
 
+    this.postList = this.userService.getPostList();
     if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
       this.postList.unshift(this.blender);
     }
