@@ -81,8 +81,14 @@ export class CreatePostComponent implements OnInit {
         this.selectedWishlist.push(this.wishlist[i].title);
       }
     }
-    console.log(this.selectedWishlist);
 
+    for (i = 0; i < this.addMoreList.length; i++) {
+      var item = document.getElementById('newWishlistItem'+i) as HTMLInputElement;
+      if (item.value) {
+        this.selectedWishlist.push(item.value);
+      }
+    }
+    console.log(this.selectedWishlist);
 
     if(this.fileNameList.length === 0){
       this.imageErrMsg = "Please add pictures of the item"
@@ -118,6 +124,7 @@ export class CreatePostComponent implements OnInit {
       console.log(imageUrl);
 
       var newPost = {
+        id: this.userService.getPostList().length + 1,
         title: createPostForm.value.title,
         description: createPostForm.value.description,
         location: (this.location ? 'On-Campus' : 'Off-Campus'),
@@ -128,8 +135,12 @@ export class CreatePostComponent implements OnInit {
         wishlist: this.selectedWishlist
       }
 
-      this.postList.push(newPost);
+      //this.postList.push(newPost);
       console.log('your posts', this.yourPostList);
+      console.log(newPost);
+      if (!this.userService.user.postList) {
+        this.userService.user.postList = [];
+      }
       this.userService.user.postList.push(newPost);
       this.router.navigate(['profile']);
     }

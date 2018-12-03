@@ -62,14 +62,14 @@
     <li class="col-xs-12 list-group-item" *ngFor="let post of postList | postfilter:searchText:initialTag">
       <div class="col-xs-2">
         <span *ngIf="post.postedFrom">
-          <a [routerLink]="['/details']"><img [src]="post.image" class="img-thumbnail rounded post-image"></a>
+          <a [routerLink]="['/details', post.id]"><img [src]="post.image" class="img-thumbnail rounded post-image"></a>
         </span>
         <span *ngIf="!post.postedFrom">
-        <a [routerLink]="['/details']"><img [src]="'assets/images/'+post.image" class="img-thumbnail rounded post-image"></a>
+        <a [routerLink]="['/details', post.id]"><img [src]="'assets/images/'+post.image[0]" class="img-thumbnail rounded post-image"></a>
         </span>
       </div>
       <div class="col-xs-10">
-        <a [routerLink]="['/details']"><h3>{{post.title}}</h3></a>
+        <a [routerLink]="['/details', post.id]"><h3>{{post.title}}</h3></a>
         <h5>
           <span>{{post.userName}} : </span>
           <span *ngFor="let n of [1, 2, 3, 4, 5]">
@@ -79,6 +79,12 @@
           </span>
           <!-- <span class="icon-star-full"></span> -->
         </h5>
+        <div>
+          Wishlist: 
+          <span *ngFor="let wishItem of post.wishlist" class="wish-item">
+            {{wishItem}}
+          </span>
+        </div>
       </div>
     </li>
 

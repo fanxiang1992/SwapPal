@@ -31,9 +31,9 @@ export class PostListComponent implements OnInit {
   ngOnInit() {
 
     this.postList = this.userService.getPostList();
-    if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
-      this.postList.unshift(this.blender);
-    }
+    // if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
+    //   this.postList.unshift(this.blender);
+    // }
     this.initialTag = 'What you want?';
     this.firstTag = 'What you want?';
     this.secondTag = 'Others wish-list';

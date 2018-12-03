@@ -27,19 +27,24 @@ export class LoginComponent implements OnInit {
     name: "Anna",
     postList: [
       {
-        id: 1,
+        id: 4,
         title: "Blender for Swap",
-        swapperEmail: ""
+        swapperEmail: "",
+        image: ["blender.jpg", "blender2.jpg", "blender3.jpg", "blender4.jpg", "blender5.jpg"],
+        description: "I bought this blender last year. It has five program settings —Smoothies, Hot Soups, Dips & Spreads, Frozen Desserts and Self-Cleaning. It automatically adjust times and speeds for the container selected and stop the blender when done. You can find the specs of the blender here. https://www.amazon.com/Magic-Bullet-Blender-Small-Silver/dp/B012T634SM/ref=cm_cr_arp_d_product_top?ie=UTF8. The images are from Amazon. I used the blender 3-5 times ever since I bought it. It's practically almost new.",
+        wishlist:["iphone", "airbed"]
       },
       {
-        id: 2,
+        id: 5,
         title: "Iphone 5",
-        swapperEmail: ""
+        swapperEmail: "",
+        image: ["iphone5.jpg"],
+        wishlist:["bag"]
       }
     ],
     inTransactionPosts: [
       {
-        id: 1,
+        id: 98,
         title: "EarPhone",
         swapper: "Jerry"
       }
@@ -83,16 +88,20 @@ export class LoginComponent implements OnInit {
     name: "Edward",
     postList: [
       {
-        id: 1,
+        id: 6,
         title: "Awesome Matress",
-        swapperEmail: ""
+        swapperEmail: "",
+        image: ["matress.jpg"],
+        wishlist:["towerfan"]
       }
     ],
     inTransactionPosts: [
       {
-        id: 1,
+        id: 99,
         title: "EarPhone",
-        swapper: "Jerry"
+        swapper: "Jerry",
+        image:["earphone.jpeg"],
+        wishList: ["sunglasses"]
       }
     ],
     historyPosts: [],
@@ -140,8 +149,15 @@ export class LoginComponent implements OnInit {
       let userEmail:string = currentUser.email;
       if (userEmail == 'anna@husky.neu.edu') {
         this.userService.user = LoginComponent.anna;
-      } else {
+      } else if (userEmail == 'ed@husky.neu.edu') {
         this.userService.user = LoginComponent.edward;
+      } else {
+        this.userService.user = {
+          email: userEmail,
+          name: userEmail.split('@')[0],
+          numberOfRate: 0,
+          avgRate: 0
+        }
       }
     } else {
       this.userService.user = { email: "", name: "" };

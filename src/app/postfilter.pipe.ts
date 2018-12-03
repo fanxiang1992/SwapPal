@@ -11,7 +11,7 @@ export class PostfilterPipe implements PipeTransform {
       return items;
     }
     if(tag === 'Others wish-list') {
-      return items.filter(item => item.wishlist.includes(filter.toLowerCase()));
+      return items.filter(item => item.wishlist.some((wishItem) => wishItem.toLowerCase().includes(filter.toLowerCase())));
     }else{
       return items.filter(item => item.title.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
     }

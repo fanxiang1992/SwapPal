@@ -55,8 +55,8 @@
     <span>Upload pictures</span>
     <div class="upload-container">
       <div class="upload-wrapper">
+        <input type="file" class="form-control" name="post-picture" class="post-picture" (change)="captureUpload($event)">
         <button class="btn btn-primary plusBtn"><span class="glyphicon glyphicon-plus"></span></button>
-        <input type="file" class="form-control" name="post-picture" (change)="captureUpload($event)">
       </div>
     </div>
     <div *ngFor="let filename of fileNameList.reverse();let l=index;">
@@ -145,7 +145,8 @@
               <div class="input-group mb-3">
                 <input type="text"
                        class="form-control"
-                       placeholder="Enter item name">
+                       placeholder="Enter item name"
+                       id="newWishlistItem{{k}}">
 
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary remove-icon" type="button" (click)="removeWishlistItem(k)">

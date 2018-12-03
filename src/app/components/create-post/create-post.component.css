@@ -163,3 +163,20 @@ input:checked + .slider:before {
   margin-left: 140px;
   padding-bottom: 100px;
 }
+
+input.post-picture {
+  padding-bottom: 6.5rem;
+}
+
+input[type='file'].post-picture {
+  opacity: 0;
+  cursor: pointer;
+  font-size: 0 !important;
+  position: absolute;
+  z-index: 99999;
+}
+
+input.post-picture:hover + .plusBtn {
+  scale: 1.1;
+  color: #438ac7;
+}

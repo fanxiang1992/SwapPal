@@ -13,7 +13,7 @@ const APP_ROUTES: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'post-list', component: PostListComponent},
-  {path: 'details', component: DetailsComponent},
+  {path: 'details/:id', component: DetailsComponent},
   {path: 'createPost', component: CreatePostComponent},
   {path: 'profile', component: ProfileComponent}
 ];
