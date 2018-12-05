@@ -29,7 +29,7 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.postList = this.userService.getPostList();
+    this.postList = this.userService.getPostList().reverse();
     // if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
     //   this.postList.unshift(this.blender);
     // }

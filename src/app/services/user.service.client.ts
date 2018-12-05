@@ -136,7 +136,7 @@ export class UserService {
       wishlist: ["airbed"]
     },
     {
-      id: 10,
+      id: 110,
       title: " Antique Large Mirror",
       userName: "Mary",
       email: "mary@husky.neu.edu",
@@ -146,7 +146,7 @@ export class UserService {
       wishlist: ["woodskis"]
     },
     {
-      id: 11,
+      id: 111,
       title: " Pair of Wood Skis",
       userName: "Prashanth",
       email: "prashanth@husky.neu.edu",
@@ -156,7 +156,7 @@ export class UserService {
       wishlist: ["iphone"]
     },
     {
-      id: 12,
+      id: 112,
       title: "7 Drawer Cherry wood dresser",
       userName: "Emily",
       email: "emily@husky.neu.edu",
@@ -167,7 +167,7 @@ export class UserService {
       wishlist: ["guitar"]
     },
     {
-      id: 13,
+      id: 113,
       title: "Leaded glass panel lamp",
       userName: "Dave",
       email: "dave@husky.neu.edu",
@@ -176,7 +176,7 @@ export class UserService {
       description: "4 hand painted panels",
       wishlist: ["towerfan"]
     },{
-      id: 14,
+      id: 114,
       title: "Folk Art Print",
       userName: "Cathy",
       email: "cathy@husky.neu.edu",
@@ -185,7 +185,7 @@ export class UserService {
       description: "Beautiful Folk Art Print with decorative frame 15\" x 16\"",
       wishlist: ["lamp"]
     },{
-      id: 15,
+      id: 115,
       title: "DVDs",
       userName: "Tom",
       email: "tom@husky.neu.edu",
@@ -195,7 +195,7 @@ export class UserService {
       wishlist: ["books"]
     },
     {
-      id: 16,
+      id: 116,
       title: "Crate & Barrel Aspen cups and saucers",
       userName: "Radha",
       email: "radha@husky.neu.edu",
@@ -206,7 +206,7 @@ export class UserService {
       "Barely used, great condition - no chips!BONUS Sur La Table cow creamer included!",
       wishlist: ["pressure cooker","lamp"]
     },{
-      id: 17,
+      id: 117,
       title: "Gorgeous Vitrix Hot Glass Studio Vase",
       userName: "nick",
       email: "nick@husky.neu.edu",
@@ -217,7 +217,7 @@ export class UserService {
       "Founded in 1979 in Corning's Historic Market Street District, Vitrix Hot Glass Studio is regarded among America's most prominent contemporary glass studios.9½\" Tall Designer, contemporary, blown glass, unique",
       wishlist: ["curtains","bag","tent"]
     },{
-      id: 18,
+      id: 118,
       title: "Lamp shade",
       userName: "veena",
       email: "veena@husky.neu.edu",
@@ -228,7 +228,7 @@ export class UserService {
       "It's height is 9\" and diameter is 12\"",
       wishlist: ["towerfan","mirror","desk"]
     },{
-      id: 19,
+      id: 119,
       title: "Philips coffee machine Espresso",
       userName: "sandeep",
       email: "sandeep@husky.neu.edu",
@@ -246,7 +246,7 @@ export class UserService {
       "5) Large capacities in compact design: 8.8oz Bean Container, 15x Waste Container; 60.9oz",
       wishlist: ["iphone","kindle","desk"]
     },{
-      id: 20,
+      id: 120,
       title: "Bissell Featherweight vacuum",
       userName: "geetha",
       email: "geetha@husky.neu.edu",
@@ -256,7 +256,54 @@ export class UserService {
       "\n" +
       "The duct tape pictured is what I put on to ensure it stays together. If you are not concerned about looks and like a vacuum that works well and is lightweight, this is for you.",
       wishlist: ["blender","mirror"]
+    },{
+      id: 121,
+      title: "Plastic Storage boxes",
+      userName: "abhi",
+      email: "abhi@husky.neu.edu",
+      rate: 4,
+      image: ["storage.jpg"],
+      description: "Three large plastic storage boxes; $6 each\n" +
+      "Three smaller plastic storage boxes; $4 each\n" +
+      "Great for storing Christmas decorations",
+      wishlist: ["lamp","blender","mirror"]
+    },{
+      id: 122,
+      title: "Philips smokeless indoor grill",
+      userName: "kushi",
+      email: "kushi@husky.neu.edu",
+      rate: 3,
+      image: ["grill.jpg","grill1.jpg","grill2.jpg","grill3.jpg"],
+      description: "Philips Smoke-less Indoor Grill HD6371/94\n" +
+      "Retails for between $280 at Amazon to $420 at Williams Sonoma.\n" +
+      "Mine is brand new, never opened, never used, never taken out of the box.\n" +
+      "SAVE $$ and buy your first Christmas 2018 gift of the season!\n" +
+      "\n" +
+      "Advanced infrared technology and special reflectors guide heat to the indoor grills cooking grid for delicious, evenly grilled food. The drip tray underneath remains cool so there is virtually no smoke.\n" +
+      "No need to adjust the heat! The indoor grill quickly heats up to a consistent 446°F, the optimal temperature for cooking and searing your favorite meat, poultry and fish leaving it juicy and tender on the inside.\n" +
+      "The electric grill ensures food is not cooked into its own grease and the fat is separated during grilling ; Voltage: 120 V\n" +
+      "Clean up your electric grill in less than a minute! Either wipe the grid clean or place it in the dishwasher. Cleaning a grill has never been easier.\n" +
+      "The indoor grill sets up in 1-minute - spend more time cooking and less on prep. Powerful 1660 Watts for cooking and non-slip feet to ensure your electric grill stays in place.\n",
+      wishlist: ["cooker","storage","mirror"]
+    },{
+      id: 123,
+      title: "Classic Balance ball Office Chair",
+      userName: "abhi",
+      email: "abhi@husky.neu.edu",
+      rate: 4,
+      image: ["balance.jpg"],
+      description: "Classic Balance Ball Chair available. \n" +
+      "\n" +
+      "Ball if nicely inflated and is great for excercising your core and preventing back problems. \n" +
+      "\n" +
+      "Ball can be switched out for an even bigger ball if needed. Super comfortable and easy to use. Chair offers back support also and is on wheels. \n" +
+      "\n" +
+      "Link to product is here: \n" +
+      "\n" +
+      "https://www.gaiam.com/products/classic-balance-ball-chair?variant=32936592129&gclid=CjwKCAiA_c7UBRAjEiwApCZi8UM6snsQ91gR429IZWii7Otq1YmFYsmLlHOOuxfi7yu2h8thPvmaOhoCv_QQAvD_BwE\n",
+      wishlist: ["lamp","blender","mirror"]
     }
+
 
   ];
 
