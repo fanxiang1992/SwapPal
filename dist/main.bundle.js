@@ -175,12 +175,12 @@ var APP_ROUTES = [
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__components_login_login_component__["a" /* LoginComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_3__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'post-list', component: __WEBPACK_IMPORTED_MODULE_4__components_post_list_post_list_component__["a" /* PostListComponent */] },
-    { path: 'details', component: __WEBPACK_IMPORTED_MODULE_5__components_details_details_component__["a" /* DetailsComponent */] },
+    { path: 'details/:id', component: __WEBPACK_IMPORTED_MODULE_5__components_details_details_component__["a" /* DetailsComponent */] },
     { path: 'createPost', component: __WEBPACK_IMPORTED_MODULE_6__components_create_post_create_post_component__["a" /* CreatePostComponent */] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_7__components_profile_profile_component__["a" /* ProfileComponent */] }
 ];
 // Export the routes as module providers
-var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(APP_ROUTES);
+var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(APP_ROUTES);
 //# sourceMappingURL=app.routing.js.map
 
 /***/ }),
@@ -188,14 +188,14 @@ var Routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule 
 /***/ "./src/app/components/create-post/create-post.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".upload-wrapper{\n  position: relative;\n  overflow: hidden;\n  display: inline-block;\n}\n\n.upload-container{\n  padding: 70px;\n  padding-top: 25px;\n  padding-left: 0px;\n  padding-bottom: 0px;\n}\n\n.upload-wrapper input[type = file]{\n  font-size: 100px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  opacity: 0;\n}\n\n.plusBtn{\n  border: 2px solid #337ab7;\n  color: #337ab7;\n  background-color: white;\n  padding: 20px;\n  border-radius: 8px;\n  font-size: 50px;\n  font-weight: bold;\n}\n\n.wishlist-checkbox{\n  -ms-transform: scale(2);\n  -moz-transform: scale(2);\n  -webkit-transform: scale(2);\n  -o-transform: scale(2);\n  padding: 10px;\n}\n\n.wishlist-label{\n  font-size: 15px;\n}\n\n.wishlist-bottom{\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n\n.item-style{\n  padding: 10px;\n}\n\n.item-checkbox{\n  margin-right: 5px;\n}\n\n.first-wishlist-text{\n  margin-right: 40px;\n}\n\n.card-body{\n  padding: 8px;\n}\n\n.remove-icon{\n  background-color: #d9534f;\n  height: 39px;\n  color: white;\n\n}\n\n.swappal-nav {\n  background-color: #337ab7;\n  color: white;\n\n  padding-top: 8px;\n}\n\n.swappal-nav a {\n  color: white;\n  font-family: Georgia;\n  font-weight: bold;\n\n}\n\n.navbar-form {\n  margin-bottom:0px;\n  font-size: 1px;\n  font-family: Georgia;\n}\n\n.create-post{\n  margin-top: 70px;\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 60px;\n  height: 34px;\n}\n\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 26px;\n  width: 26px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\n\ninput:checked + .slider {\n  background-color: #337ab7;\n}\n\ninput:focus + .slider {\n  -webkit-box-shadow: 0 0 1px #337ab7;\n          box-shadow: 0 0 1px #337ab7;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(26px);\n  transform: translateX(26px);\n}\n\n/* Rounded sliders */\n\n.slider.round {\n  border-radius: 34px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.error-msg{\n  color: red;\n  margin-top: -12px;\n  margin-bottom: 10px;\n}\n\n.globalModalErr{\n  margin-left: 140px;\n  padding-bottom: 100px;\n}\n"
+module.exports = ".upload-wrapper{\n  position: relative;\n  overflow: hidden;\n  display: inline-block;\n}\n\n.upload-container{\n  padding: 70px;\n  padding-top: 25px;\n  padding-left: 0px;\n  padding-bottom: 0px;\n}\n\n.upload-wrapper input[type = file]{\n  font-size: 100px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  opacity: 0;\n}\n\n.plusBtn{\n  border: 2px solid #337ab7;\n  color: #337ab7;\n  background-color: white;\n  padding: 20px;\n  border-radius: 8px;\n  font-size: 50px;\n  font-weight: bold;\n}\n\n.wishlist-checkbox{\n  -ms-transform: scale(2);\n  -moz-transform: scale(2);\n  -webkit-transform: scale(2);\n  -o-transform: scale(2);\n  padding: 10px;\n}\n\n.wishlist-label{\n  font-size: 15px;\n}\n\n.wishlist-bottom{\n  margin-bottom: 20px;\n  margin-top: 20px;\n}\n\n.item-style{\n  padding: 10px;\n}\n\n.item-checkbox{\n  margin-right: 5px;\n}\n\n.first-wishlist-text{\n  margin-right: 40px;\n}\n\n.card-body{\n  padding: 8px;\n}\n\n.remove-icon{\n  background-color: #d9534f;\n  height: 39px;\n  color: white;\n\n}\n\n.swappal-nav {\n  background-color: #337ab7;\n  color: white;\n\n  padding-top: 8px;\n}\n\n.swappal-nav a {\n  color: white;\n  font-family: Georgia;\n  font-weight: bold;\n\n}\n\n.navbar-form {\n  margin-bottom:0px;\n  font-size: 1px;\n  font-family: Georgia;\n}\n\n.create-post{\n  margin-top: 70px;\n}\n\n.switch {\n  position: relative;\n  display: inline-block;\n  width: 60px;\n  height: 34px;\n}\n\n.switch input {\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\n\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 26px;\n  width: 26px;\n  left: 4px;\n  bottom: 4px;\n  background-color: white;\n  -webkit-transition: .4s;\n  transition: .4s;\n}\n\ninput:checked + .slider {\n  background-color: #337ab7;\n}\n\ninput:focus + .slider {\n  -webkit-box-shadow: 0 0 1px #337ab7;\n          box-shadow: 0 0 1px #337ab7;\n}\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(26px);\n  transform: translateX(26px);\n}\n\n/* Rounded sliders */\n\n.slider.round {\n  border-radius: 34px;\n}\n\n.slider.round:before {\n  border-radius: 50%;\n}\n\n.error-msg{\n  color: red;\n  margin-top: -12px;\n  margin-bottom: 10px;\n}\n\n.globalModalErr{\n  margin-left: 140px;\n  padding-bottom: 100px;\n}\n\ninput.post-picture {\n  padding-bottom: 6.5rem;\n}\n\ninput[type='file'].post-picture {\n  opacity: 0;\n  cursor: pointer;\n  font-size: 0 !important;\n  position: absolute;\n  z-index: 99999;\n}\n\ninput.post-picture:hover + .plusBtn {\n  scale: 1.1;\n  color: #438ac7;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/components/create-post/create-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"width: 403px;z-index: 1;\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a  data-toggle=\"modal\" data-target=\"#exampleModal\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container create-post\">\n  <form #createPostForm=\"ngForm\">\n    <span class=\"error-msg globalModalErr\" *ngIf=\"globalErrMsg\">{{globalErrMsg}}</span>\n  <div class=\"col-xs-12\">\n\n\n  <div class=\"col-xs-2\"></div>\n\n  <div class=\"col-xs-3\">\n    <span>Upload pictures</span>\n    <div class=\"upload-container\">\n      <div class=\"upload-wrapper\">\n        <button class=\"btn btn-primary plusBtn\"><span class=\"glyphicon glyphicon-plus\"></span></button>\n        <input type=\"file\" class=\"form-control\" name=\"post-picture\" (change)=\"captureUpload($event)\">\n      </div>\n    </div>\n    <div *ngFor=\"let filename of fileNameList.reverse();let l=index;\">\n      <i>{{filename}}</i><span *ngIf=\"l==0\">&nbsp; added</span>\n    </div>\n    <div class=\"error-msg\" *ngIf=\"imageErrMsg\" style=\"margin-top: 10px;\">\n      {{imageErrMsg}}\n    </div>\n  </div>\n\n  <div class=\"col-xs-5\">\n    <div>\n      <span>What do you have?</span>\n      <input type=\"text\"\n             required\n             (ngModel)=\"title\"\n             #title=\"ngModel\"\n             id=\"title\"\n             name=\"title\"\n             class=\"form-control\"\n             placeholder=\"What do you have for swapping?\">\n      <div class=\"error-msg\" *ngIf=\"!title?.valid && title?.touched\">\n        Please enter an item\n      </div>\n    </div>\n    <div>\n      <span>Description</span>\n      <textarea rows=\"3\"\n                required\n                (ngModel)=\"description\"\n                #description=\"ngModel\"\n                id=\"description\"\n                name=\"description\"\n                class=\"form-control\"\n                placeholder=\"Add a description of the swap item\"></textarea>\n      <div class=\"error-msg\" *ngIf=\"!description?.valid && description?.touched\">\n        Please enter a description\n      </div>\n    </div>\n    <div>\n      <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>\n      <label class=\"switch\">\n        <input type=\"checkbox\" checked (ngModel)=\"location\"\n               #location=\"ngModel\" (change)=\"locationChange($event.target.checked)\">\n        <span class=\"slider round\" style=\"height: 34px; margin-top: 0px;\"></span>\n      </label>\n    </div>\n  </div>\n\n  <div class=\"col-xs-2\"></div>\n  </div>\n\n  <div class=\"col-xs-12\">\n    <div class=\"col-xs-1\"></div>\n    <div class=\"col-xs-6\">\n\n      <div class=\"form-check wishlist-bottom\">\n        <input class=\"form-check-input wishlist-checkbox\"\n               type=\"checkbox\"\n               id=\"wishlist\"\n               [(ngModel)]=\"isChecked\" [ngModelOptions]=\"{standalone: true}\">\n        <label class=\"form-check-label wishlist-label\" for=\"wishlist\">\n          &nbsp;Import wishlist from your profile\n        </label>\n      </div>\n      <div>\n\n        <div *ngIf=\"isChecked\">\n          <div *ngIf=\"wishlist?.length>0\">\n        <div class=\"card\">\n          <div class=\"card-body\">\n            <div>\n\n              <span class=\"item-style\" *ngFor=\"let item of wishlist;let i=index;\">\n                  <span>\n                    <input class=\"form-check-input item-checkbox wishlistCheckBoxs\"\n                               type=\"checkbox\"\n                               id=\"wishlist{{i}}\">{{item.title}}</span>\n              </span>\n              </div>\n            </div>\n          </div>\n        </div>\n        </div>\n            <div *ngFor=\"let newItemAdd of addMoreList;let k=index;\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\"\n                       class=\"form-control\"\n                       placeholder=\"Enter item name\">\n\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary remove-icon\" type=\"button\" (click)=\"removeWishlistItem(k)\">\n                    <span class=\"glyphicon glyphicon-remove\"></span>\n                  </button>\n                </div>\n              </div>\n            </div>\n\n          <a><button type=\"button\" class=\"btn\" (click)=\"addWishlistItem()\"><u>Add More</u></button></a>\n        <!--</div>-->\n\n    </div>\n  </div>\n</div>\n  <div class=\"col-xs-10\">\n    <div>\n      <div  class=\"pull-right\">\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"postInfo(createPostForm)\">Post</button>\n      </div>\n    </div>\n  </div>\n<div class=\"col-xs-2\"></div>\n  </form>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body\">\n        <div>Are you sure you want to leave?</div>\n        <div>You will lose the changes you made</div>\n      </div>\n      <div class=\"modal-footer\">\n\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" [routerLink]=\"['/post-list']\">Leave</button>\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Stay</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"width: 403px;z-index: 1;\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a  data-toggle=\"modal\" data-target=\"#exampleModal\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container create-post\">\n  <form #createPostForm=\"ngForm\">\n    <span class=\"error-msg globalModalErr\" *ngIf=\"globalErrMsg\">{{globalErrMsg}}</span>\n  <div class=\"col-xs-12\">\n\n\n  <div class=\"col-xs-2\"></div>\n\n  <div class=\"col-xs-3\">\n    <span>Upload pictures</span>\n    <div class=\"upload-container\">\n      <div class=\"upload-wrapper\">\n        <input type=\"file\" class=\"form-control\" name=\"post-picture\" class=\"post-picture\" (change)=\"captureUpload($event)\">\n        <button class=\"btn btn-primary plusBtn\"><span class=\"glyphicon glyphicon-plus\"></span></button>\n      </div>\n    </div>\n    <div *ngFor=\"let filename of fileNameList.reverse();let l=index;\">\n      <i>{{filename}}</i><span *ngIf=\"l==0\">&nbsp; added</span>\n    </div>\n    <div class=\"error-msg\" *ngIf=\"imageErrMsg\" style=\"margin-top: 10px;\">\n      {{imageErrMsg}}\n    </div>\n  </div>\n\n  <div class=\"col-xs-5\">\n    <div>\n      <span>What do you have?</span>\n      <input type=\"text\"\n             required\n             (ngModel)=\"title\"\n             #title=\"ngModel\"\n             id=\"title\"\n             name=\"title\"\n             class=\"form-control\"\n             placeholder=\"What do you have for swapping?\">\n      <div class=\"error-msg\" *ngIf=\"!title?.valid && title?.touched\">\n        Please enter an item\n      </div>\n    </div>\n    <div>\n      <span>Description</span>\n      <textarea rows=\"3\"\n                required\n                (ngModel)=\"description\"\n                #description=\"ngModel\"\n                id=\"description\"\n                name=\"description\"\n                class=\"form-control\"\n                placeholder=\"Add a description of the swap item\"></textarea>\n      <div class=\"error-msg\" *ngIf=\"!description?.valid && description?.touched\">\n        Please enter a description\n      </div>\n    </div>\n    <div>\n      <span>Would you like to swap on-campus? &nbsp;&nbsp;</span>\n      <label class=\"switch\">\n        <input type=\"checkbox\" checked (ngModel)=\"location\"\n               #location=\"ngModel\" (change)=\"locationChange($event.target.checked)\">\n        <span class=\"slider round\" style=\"height: 34px; margin-top: 0px;\"></span>\n      </label>\n    </div>\n  </div>\n\n  <div class=\"col-xs-2\"></div>\n  </div>\n\n  <div class=\"col-xs-12\">\n    <div class=\"col-xs-1\"></div>\n    <div class=\"col-xs-6\">\n\n      <div class=\"form-check wishlist-bottom\">\n        <input class=\"form-check-input wishlist-checkbox\"\n               type=\"checkbox\"\n               id=\"wishlist\"\n               [(ngModel)]=\"isChecked\" [ngModelOptions]=\"{standalone: true}\">\n        <label class=\"form-check-label wishlist-label\" for=\"wishlist\">\n          &nbsp;Import wishlist from your profile\n        </label>\n      </div>\n      <div>\n\n        <div *ngIf=\"isChecked\">\n          <div *ngIf=\"wishlist?.length>0\">\n        <div class=\"card\">\n          <div class=\"card-body\">\n            <div>\n\n              <span class=\"item-style\" *ngFor=\"let item of wishlist;let i=index;\">\n                  <span>\n                    <input class=\"form-check-input item-checkbox wishlistCheckBoxs\"\n                               type=\"checkbox\"\n                               id=\"wishlist{{i}}\">{{item.title}}</span>\n              </span>\n              </div>\n            </div>\n          </div>\n        </div>\n        </div>\n            <div *ngFor=\"let newItemAdd of addMoreList;let k=index;\">\n              <div class=\"input-group mb-3\">\n                <input type=\"text\"\n                       class=\"form-control\"\n                       placeholder=\"Enter item name\"\n                       id=\"newWishlistItem{{k}}\">\n\n                <div class=\"input-group-append\">\n                  <button class=\"btn btn-outline-secondary remove-icon\" type=\"button\" (click)=\"removeWishlistItem(k)\">\n                    <span class=\"glyphicon glyphicon-remove\"></span>\n                  </button>\n                </div>\n              </div>\n            </div>\n\n          <a><button type=\"button\" class=\"btn\" (click)=\"addWishlistItem()\"><u>Add More</u></button></a>\n        <!--</div>-->\n\n    </div>\n  </div>\n</div>\n  <div class=\"col-xs-10\">\n    <div>\n      <div  class=\"pull-right\">\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"postInfo(createPostForm)\">Post</button>\n      </div>\n    </div>\n  </div>\n<div class=\"col-xs-2\"></div>\n  </form>\n</div>\n\n\n<!-- Modal -->\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body\">\n        <div>Are you sure you want to leave?</div>\n        <div>You will lose the changes you made</div>\n      </div>\n      <div class=\"modal-footer\">\n\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" [routerLink]=\"['/post-list']\">Leave</button>\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Stay</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -276,6 +276,12 @@ var CreatePostComponent = (function () {
                 this.selectedWishlist.push(this.wishlist[i].title);
             }
         }
+        for (i = 0; i < this.addMoreList.length; i++) {
+            var item = document.getElementById('newWishlistItem' + i);
+            if (item.value) {
+                this.selectedWishlist.push(item.value);
+            }
+        }
         console.log(this.selectedWishlist);
         if (this.fileNameList.length === 0) {
             this.imageErrMsg = "Please add pictures of the item";
@@ -304,6 +310,7 @@ var CreatePostComponent = (function () {
             // });
             console.log(imageUrl_1);
             var newPost = {
+                id: this.userService.getPostList().length + 1,
                 title: createPostForm.value.title,
                 description: createPostForm.value.description,
                 location: (this.location ? 'On-Campus' : 'Off-Campus'),
@@ -313,8 +320,12 @@ var CreatePostComponent = (function () {
                 image: imageUrl_1,
                 wishlist: this.selectedWishlist
             };
-            this.postList.push(newPost);
+            //this.postList.push(newPost);
             console.log('your posts', this.yourPostList);
+            console.log(newPost);
+            if (!this.userService.user.postList) {
+                this.userService.user.postList = [];
+            }
             this.userService.user.postList.push(newPost);
             this.router.navigate(['profile']);
         }
@@ -330,7 +341,7 @@ CreatePostComponent = __decorate([
         template: __webpack_require__("./src/app/components/create-post/create-post.component.html"),
         styles: [__webpack_require__("./src/app/components/create-post/create-post.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _c || Object])
 ], CreatePostComponent);
 
 var _a, _b, _c;
@@ -348,7 +359,7 @@ module.exports = "/* CSS used here will be applied after bootstrap.css */\n.caro
 /***/ "./src/app/components/details/details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\"  style=\"width: 403px;z-index: 1;\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/createPost']\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <b style=\"color: #337ab7; font-size: x-large; font-family: Georgia\">Blender For Swap</b>\n\n  </div>\n\n  <div class=\"row\">\n    <b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Anna:\n      <span class=\"fa fa-star checked\"></span>\n      <span class=\"fa fa-star checked\"></span>\n      <span class=\"fa fa-star checked\"></span>\n      <span class=\"fa fa-star checked\"></span>\n      <span class=\"fa fa-star\"></span>\n\n    </b>\n\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm-3\"></div>\n    <div class=\"col-sm-6\">\n      <div id=\"carousel\" class=\"carousel slide\" data-ride=\"carousel\">\n        <div class=\"carousel-inner\">\n          <div class=\"item active\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/61qm4kZvPaL._SL1000_.jpg\">\n          </div>\n          <div class=\"item\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/71FNDOV-JTL._SL1000_.jpg\">\n          </div>\n          <div class=\"item\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/71T0bsAmi7L._SL1000_.jpg\">\n          </div>\n\n          <div class=\"item\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/71136x3QKfL._SL1000_.jpg\">\n          </div>\n          <div class=\"item\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/71pu4JPyhuL._SL1000_.jpg\">\n          </div>\n          <div class=\"item\">\n            <img src=\"https://m.media-amazon.com/images/S/aplus-media/vc/b03afeb5-d8a4-49c5-83ca-2530649a379c._CR0,0,600,600_PT0_SX220__.jpg\">\n          </div>\n          <div class=\"item\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/81evLRZv+bL._SY88.jpg\">\n          </div>\n          <div class=\"item\">\n            <img src=\"https://images-na.ssl-images-amazon.com/images/I/41T3fErTI7L._SL1000_.jpg\">\n          </div>\n        </div>\n      </div>\n      <div class=\"clearfix\">\n        <div id=\"thumbcarousel\" class=\"carousel slide\" data-interval=\"false\">\n          <div class=\"carousel-inner\">\n            <div class=\"item active\">\n              <div data-target=\"#carousel\" data-slide-to=\"0\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/61qm4kZvPaL._SL1000_.jpg\"></div>\n              <div data-target=\"#carousel\" data-slide-to=\"1\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/71FNDOV-JTL._SL1000_.jpg\"></div>\n              <div data-target=\"#carousel\" data-slide-to=\"2\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/71T0bsAmi7L._SL1000_.jpg\"></div>\n              <div data-target=\"#carousel\" data-slide-to=\"3\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/71136x3QKfL._SL1000_.jpg\"></div>\n            </div><!-- /item -->\n            <div class=\"item\">\n              <div data-target=\"#carousel\" data-slide-to=\"4\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/71pu4JPyhuL._SL1000_.jpg\"></div>\n              <div data-target=\"#carousel\" data-slide-to=\"5\" class=\"thumb\"><img src=\"https://m.media-amazon.com/images/S/aplus-media/vc/b03afeb5-d8a4-49c5-83ca-2530649a379c._CR0,0,600,600_PT0_SX220__.jpg\"></div>\n              <div data-target=\"#carousel\" data-slide-to=\"6\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/81evLRZv+bL._SY88.jpg\"></div>\n              <div data-target=\"#carousel\" data-slide-to=\"7\" class=\"thumb\"><img src=\"https://images-na.ssl-images-amazon.com/images/I/41T3fErTI7L._SL1000_.jpg\"></div>\n            </div><!-- /item -->\n          </div><!-- /carousel-inner -->\n          <a class=\"left carousel-control\" href=\"#thumbcarousel\" role=\"button\" data-slide=\"prev\">\n            <span class=\"glyphicon glyphicon-chevron-left\"></span>\n          </a>\n          <a class=\"right carousel-control\" href=\"#thumbcarousel\" role=\"button\" data-slide=\"next\">\n            <span class=\"glyphicon glyphicon-chevron-right\"></span>\n          </a>\n        </div> <!-- /thumbcarousel -->\n      </div><!-- /clearfix -->\n    </div> <!-- /col-sm-6 -->\n    <div class=\"col-sm-3\">\n\n    </div>\n\n\n\n    <div class=\"row\">\n\n\n    </div> <!-- /col-sm-6 -->\n  </div> <!-- /row -->\n\n  <div class=\"topspace\"></div>\n  <div class=\"panel panel-default\">\n    <div class=\"panel-body\">\n  <div class=\"row\">\n    <div class=\"col-sm-4\"><b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Description</b></div>\n    <div class=\"col-sm-8\" style=\"font-family: Georgia\"><p>I bought this blender last year. It has five program settings —Smoothies, Hot Soups, Dips & Spreads, Frozen Desserts and Self-Cleaning.\n      It automatically adjust times and speeds for the container selected and stop the blender when done. You can find the specs of the blender <a href=\"https://www.amazon.com/Magic-Bullet-Blender-Small-Silver/dp/B012T634SM/ref=cm_cr_arp_d_product_top?ie=UTF8\">here</a>. </p>\n      <p>The images are from Amazon. </p>\n      <p>I used the blender 3-5 times ever since I bought it. It's practically almost new. </p></div>\n  </div>\n  <hr>\n  <div class=\"row\">\n    <div class=\"col-sm-4\"><b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Wishlist</b></div>\n    <div class=\"col-sm-8\">\n      <ol style=\"font-family: Georgia\">\n        <li>Airbed</li>\n      </ol>\n    </div>\n  </div>\n  <hr>\n  <div class=\"row\">\n    <div class=\"col-sm-4\"><b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Contact Info</b></div>\n    <div class=\"col-sm-8\" style=\"font-family: Georgia\">\n      <p>anna@husky.neu.edu</p>\n      <div class=\"alert alert-info\">\n        <strong>Remember!</strong>  An Invitation Code connects you with Anna to ensure a smooth transaction. Ask for the Invitation Code before doing any transaction.\n      </div>\n    </div>\n  </div>\n  </div>\n  </div>\n  <!--<table class=\"table table-borderless\">-->\n    <!--<tbody>-->\n    <!--<tr>-->\n      <!--<th scope=\"row\">Description</th>-->\n      <!--<td><p>I bought this blender last year. It has five program settings —Smoothies, Hot Soups, Dips & Spreads, Frozen Desserts and Self-Cleaning.-->\n        <!--It automatically adjust times and speeds for the container selected and stop the blender when done. You can find the specs of the blender <a href=\"https://www.amazon.com/Magic-Bullet-Blender-Small-Silver/dp/B012T634SM/ref=cm_cr_arp_d_product_top?ie=UTF8\">here</a>. </p>-->\n        <!--<p>The images are from Amazon. </p>-->\n        <!--<p>I used the blender 3-5 times ever since I bought it. It's practically almost new. </p></td>-->\n    <!--</tr>-->\n    <!--</tbody>-->\n  <!--</table>-->\n\n\n  <div class=\"row\"><!-- panel-footer -->\n    <div class=\"col-xs-6 text-left\">\n      <div class=\"previous\">\n        <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#exampleModal\">Report this Post</button>\n      </div>\n    </div>\n\n    <!-- Modal -->\n    <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n      <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\" id=\"exampleModalLabel\">Report Post</h4>\n          </div>\n          <div class=\"modal-body\">\n            <label for=\"comment\">Reason:</label>\n            <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n          </div>\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n            <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" id=\"report\">Report</button>\n          </div>\n        </div>\n      </div>\n    </div>\n\n  <div style=\"padding-bottom: 4%\"></div>\n\n</div> <!-- /container -->\n"
+module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\"  style=\"width: 403px;z-index: 1;\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/createPost']\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container\">\n  <div class=\"row\">\n    <b style=\"color: #337ab7; font-size: x-large; font-family: Georgia\">{{post.title}}</b>\n\n  </div>\n\n  <div class=\"row\">\n    <b style=\"color: #337ab7; font-size: large; font-family: Georgia\">{{post.userName}}:\n      <span *ngFor=\"let n of [1, 2, 3, 4, 5]\"  class=\"star-item\">\n        <span class=\"fa fa-star checked\" *ngIf=\"post.rate >= n\"></span>\n        <span class=\"fa fa-star\" *ngIf=\"post.rate < n\"></span>\n      </span>\n    </b>\n\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-sm-3\"></div>\n    <div class=\"col-sm-6\">\n      <div id=\"carousel\" class=\"carousel slide\" data-ride=\"carousel\">\n        <div class=\"carousel-inner\">\n          <div *ngFor=\"let aimage of post.image; let k=index;\" class=\"item\" [ngClass]=\"{'active': (k==0)}\">\n            <img [src]=\"getImagePath(aimage)\">\n          </div>\n        </div>\n      </div>\n      <div class=\"clearfix\">\n        <div id=\"thumbcarousel\" class=\"carousel slide\" data-interval=\"false\">\n          <div class=\"carousel-inner\">\n            <div *ngFor=\"let aimage of post.image; let k=index;\" class=\"item active\">\n              <div data-target=\"#carousel\" [attr.data-slide-to]=\"k\" class=\"thumb\"><img [src]=\"getImagePath(aimage)\">\n              </div>\n            </div>\n          </div><!-- /carousel-inner -->\n<!--           <a class=\"left carousel-control\" href=\"#thumbcarousel\" role=\"button\" data-slide=\"prev\">\n            <span class=\"glyphicon glyphicon-chevron-left\"></span>\n          </a>\n          <a class=\"right carousel-control\" href=\"#thumbcarousel\" role=\"button\" data-slide=\"next\">\n            <span class=\"glyphicon glyphicon-chevron-right\"></span>\n          </a> -->\n        </div> <!-- /thumbcarousel -->\n      </div><!-- /clearfix -->\n    </div> <!-- /col-sm-6 -->\n    <div class=\"col-sm-3\">\n    </div>\n    <div class=\"row\">\n\n\n    </div> <!-- /col-sm-6 -->\n  </div> <!-- /row -->\n\n  <div class=\"topspace\"></div>\n  <div class=\"panel panel-default\">\n    <div class=\"panel-body\">\n  <div class=\"row\">\n    <div class=\"col-sm-4\"><b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Description</b></div>\n    <div class=\"col-sm-8\" style=\"font-family: Georgia\">\n<!--       <p>\n         <a href=\"https://www.amazon.com/Magic-Bullet-Blender-Small-Silver/dp/B012T634SM/ref=cm_cr_arp_d_product_top?ie=UTF8\">here</a>. \n      </p> -->\n<!--       <p>The images are from Amazon. </p>\n      <p>I used the blender 3-5 times ever since I bought it. It's practically almost new. </p> -->\n      <p>{{post.description}}</p>\n    </div>\n  </div>\n  <hr>\n  <div class=\"row\">\n    <div class=\"col-sm-4\"><b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Wishlist</b></div>\n    <div class=\"col-sm-8\">\n      <ol style=\"font-family: Georgia\">\n        <li *ngFor=\"let wishItem of post.wishlist\">{{wishItem}}</li>\n      </ol>\n    </div>\n  </div>\n  <hr>\n  <div class=\"row\">\n    <div class=\"col-sm-4\"><b style=\"color: #337ab7; font-size: large; font-family: Georgia\">Contact Info</b></div>\n    <div class=\"col-sm-8\" style=\"font-family: Georgia\">\n      <p>{{post.email}}</p>\n      <div class=\"alert alert-info\">\n        <strong>Remember!</strong>  An Invitation Code connects you with Anna to ensure a smooth transaction. Ask for the Invitation Code before doing any transaction.\n      </div>\n    </div>\n  </div>\n  </div>\n  </div>\n  <!--<table class=\"table table-borderless\">-->\n    <!--<tbody>-->\n    <!--<tr>-->\n      <!--<th scope=\"row\">Description</th>-->\n      <!--<td><p>I bought this blender last year. It has five program settings —Smoothies, Hot Soups, Dips & Spreads, Frozen Desserts and Self-Cleaning.-->\n        <!--It automatically adjust times and speeds for the container selected and stop the blender when done. You can find the specs of the blender <a href=\"https://www.amazon.com/Magic-Bullet-Blender-Small-Silver/dp/B012T634SM/ref=cm_cr_arp_d_product_top?ie=UTF8\">here</a>. </p>-->\n        <!--<p>The images are from Amazon. </p>-->\n        <!--<p>I used the blender 3-5 times ever since I bought it. It's practically almost new. </p></td>-->\n    <!--</tr>-->\n    <!--</tbody>-->\n  <!--</table>-->\n\n\n  <div class=\"row\"><!-- panel-footer -->\n    <div class=\"col-xs-6 text-left\">\n      <div class=\"previous\">\n        <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#exampleModal\">Report this Post</button>\n      </div>\n    </div>\n\n    <!-- Modal -->\n    <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n      <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\" id=\"exampleModalLabel\">Report Post</h4>\n          </div>\n          <div class=\"modal-body\">\n            <label for=\"comment\">Reason:</label>\n            <textarea class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n          </div>\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n            <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\" id=\"report\">Report</button>\n          </div>\n        </div>\n      </div>\n    </div>\n\n  <div style=\"padding-bottom: 4%\"></div>\n\n</div> <!-- /container -->\n"
 
 /***/ }),
 
@@ -359,6 +370,7 @@ module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div clas
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetailsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -370,18 +382,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var DetailsComponent = (function () {
-    function DetailsComponent(userService) {
+    function DetailsComponent(userService, route) {
         this.userService = userService;
+        this.route = route;
         this.show = true;
     }
     DetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.initialTag = 'What you want?';
         this.firstTag = 'What you want?';
         this.secondTag = 'Others wish-list';
+        this.route.params.subscribe(function (params) {
+            _this.id = +params['id'];
+        });
+        this.post = this.userService.getPostList().find(function (item) {
+            return item['id'] == _this.id;
+        });
+        console.log(this.post);
     };
     DetailsComponent.prototype.changeInitial = function (tagname) {
         this.initialTag = tagname;
+    };
+    DetailsComponent.prototype.getImagePath = function (image) {
+        if (image.includes("http")) {
+            return image;
+        }
+        else {
+            return 'assets/images/' + image;
+        }
     };
     return DetailsComponent;
 }());
@@ -391,10 +421,10 @@ DetailsComponent = __decorate([
         template: __webpack_require__("./src/app/components/details/details.component.html"),
         styles: [__webpack_require__("./src/app/components/details/details.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
 ], DetailsComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=details.component.js.map
 
 /***/ }),
@@ -534,8 +564,16 @@ var LoginComponent = LoginComponent_1 = (function () {
             if (userEmail == 'anna@husky.neu.edu') {
                 this.userService.user = LoginComponent_1.anna;
             }
-            else {
+            else if (userEmail == 'ed@husky.neu.edu') {
                 this.userService.user = LoginComponent_1.edward;
+            }
+            else {
+                this.userService.user = {
+                    email: userEmail,
+                    name: userEmail.split('@')[0],
+                    numberOfRate: 0,
+                    avgRate: 0
+                };
             }
         }
         else {
@@ -553,21 +591,30 @@ LoginComponent.anna = {
     name: "Anna",
     postList: [
         {
-            id: 1,
+            id: 4,
             title: "Blender for Swap",
-            swapperEmail: ""
+            swapperEmail: "",
+            image: ["blender.jpg", "blender2.jpg", "blender3.jpg", "blender4.jpg", "blender5.jpg"],
+            description: "I bought this blender last year. It has five program settings —Smoothies, Hot Soups, Dips & Spreads, Frozen Desserts and Self-Cleaning. It automatically adjust times and speeds for the container selected and stop the blender when done. You can find the specs of the blender here. https://www.amazon.com/Magic-Bullet-Blender-Small-Silver/dp/B012T634SM/ref=cm_cr_arp_d_product_top?ie=UTF8. The images are from Amazon. I used the blender 3-5 times ever since I bought it. It's practically almost new.",
+            wishlist: ["iphone", "airbed"]
         },
         {
-            id: 2,
+            id: 5,
             title: "Iphone 5",
-            swapperEmail: ""
+            swapperEmail: "",
+            image: ["iphone5.jpg"],
+            description: "Recently replaced battery for this phone, and just upgrade to iOS 12. Work like a charm.",
+            wishlist: ["bag"]
         }
     ],
     inTransactionPosts: [
         {
-            id: 1,
+            id: 98,
             title: "EarPhone",
-            swapper: "Jerry"
+            image: ["earphone.jpeg"],
+            swapper: "Jerry",
+            description: "Like new condition",
+            wishlist: ["sunglasses"]
         }
     ],
     historyPosts: [
@@ -608,18 +655,15 @@ LoginComponent.edward = {
     name: "Edward",
     postList: [
         {
-            id: 1,
+            id: 6,
             title: "Awesome Matress",
-            swapperEmail: ""
+            swapperEmail: "",
+            image: ["matress.jpg"],
+            description: "It may not look good, but it's bed bug free. Better than what you will get from Allston Chrismas.",
+            wishlist: ["towerfan"]
         }
     ],
-    inTransactionPosts: [
-        {
-            id: 1,
-            title: "EarPhone",
-            swapper: "Jerry"
-        }
-    ],
+    inTransactionPosts: [],
     historyPosts: [],
     wishlist: []
 };
@@ -629,7 +673,7 @@ LoginComponent = LoginComponent_1 = __decorate([
         template: __webpack_require__("./src/app/components/login/login.component.html"),
         styles: [__webpack_require__("./src/app/components/login/login.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object])
 ], LoginComponent);
 
 var LoginComponent_1, _a, _b;
@@ -640,14 +684,14 @@ var LoginComponent_1, _a, _b;
 /***/ "./src/app/components/post-list/post-list.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".post-image {\n  -o-object-fit: cover;\n     object-fit: cover;\n  width:100px;\n  height:100px;\n}\n\n.swappal-nav {\n  background-color: #337ab7;\n  color: white;\n\n  padding-top: 8px;\n}\n\n.swappal-nav a {\n  color: white;\n  font-family: Georgia;\n  font-weight: bold;\n\n}\n\n.navbar-form {\n  margin-bottom:0px;\n  font-size: 1px;\n  font-family: Georgia;\n}\n\n.checked {\n  color: orange;\n}\n"
+module.exports = ".post-image {\n  -o-object-fit: cover;\n     object-fit: cover;\n  width:100px;\n  height:100px;\n}\n\n.swappal-nav {\n  background-color: #337ab7;\n  color: white;\n\n  padding-top: 8px;\n}\n\n.swappal-nav a {\n  color: white;\n  font-family: Georgia;\n  font-weight: bold;\n\n}\n\n.navbar-form {\n  margin-bottom:0px;\n  font-size: 1px;\n  font-family: Georgia;\n}\n\n.checked {\n  color: orange;\n}\n\n.wish-item {\n  background: #efefef;\n  padding: 0.25rem 0.75rem;\n  border-radius: 1rem;\n  margin-right: 0.5rem;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/components/post-list/post-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"z-index: 1\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n\n\n\n\n\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/createPost']\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container\">\n\n\n  <ul class=\"row post-list list-group\">\n    <div *ngIf=\"searchText  && titleShow\" style=\"clear: both;\">\n    <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length >= 0\">\n      <h3>Posts with <b><i>{{searchText}}</i></b> in wishlist</h3>\n    </div>\n    </div>\n\n    <br>\n    <li class=\"col-xs-12 list-group-item\" *ngFor=\"let post of postList | postfilter:searchText:initialTag\">\n      <div class=\"col-xs-2\">\n        <span *ngIf=\"post.postedFrom\">\n          <a [routerLink]=\"['/details']\"><img [src]=\"post.image\" class=\"img-thumbnail rounded post-image\"></a>\n        </span>\n        <span *ngIf=\"!post.postedFrom\">\n        <a [routerLink]=\"['/details']\"><img [src]=\"'assets/images/'+post.image\" class=\"img-thumbnail rounded post-image\"></a>\n        </span>\n      </div>\n      <div class=\"col-xs-10\">\n        <a [routerLink]=\"['/details']\"><h3>{{post.title}}</h3></a>\n        <h5>\n          <span>{{post.userName}} : </span>\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\">\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate >= n\"></span>\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate < n && post.rate >= (n-0.5)\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"post.rate < (n-0.5)\"></span>\n          </span>\n          <!-- <span class=\"icon-star-full\"></span> -->\n        </h5>\n      </div>\n    </li>\n\n\n  </ul>\n  <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length == 0\" style=\"clear: both;\">\n    <h3>No Results Found.</h3>\n    <h4>Why not <a [routerLink]=\"['/createPost']\">create your own post?</a></h4>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"reviewModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <!--         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> -->\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Review</h4>\n      </div>\n      <div class=\"modal-body\">\n        <h3>How was your experience with Anna?</h3>\n        <h3>Swap Item: Blender for Swap</h3>\n        <h2 class=\"star-group text-center\">\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\" (click)=\"review($event, n)\" class=\"star-item\">\n            <!-- <span class=\"icon-star-empty\"></span> -->\n            <!-- <span class=\"icon-star-full\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"icon-star-half\" *ngIf=\"currentRate < n && currentRate >= (n-0.5)\"></span>\n            <span class=\"icon-star-empty empty-rate\" *ngIf=\"currentRate < (n-0.5)\"></span> -->\n            <span class=\"fa fa-star checked\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"currentRate <= (n-1)\"></span>\n          </span>\n        </h2>\n        <div class=\"form-group\">\n          <label>Leave Comment</label>\n          <textarea class=\"form-control\" rows=\"3\">\n          </textarea>\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"completeTransaction()\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n\n<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->\n<!--<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#reviewModal\">-->\n  <!--Review-->\n<!--</button>-->\n\n<!-- Modal -->\n\n"
+module.exports = "<nav class=\"navbar navbar-default swappal-nav\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/post-list']\">Swap Pal</a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <div class=\"navbar-search\">\n      <form class=\"navbar-form navbar-left\">\n        <div class=\"input-group\">\n          <div class=\"input-group-btn search-panel\">\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" style=\"height: 39px\">\n              <span id=\"search_concept\">{{initialTag}}</span> <span class=\"caret\"></span>\n            </button>\n            <ul class=\"dropdown-menu\" role=\"menu\">\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(firstTag)\">{{firstTag}}</a></li>\n              <li><a   style=\"color:black;\" (click)=\"changeInitial(secondTag)\">{{secondTag}}</a></li>\n            </ul>\n          </div>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\" style=\"z-index: 1\">\n          <div class=\"form-group search-container\" style=\"z-index: 2;margin-left: 136px;\"><span class=\"icon-search\"></span></div>\n        </div>\n\n\n\n\n\n        <!--<div class=\"navbar-search\">-->\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" aria-label=\"Search for...\" [(ngModel)]=\"searchText\" name=\"searchText\">-->\n          <!--<div class=\"form-group search-container\"><span class=\"icon-search\"></span></div>-->\n        <!--</div>-->\n      </form>\n      </div>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a [routerLink]=\"['/createPost']\">Create Post</a></li>\n        <!--<li><a [routerLink]=\"['/profile']\"><span class=\"icon-user profile-icon\"></span></a></li>-->\n        <li  class=\"dropdown\">\n          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Hello, {{userService.user.name}} &nbsp;<span class=\"glyphicon glyphicon-chevron-down\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/profile']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-user\"></span>&nbsp; Profile</a></li>\n            <li class=\"dropdown-item\"><a [routerLink]=\"['/login']\"  style=\"color:black;\"><span class=\"glyphicon glyphicon-log-out\"></span>&nbsp; Logout</a></li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n\n<div class=\"container\">\n\n\n  <ul class=\"row post-list list-group\">\n    <div *ngIf=\"searchText  && titleShow\" style=\"clear: both;\">\n    <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length >= 0\">\n      <h3>Posts with <b><i>{{searchText}}</i></b> in wishlist</h3>\n    </div>\n    </div>\n\n    <br>\n    <li class=\"col-xs-12 list-group-item\" *ngFor=\"let post of postList | postfilter:searchText:initialTag\">\n      <div class=\"col-xs-2\">\n        <span *ngIf=\"post.postedFrom\">\n          <a [routerLink]=\"['/details', post.id]\"><img [src]=\"post.image\" class=\"img-thumbnail rounded post-image\"></a>\n        </span>\n        <span *ngIf=\"!post.postedFrom\">\n        <a [routerLink]=\"['/details', post.id]\"><img [src]=\"getImagePath(post)\" class=\"img-thumbnail rounded post-image\"></a>\n        </span>\n      </div>\n      <div class=\"col-xs-10\">\n        <a [routerLink]=\"['/details', post.id]\"><h3>{{post.title}}</h3></a>\n        <h5>\n          <span>{{post.userName}} : </span>\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\">\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate >= n\"></span>\n            <span class=\"fa fa-star checked\" *ngIf=\"post.rate < n && post.rate >= (n-0.5)\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"post.rate < (n-0.5)\"></span>\n          </span>\n          <!-- <span class=\"icon-star-full\"></span> -->\n        </h5>\n        <div>\n          Wishlist: \n          <span *ngFor=\"let wishItem of post.wishlist\" class=\"wish-item\">\n            {{wishItem}}\n          </span>\n        </div>\n      </div>\n    </li>\n\n\n  </ul>\n  <div *ngIf=\"(postList | postfilter:searchText:initialTag)?.length == 0\" style=\"clear: both;\">\n    <h3>No Results Found.</h3>\n    <h4>Why not <a [routerLink]=\"['/createPost']\">create your own post?</a></h4>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"reviewModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <!--         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button> -->\n        <h4 class=\"modal-title\" id=\"myModalLabel\">Review</h4>\n      </div>\n      <div class=\"modal-body\">\n        <h3>How was your experience with Anna?</h3>\n        <h3>Swap Item: Blender for Swap</h3>\n        <h2 class=\"star-group text-center\">\n          <span *ngFor=\"let n of [1, 2, 3, 4, 5]\" (click)=\"review($event, n)\" class=\"star-item\">\n            <!-- <span class=\"icon-star-empty\"></span> -->\n            <!-- <span class=\"icon-star-full\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"icon-star-half\" *ngIf=\"currentRate < n && currentRate >= (n-0.5)\"></span>\n            <span class=\"icon-star-empty empty-rate\" *ngIf=\"currentRate < (n-0.5)\"></span> -->\n            <span class=\"fa fa-star checked\" *ngIf=\"currentRate >= n\"></span>\n            <span class=\"fa fa-star\" *ngIf=\"currentRate <= (n-1)\"></span>\n          </span>\n        </h2>\n        <div class=\"form-group\">\n          <label>Leave Comment</label>\n          <textarea class=\"form-control\" rows=\"3\">\n          </textarea>\n        </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\" (click)=\"completeTransaction()\">Submit</button>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n\n<!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->\n<!--<button type=\"button\" class=\"btn btn-primary btn-lg\" data-toggle=\"modal\" data-target=\"#reviewModal\">-->\n  <!--Review-->\n<!--</button>-->\n\n<!-- Modal -->\n\n"
 
 /***/ }),
 
@@ -687,9 +731,9 @@ var PostListComponent = (function () {
     }
     PostListComponent.prototype.ngOnInit = function () {
         this.postList = this.userService.getPostList();
-        if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
-            this.postList.unshift(this.blender);
-        }
+        // if (this.userService.user && this.userService.user.email != "anna@husky.neu.edu") {
+        //   this.postList.unshift(this.blender);
+        // }
         this.initialTag = 'What you want?';
         this.firstTag = 'What you want?';
         this.secondTag = 'Others wish-list';
@@ -724,6 +768,14 @@ var PostListComponent = (function () {
             this.titleShow = false;
         }
         this.initialTag = tagname;
+    };
+    PostListComponent.prototype.getImagePath = function (post) {
+        if (post.image[0].includes("http")) {
+            return post.image[0];
+        }
+        else {
+            return 'assets/images/' + post.image[0];
+        }
     };
     return PostListComponent;
 }());
@@ -803,11 +855,11 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.cancelTransaction = function (i) {
         var myPost = this.inTransactionPosts[i];
         this.inTransactionPosts.splice(i, 1);
-        this.yourPostList.push({
-            id: myPost.id,
-            title: myPost.title,
-            swapperEmail: ""
-        });
+        myPost['userName'] = this.userService.user.name;
+        myPost['email'] = this.userService.user.email;
+        myPost['rate'] = this.userService.user.avgRate;
+        myPost['swapperEmail'] = "";
+        this.yourPostList.push(myPost);
     };
     ProfileComponent.prototype.completeTransaction = function (i) {
         var myPost = this.inTransactionPosts[i];
@@ -840,12 +892,10 @@ var ProfileComponent = (function () {
         this.router.navigate(['login']);
     };
     ProfileComponent.prototype.sendInvitation = function (post) {
+        post['swapper'] = post.swapperEmail.split('@')[0];
         this.yourPostList = this.yourPostList.filter(function (aPost) { return aPost.title != post.title; });
-        this.inTransactionPosts.unshift({
-            id: post.id,
-            title: post.title,
-            swapper: post.swapperEmail.split('@')[0]
-        });
+        this.userService.user.postList = this.userService.user.postList.filter(function (aPost) { return aPost.title != post.title; });
+        this.inTransactionPosts.unshift(post);
     };
     ProfileComponent.prototype.updateIndex = function (i) {
         this.postIndex = i;
@@ -868,7 +918,7 @@ ProfileComponent = __decorate([
         template: __webpack_require__("./src/app/components/profile/profile.component.html"),
         styles: [__webpack_require__("./src/app/components/profile/profile.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], ProfileComponent);
 
 var _a, _b;
@@ -952,7 +1002,7 @@ RegisterComponent = __decorate([
         template: __webpack_require__("./src/app/components/register/register.component.html"),
         styles: [__webpack_require__("./src/app/components/register/register.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */]) === "function" && _b || Object])
 ], RegisterComponent);
 
 var _a, _b;
@@ -1032,7 +1082,7 @@ var PostfilterPipe = (function () {
             return items;
         }
         if (tag === 'Others wish-list') {
-            return items.filter(function (item) { return item.wishlist.includes(filter.toLowerCase()); });
+            return items.filter(function (item) { return item.wishlist.some(function (wishItem) { return wishItem.toLowerCase().includes(filter.toLowerCase()); }); });
         }
         else {
             return items.filter(function (item) { return item.title.toLowerCase().indexOf(filter.toLowerCase()) !== -1; });
@@ -1091,7 +1141,7 @@ var HomeService = (function () {
 }());
 HomeService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object])
 ], HomeService);
 
 var _a, _b, _c, _d, _e;
@@ -1112,7 +1162,8 @@ var _a, _b, _c, _d, _e;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__ = __webpack_require__("./node_modules/angularfire2/auth/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__("./node_modules/angularfire2/database/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__ = __webpack_require__("./src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1122,6 +1173,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1144,40 +1196,30 @@ var UserService = (function () {
                 id: 1,
                 title: "Google Pixel",
                 userName: "Julian",
+                email: "julian@husky.neu.edu",
                 rate: 5,
-                image: "google-pixel.jpg",
-                wishlist: ["desktop"]
+                image: ["google-pixel.jpg", "google-pixel2.jpeg"],
+                description: "Shows significant signs of use, heavy scratches on display and body. SIM card NOT included. Unlocked phones will work with most GSM SIM Cards, please check with your Carrier to ensure compatibility. You will receive the listed phone, and non-OEM compatible charger. Nothing else will be included unless specifically listed in our listing. Clean IMEI, 100% fully functional. Stock PHOTOS: You will receive the listed phone in the condition as described above.",
+                wishlist: ["desktop", "kindle"]
             },
             {
                 id: 2,
                 title: "Air Jordon 1",
                 userName: "James",
+                email: "james@husky.neu.edu",
                 rate: 4,
-                image: "aj1.jpg",
+                image: ["aj1.jpg"],
+                description: "New with box: A brand-new, unused, and unworn item (including handmade items) in the original packaging (such as the original box or bag) and/or with the original tags attached.",
                 wishlist: ["blender"]
             },
             {
                 id: 3,
-                title: "iPhone 5",
-                userName: "Jobs",
-                rate: 3.5,
-                image: "iphone5.jpg",
-                wishlist: ["bag"]
-            },
-            {
-                id: 4,
-                title: "Awesome Matress",
-                userName: "Edward",
-                rate: 5,
-                image: "matress.jpg",
-                wishlist: ["towerfan"]
-            },
-            {
-                id: 5,
                 title: "50 year's desk",
                 userName: "Elsa",
+                email: "elsa@husky.neu.edu",
                 rate: 3,
-                image: "desk.png",
+                image: ["desk.png"],
+                description: "As you can see, it's old, but functional. It will stand firm and do what a desk suppose to do.",
                 wishlist: ["airbed"]
             }
         ];
@@ -1202,13 +1244,35 @@ var UserService = (function () {
         });
     };
     UserService.prototype.getPostList = function () {
-        return this.postList;
+        var totalList = this.postList.concat();
+        __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].anna.postList.forEach(function (post) {
+            post['userName'] = __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].anna.name;
+            post['rate'] = __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].anna.avgRate;
+            post['email'] = __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].anna.email;
+            totalList.push(post);
+        });
+        __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].edward.postList.forEach(function (post) {
+            post['userName'] = __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].edward.name;
+            post['rate'] = __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].edward.avgRate;
+            post['email'] = __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].edward.email;
+            totalList.push(post);
+        });
+        if (this.user.name != __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].anna.name && this.user.name != __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */].edward.name && this.user.postList) {
+            var name_1 = this.user.name;
+            var rate_1 = this.user.avgRate;
+            this.user.postList.forEach(function (post) {
+                post['userName'] = name_1;
+                post['rate'] = rate_1;
+                totalList.push(post);
+            });
+        }
+        return totalList;
     };
     return UserService;
 }());
 UserService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["a" /* HttpClient */]) === "function" && _e || Object])
 ], UserService);
 
 var _a, _b, _c, _d, _e;
