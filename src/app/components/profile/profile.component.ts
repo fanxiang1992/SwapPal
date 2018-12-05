@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service.client';
 import {Router} from '@angular/router';
-import {LoginComponent} from '../login/login.component';
 
 @Component({
   selector: 'app-profile',
@@ -42,11 +41,11 @@ export class ProfileComponent implements OnInit {
     this.inTransactionPosts.splice(i, 1);
     let myDate = new Date();
     if (myPost.swapper === 'ed') {
-      LoginComponent.edward.pendingRate = true;
+      UserService.edward.pendingRate = true;
     }
 
-    LoginComponent.edward.avgRate = (LoginComponent.edward.avgRate * LoginComponent.edward.numberOfRate + this.currentRate) / (LoginComponent.edward.numberOfRate + 1);
-    LoginComponent.edward.numberOfRate++;
+    UserService.edward.avgRate = (UserService.edward.avgRate * UserService.edward.numberOfRate + this.currentRate) / (UserService.edward.numberOfRate + 1);
+    UserService.edward.numberOfRate++;
     this.historyPosts.push({
       id: myPost.id,
       title: myPost.title,

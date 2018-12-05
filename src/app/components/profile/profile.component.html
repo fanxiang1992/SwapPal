@@ -103,7 +103,7 @@
                     <ul class="row list-group">
                       <li class="col-xs-12 list-group-item" *ngFor="let post of yourPostList;let i=index;">
                         <div class="col-sm-3 col-md-8 col-8">
-                          <label style="font-weight:bold;"><a [routerLink]="['/details']" class="nav-color">{{post.title}}</a></label>
+                          <label style="font-weight:bold;"><a [routerLink]="['/details', post.id]" class="nav-color">{{post.title}}</a></label>
                         </div>
                         <div class="col-md-2 col-2 ">
                           <button type="button" class="btn" [routerLink]="['/createPost']"><span class="glyphicon glyphicon-edit"></span> Edit</button>
@@ -128,7 +128,7 @@
                     <ul class="row list-group">
                       <li class="col-xs-12 list-group-item" *ngFor="let post of inTransactionPosts;let i=index;">
                         <div class="col-sm-12 col-md-6 ">
-                          <label style="font-weight:bold;"><a class="nav-color" [routerLink]="['/details']">{{post.title}}</a></label>
+                          <label style="font-weight:bold;"><a class="nav-color" [routerLink]="['/details', post.id]">{{post.title}}</a></label>
                         </div>
                         <div class="col-sm-4 col-md-2">
                           <label style="font-weight:bold;color: #337ab7">Swapper: {{post.swapper}}</label>
