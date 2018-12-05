@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service.client';
 import {JQueryStyleEventEmitter} from 'rxjs/observable/FromEventObservable';
-import {LoginComponent} from '../login/login.component';
 
 @Component({
   selector: 'app-post-list',
@@ -56,9 +55,9 @@ export class PostListComponent implements OnInit {
 
   completeTransaction() {
 
-    LoginComponent.anna.avgRate =
-      (LoginComponent.anna.avgRate * LoginComponent.anna.numberOfRate + this.currentRate) / (LoginComponent.anna.numberOfRate + 1);
-    LoginComponent.anna.numberOfRate++;
+    UserService.anna.avgRate =
+      (UserService.anna.avgRate * UserService.anna.numberOfRate + this.currentRate) / (UserService.anna.numberOfRate + 1);
+    UserService.anna.numberOfRate++;
     // console.log(document.getElementById('reviewModal'));
 
     var dialog = document.getElementById('reviewModal');
