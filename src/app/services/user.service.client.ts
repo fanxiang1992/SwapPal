@@ -134,7 +134,130 @@ export class UserService {
       image: ["desk.png"],
       description: "As you can see, it's old, but functional. It will stand firm and do what a desk suppose to do.",
       wishlist: ["airbed"]
+    },
+    {
+      id: 10,
+      title: " Antique Large Mirror",
+      userName: "Mary",
+      email: "mary@husky.neu.edu",
+      rate: 3,
+      image: ["mirror.jpg"],
+      description: "Mirror in very good condition - frame also in good condition, with slight nick on back corners. Very thick frame - mirror and frame very heavy. It is approx. 22\" x 27\". Can be hung horizontal or vertical. Downsizing, must sell - worth a lot more. ",
+      wishlist: ["woodskis"]
+    },
+    {
+      id: 11,
+      title: " Pair of Wood Skis",
+      userName: "Prashanth",
+      email: "prashanth@husky.neu.edu",
+      rate: 3,
+      image: ["woodskis.jpg"],
+      description: "Pair of old wood skis, they make wonderful decoration for ski lodge, cabin retreat ...",
+      wishlist: ["iphone"]
+    },
+    {
+      id: 12,
+      title: "7 Drawer Cherry wood dresser",
+      userName: "Emily",
+      email: "emily@husky.neu.edu",
+      rate: 5,
+      image: ["drawer.jpg"],
+      description: "This beautiful 7 drawer cherry wood lingerie dresser with brass draw handles complements\n" +
+      "any decor and measures 62\" high x 19\" wide x 14.5\" deep. A rare find! I've loved it but must move.\n",
+      wishlist: ["guitar"]
+    },
+    {
+      id: 13,
+      title: "Leaded glass panel lamp",
+      userName: "Dave",
+      email: "dave@husky.neu.edu",
+      rate: 4,
+      image: ["lamp1.jpg","lamp2.jpg"],
+      description: "4 hand painted panels",
+      wishlist: ["towerfan"]
+    },{
+      id: 14,
+      title: "Folk Art Print",
+      userName: "Cathy",
+      email: "cathy@husky.neu.edu",
+      rate: 3,
+      image: ["art.jpg"],
+      description: "Beautiful Folk Art Print with decorative frame 15\" x 16\"",
+      wishlist: ["lamp"]
+    },{
+      id: 15,
+      title: "DVDs",
+      userName: "Tom",
+      email: "tom@husky.neu.edu",
+      rate: 2,
+      image: ["cds.jpg"],
+      description: "A set of DVDs movies,series,games etc",
+      wishlist: ["books"]
+    },
+    {
+      id: 16,
+      title: "Crate & Barrel Aspen cups and saucers",
+      userName: "Radha",
+      email: "radha@husky.neu.edu",
+      rate: 3,
+      image: ["cutlery.jpg"],
+      description: "Just in time for the holidays! Set of 8 cups and saucers from Crate and Barrel Apen dishes line.\n" +
+      "\n" +
+      "Barely used, great condition - no chips!BONUS Sur La Table cow creamer included!",
+      wishlist: ["pressure cooker","lamp"]
+    },{
+      id: 17,
+      title: "Gorgeous Vitrix Hot Glass Studio Vase",
+      userName: "nick",
+      email: "nick@husky.neu.edu",
+      rate: 4,
+      image: ["decor.jpg"],
+      description: "A terrific Christmas gift!\n" +
+      "\n" +
+      "Founded in 1979 in Corning's Historic Market Street District, Vitrix Hot Glass Studio is regarded among America's most prominent contemporary glass studios.9½\" Tall Designer, contemporary, blown glass, unique",
+      wishlist: ["curtains","bag","tent"]
+    },{
+      id: 18,
+      title: "Lamp shade",
+      userName: "veena",
+      email: "veena@husky.neu.edu",
+      rate: 3,
+      image: ["shade1.jpg","shade2.jpg","shade3.jpg"],
+      description: "Very good condition lamp shade. No dirt or tears. The exterior is made from cloth and it is cream color. It was from a glass lamp which I broke....Shade is very good quality.\n" +
+      "\n" +
+      "It's height is 9\" and diameter is 12\"",
+      wishlist: ["towerfan","mirror","desk"]
+    },{
+      id: 19,
+      title: "Philips coffee machine Espresso",
+      userName: "sandeep",
+      email: "sandeep@husky.neu.edu",
+      rate: 4,
+      image: ["coffee.jpg"],
+      description: "Saeco HD8911/47 Incanto Classic Milk Frother Espresso Machine, Black\n" +
+      "\n" +
+      "Amazon sells for $800.\n" +
+      "Save over $150 and buy it from me for $675, no tax.\n" +
+      "\n" +
+      "1) The espresso machine's ceramic grinders deliver premium espresso coffee from fresh beans for 20,000 cups guaranteed\n" +
+      "2) Elegant design, best materials, and high quality workmanship\n" +
+      "3) Classic milk frother allows you to control the milk froth directly into your cup, just like your barista\n" +
+      "4) Easy maintenance and cleaning thanks to removable brewing unit and automatic cleansing and descaling procedures\n" +
+      "5) Large capacities in compact design: 8.8oz Bean Container, 15x Waste Container; 60.9oz",
+      wishlist: ["iphone","kindle","desk"]
+    },{
+      id: 20,
+      title: "Bissell Featherweight vacuum",
+      userName: "geetha",
+      email: "geetha@husky.neu.edu",
+      rate: 4,
+      image: ["vaccum.jpg"],
+      description: "Boswells featherweight vacuum that turned into a Dustbuster and has two attachments. Works fine. \n" +
+      "\n" +
+      "The duct tape pictured is what I put on to ensure it stays together. If you are not concerned about looks and like a vacuum that works well and is lightweight, this is for you.",
+      wishlist: ["blender","mirror"]
     }
+
   ];
 
   constructor(private _http: Http,
