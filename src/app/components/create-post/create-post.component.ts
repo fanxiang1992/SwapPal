@@ -85,7 +85,6 @@ export class CreatePostComponent implements OnInit {
         this.selectedWishlist.push(item.value);
       }
     }
-    console.log(this.selectedWishlist);
 
     if(this.fileNameList.length === 0){
       this.imageErrMsg = "Please add pictures of the item"
@@ -95,7 +94,6 @@ export class CreatePostComponent implements OnInit {
     }
     if(this.fileNameList.length!== 0 && createPostForm.valid){
       let imageUrl = [];
-      console.log('createPostForm values----',createPostForm.value.title, createPostForm.value.description, createPostForm.value.location);
       this.imageFiles.forEach(function (image) {
         let imageName = image.name.replace(/\s/g, "_");
         const storageRef: firebase.storage.Reference = firebase.storage().ref('/images/' + imageName);
@@ -111,16 +109,6 @@ export class CreatePostComponent implements OnInit {
       });
 
 
-
-      //
-      // this.imageFiles.forEach(function (image) {
-      //   let imageName = image.name.replace(/\s/g, "_");
-      //
-      // });
-
-      console.log(imageUrl);
-
-
       var newPost = {
         id: this.userService.getPostList().length + 1,
         title: createPostForm.value.title,
@@ -134,9 +122,6 @@ export class CreatePostComponent implements OnInit {
         wishlist: this.selectedWishlist
       }
 
-      //this.postList.push(newPost);
-      console.log('your posts', this.yourPostList);
-      console.log(newPost);
       if (!this.userService.user.postList) {
         this.userService.user.postList = [];
       }
@@ -148,13 +133,5 @@ export class CreatePostComponent implements OnInit {
   changeInitial(tagname){
     this.initialTag = tagname;
   }
-
-  // addItem(){
-  //   this.newList.push('newItem');
-  // }
-  //
-  // removeItem(j){
-  //   this.newList.splice(j,1);
-  // }
 
 }
