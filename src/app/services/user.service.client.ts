@@ -431,6 +431,28 @@ export class UserService {
       "Power Source\tSupplied via USB port\n" +
       "Max. Power Consumption\t2.5W (1.4W Standby)",
       wishlist: ["iphone","macbook","airplane"]
+    },{
+      id: 133,
+      title: "Samsonite hard shell luggage",
+      userName: "shawn",
+      email: "shawn@husky.neu.edu",
+      rate: 5,
+      image: ["luggage1.jpg","luggage2.jpg","luggage3.jpg"],
+      description: "If it's still listed then it's still available.\n" +
+      "\n" +
+      "Size 21x29x9 - it's the size you would check-in\n" +
+      "\n" +
+      "Sturdy hard shell suitcase with (2) wheels. Make your next trip more enjoyable with this roomy rolling tank of a suitcase.",
+      wishlist: ["chair","table","desktop"]
+    },{
+      id: 134,
+      title: "100 count Extra Strong Premium 18 0z plastic cup",
+      userName: "preethi",
+      email: "preethi@husky.neu.edu",
+      rate: 5,
+      image: ["cups.jpg","cups2.jpg"],
+      description: "Great for thanksgiving parties or for use during the upcoming xmas season We have 100 new not needed plastic cups.\n",
+      wishlist: ["bulbs","plates"]
     }
   ];
 

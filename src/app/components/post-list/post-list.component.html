@@ -69,7 +69,7 @@
         </span>
       </div>
       <div class="col-xs-10">
-        <a [routerLink]="['/details', post.id]"><h3>{{post.title}}</h3></a>
+        <a [routerLink]="['/details', post.id]"><h4>{{post.title}}</h4></a>
         <h5>
           <span>{{post.userName}} : </span>
           <span *ngFor="let n of [1, 2, 3, 4, 5]">
@@ -80,7 +80,7 @@
           <!-- <span class="icon-star-full"></span> -->
         </h5>
         <div>
-          Wishlist: 
+          Wishlist:
           <span *ngFor="let wishItem of post.wishlist" class="wish-item">
             {{wishItem}}
           </span>
