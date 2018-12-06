@@ -33,6 +33,7 @@
                class="form-control"
                required
                (ngModel)="firstName"
+               #firstName="ngModel"
                name="firstName"
                id="firstName"
                placeholder="Enter your first name" (keyup.enter)="register(registerForm)">
