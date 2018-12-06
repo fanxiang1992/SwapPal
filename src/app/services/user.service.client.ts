@@ -304,13 +304,13 @@ export class UserService {
       wishlist: ["lamp","blender","mirror"]
     },{
       id: 124,
-      title: "kensington keyboard",
+      title: "Gucci knockoff purse, pink",
       userName: "bhargavi",
       email: "bhargavi@husky.neu.edu",
       rate: 4,
-      image: ["keyboard.jpg"],
-      description: "barely used keyboard",
-      wishlist: ["monitor","macbook"]
+      image: ["purse.jpg","purse3.jpg","purse2.jpg"],
+      description: "Great condition, used for two months, 12\"wide by 10\"high, a trap drop from top middle to purse is about 8 inches, will fit on shoulder. Lots of compartments, any questions let me know.\n",
+      wishlist: ["monitor","kindle","boots","lamp"]
     },{
       id: 125,
       title: "kensington keyboard",
@@ -376,6 +376,61 @@ export class UserService {
       "**Lots of Drum Gear .just ask.\n" +
       "Less then a min off 495.",
       wishlist: ["keyboard","desktop","iphone"]
+    },
+    {
+      id: 129,
+      title: "Women's winter ankle boots",
+      userName: "Nancy",
+      email: "nancy@husky.neu.edu",
+      rate: 3,
+      image: ["boots.jpg","boots1.jpg","boots2.jpg","boots3.jpg"],
+      description: "New, unused winter ankle brown boots, size 39.",
+      wishlist: ["bag","kindle","storage boxes"]
+    },{
+      id: 130,
+      title: "Numismatist wants your coins!",
+      userName: "Ron",
+      email: "ron@husky.neu.edu",
+      rate: 4,
+      image: ["coins.jpg"],
+      description: "Come get the most $ for your coins Pcgs,ngc,collectibles,buy,friendly,competitive,higher than everyone,coins,bullion,silver,",
+      wishlist: ["shoes","kindle","storage boxes"]
+    },{
+      id: 131,
+      title: "Plant hangers",
+      userName: "Julie",
+      email: "julie@husky.neu.edu",
+      rate: 5,
+      image: ["planthangers.jpg"],
+      description: "All 3.. Hang on rought iron railing.",
+      wishlist: ["pots","kindle","storage boxes"]
+    },{
+      id: 132,
+      title: "Canon Scanner CanoScanLIDE",
+      userName: "Anil",
+      email: "anil@husky.neu.edu",
+      rate: 5,
+      image: ["scanner.jpg"],
+      description: "Specifications\n" +
+      "Main Unit Spec\n" +
+      "Scanner Type\tFlatbed Color Image Scanner\n" +
+      "Scanning Element\tContact Image Sensor (CIS)\n" +
+      "Light Source\tThree-color (RGB) LEDs\n" +
+      "Features\t4 EZ Buttons, Advanced Z-Lid, Auto Dust & Scratch Reduction, Auto Scan Mode, Convenient Filing Function (PDF Function), Gutter Shadow Correction, High Speed Scanning, Image Correction, Low Power Consumption (w/ 3-color LED), One Cable for Data & Power\n" +
+      "Max. Resolutions\tOptical:2400 dpi x 4800 dpi1\n" +
+      "Interpolated:19,200 x 19,200 dpi\n" +
+      "Scanning Mode\tColor: 48-bit internal / 48- or 24-bit external\n" +
+      "\n" +
+      "Grayscale: 16-bit input / 8-bit external\n" +
+      "Max. Document Size\t8.5\" x 11.7\"\n" +
+      "Interface\tUSB 2.0 Hi-Speed\n" +
+      "Dimensions (W x D x H)\t9.9\" (W) x 14.6\" (D) x 1.6\" (H)\n" +
+      "Weight\t3.5 lbs.\n" +
+      "OS Compatibility\tWindows Vista, Windows XP/2000 and Mac OSÂ® X v.10.3.9 - 10.5.x4\n" +
+      "Software\tArcSoft® PhotoStudio®,MP Navigator EX, Solution Menu4\n" +
+      "Power Source\tSupplied via USB port\n" +
+      "Max. Power Consumption\t2.5W (1.4W Standby)",
+      wishlist: ["iphone","macbook","airplane"]
     }
   ];
 
