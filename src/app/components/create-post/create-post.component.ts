@@ -53,7 +53,6 @@ export class CreatePostComponent implements OnInit {
   captureUpload(event: any){
     const file: File = event.target.files[0];
     this.fileNameList.push(file.name);
-    //file.name = file.name.replace(/\s/g, "_");
     this.imageFiles.push(file);
     this.imageErrMsg = "";
     this.imageFile = file;
@@ -73,8 +72,6 @@ export class CreatePostComponent implements OnInit {
   }
 
   postInfo(createPostForm){
-
-
     var x = document.getElementsByClassName('wishlistCheckBoxs') as HTMLCollectionOf<HTMLElement>;
     for(var i = 0;i<x.length;i++){
       if((x[i] as HTMLInputElement).checked){
@@ -123,6 +120,7 @@ export class CreatePostComponent implements OnInit {
 
       console.log(imageUrl);
 
+
       var newPost = {
         id: this.userService.getPostList().length + 1,
         title: createPostForm.value.title,
@@ -130,6 +128,7 @@ export class CreatePostComponent implements OnInit {
         location: (this.location ? 'On-Campus' : 'Off-Campus'),
         userName: this.userService.user.name,
         rate: this.userService.user.avgRate,
+        email: this.userService.user.email,
         postedFrom: "CreatePost",
         image: imageUrl,
         wishlist: this.selectedWishlist
