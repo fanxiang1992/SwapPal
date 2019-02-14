@@ -1,5 +1,8 @@
 
 # Swap-Pal
+
+URL: https://swap-pal.firebaseapp.com/
+
 Scenario 1 - Creating a Post
 You are Anna. You need an airbed and you are willing to swap your blender for the airbed. Your task is to use a new website “Swap Pal” to achieve this goal. The credential to login as Anna is given to you as follow:
 
